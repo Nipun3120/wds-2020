@@ -1,0 +1,21 @@
+ 
+
+{% load crispy_forms_tags %}
+{% block content %}
+   
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="Username">username</label>
+                <input type="text" class="form-control"  placeholder="Enter user name" name="username">
+              </div>
+              <div class="form-group">
+                <label for="Password">Password</label>
+                <input type="password" class="form-control" name="password" placeholder="Password">
+              </div>
+              <div class="form-group">
+              <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+    </div>
+{% endblock content %}
