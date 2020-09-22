@@ -3,10 +3,11 @@
 {% block content %}
 
 <div>
-    <form method='POST'>
+    <h1>Register here</h1>
+    <form method='POST' enctype="\application/x-www-form-urlencoded">
     {% csrf_token %}
     {{ form|crispy }}
-    <button type="submit">Submit</button>
+    <button type="submit" class="btn btn-outline-info">Submit</button>
     </form>
 </div>
 {% endblock content %}
