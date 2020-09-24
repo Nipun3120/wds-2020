@@ -11,24 +11,29 @@ from django.views.decorators.csrf import csrf_exempt
 from  django.http import HttpResponse, HttpResponseRedirect
 from .forms import RegisterForm 
 from django.urls import reverse
+
 def home(request):
     return render(request,"base.html")
 
 
 def register(request):
-    if request.method == 'Post':
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created for { username }!')
-            return redirect('../home')
+    form=RegisterForm()
+    if request.method=="POST":
+        form=RegisterForm(data=request.POST)
+
+        if (form.is_valid()):
+            user=form.save()
+            user.set_password(user.password)
+            user.save()
+            return redirect("/")
+        else:
+            print(form.errors)
     else:
-        form = RegisterForm()
+        form=RegisterForm()
+        
     return render(request, 'register.html', {'form': form})
 
 def user_login(request):
-    print("login page attempt")
     if request.method=='POST':
         username=request.POST.get('username')
         password=request.POST.get('password')
@@ -42,7 +47,17 @@ def user_login(request):
                 login(request,user)
         else:
             print("false login")
-        return redirect('home')
+        return redirect('/')
     else:
         print("render part ran successfully")
         return render(request,'userlogin.html')
+
+@login_required
+def userlogout(request):
+    print("logout")
+    logout(request)
+    return redirect('/')
+
+@login_required
+def dashboard(request):
+    return render(request,'dashboard.html')
