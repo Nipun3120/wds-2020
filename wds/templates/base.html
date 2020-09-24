@@ -21,8 +21,13 @@
           <li><a href="#">Page 2</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'core:dashboard' %}"><span class="glyphicon glyphicon-user"></span>&nbsp Dashboard</a></li>
+          <li><a href="{% url 'core:userlogout' %}"><span class="glyphicon glyphicon-log-out"></span>&nbsp Logout</a></li>
+          {% else %}
           <li><a href="{% url 'core:register' %}"><span class="glyphicon glyphicon-user"></span>&nbsp Sign Up</a></li>
           <li><a href="{% url 'core:userlogin' %}"><span class="glyphicon glyphicon-log-in"></span>&nbsp Login</a></li>
+          {% endif %}
         </ul>
       </div>
     </nav>
