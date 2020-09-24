@@ -25,7 +25,7 @@ def register(request):
             user=form.save()
             user.set_password(user.password)
             user.save()
-            return redirect("home")
+            return redirect("/")
         else:
             print(form.errors)
     else:
@@ -51,3 +51,13 @@ def user_login(request):
     else:
         print("render part ran successfully")
         return render(request,'userlogin.html')
+
+@login_required
+def userlogout(request):
+    print("logout")
+    logout(request)
+    return redirect('/')
+
+@login_required
+def dashboard(request):
+    return render(request,'dashboard.html')
