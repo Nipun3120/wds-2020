@@ -11,6 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 from  django.http import HttpResponse, HttpResponseRedirect
 from .forms import RegisterForm 
 from django.urls import reverse
+from .models import Stock
 
 def home(request):
     return render(request,"base.html")
@@ -61,3 +62,10 @@ def userlogout(request):
 @login_required
 def dashboard(request):
     return render(request,'dashboard.html')
+
+@login_required
+def stocks(request):
+    context = {
+        'stockss': Stock.objects.all()
+    }
+    return render(request,'stocks.html',context=context)
