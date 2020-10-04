@@ -9,7 +9,7 @@ from django.views.generic import ListView, DetailView, View
 from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
 from  django.http import HttpResponse, HttpResponseRedirect
-from .forms import RegisterForm 
+from .forms import RegisterForm,tradeform
 from django.urls import reverse
 from .models import *
 

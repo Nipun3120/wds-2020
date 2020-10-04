@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import *
+from .models import trade
 
 class RegisterForm(forms.ModelForm):
     password=forms.CharField(widget=forms.PasswordInput)
@@ -9,7 +9,7 @@ class RegisterForm(forms.ModelForm):
         model = User
         fields = ('username','email','password')
 
-class trade_form(forms.ModelForm):
+class tradeform(forms.ModelForm):
     class Meta:
         model=trade
         fields = "__all__"
