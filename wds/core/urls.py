@@ -12,7 +12,7 @@ urlpatterns = [
     path('userlogin/',views.user_login,name='userlogin'),
     path('userlogout/',views.userlogout,name='userlogout'),
     path('dashboard/',views.dashboard,name='dashboard'),
-    path('stocks/',views.stocks,name='stocks'),
+    path('stocks/',views.Stock,name='stocks'),
     path('',home,name="home"),
     
 ]
