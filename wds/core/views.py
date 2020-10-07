@@ -65,7 +65,9 @@ def userlogout(request):
 
 @login_required
 def dashboard(request):
-    return render(request,'dashboard.html')
+    user_dashdata = trade.objects.filter(seller=request.user)
+    dash_dic = {'dashdata':user_dashdata}
+    return render(request,'dashboard.html', {'dashdata':user_dashdata})
 
 posts = [
     {
