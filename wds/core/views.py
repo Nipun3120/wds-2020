@@ -65,7 +65,7 @@ def userlogout(request):
 
 @login_required
 def dashboard(request):
-    user_dashdata = trade.objects.filter(seller=request.user)
+    user_dashdata = Stock.objects.filter(user=request.user)
     dash_dic = {'dashdata':user_dashdata}
     return render(request,'dashboard.html', {'dashdata':user_dashdata})
 
@@ -136,7 +136,7 @@ class Trade(ListView):
                 stock=form.cleaned_data.get('stock')
                 numberofstocks=form.cleaned_data.get('numberofstocks')
                 priceperstock=form.cleaned_data.get('priceperstock')
-                userbalance=form.cleaned_data.get('userbalance')
+               # userbalance=form.cleaned_data.get('userbalance')
                 buyer=form.cleaned_data.get('buyer')
                 trading=trade.objects.create(
                     seller=seller,
@@ -144,7 +144,7 @@ class Trade(ListView):
                     numberofstocks=numberofstocks,
                     priceperstock=priceperstock,
                     buyer=buyer,
-                    userbalance=userbalance,
+                    #userbalance=userbalance,
                 )
                 stock_seller=Stock.objects.get(user=seller)
                 stock_buyer=Stock.objects.get(user=buyer)

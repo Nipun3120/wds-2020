@@ -18,15 +18,29 @@
           <thead>
             <th>Stock Name</th>
             <th>Number Of Stocks</th>
-            <th>Current Price</th>
+         {% comment  %}<th>Current Price</th>
+         {% endcomment %}   
           </thead>
-        
-                {% for dd in dashdata %}
+        {% comment  %}
+        {% for dd in dashdata %}
                 <tr>
                     <td>{{ dd.stock }}</td>
                   <td>{{ dd.numberofstocks }}</td>
                   <td>{{ dd.priceperstock }}</td>
                 </tr>
+                {% endfor %}
+        {% endcomment %}
+                {% for dd in dashdata %}
+                  <tr><td>Stock1</td><td>{{dd.stock1}}</td></tr>
+                  <tr><td>Stock2</td><td>{{dd.stock2}}</td></tr>
+                  <tr><td>Stock3</td><td>{{dd.stock3}}</td></tr>
+                  <tr><td>Stock4</td><td>{{dd.stock4}}</td></tr>
+                  <tr><td>Stock5</td><td>{{dd.stock5}}</td></tr>
+                  <tr><td>Stock6</td><td>{{dd.stock6}}</td></tr>
+                  <tr><td>Stock7</td><td>{{dd.stock7}}</td></tr>
+                  <tr><td>Stock8</td><td>{{dd.stock8}}</td></tr>
+                  <tr><td>Stock9</td><td>{{dd.stock9}}</td></tr>
+                  <tr><td>Stock10</td><td>{{dd.stock10}}</td></tr>
                 {% endfor %}
         
         </table>
