@@ -10,9 +10,10 @@ urlpatterns = [
     
     path('register/',views.register,name='register'),
     path('userlogin/',views.user_login,name='userlogin'),
-    path('stocks/',Trade.as_view(),name='stocks'),
+    path('stocks/',views.stock_display,name='stocks'),
     path('userlogout/',views.userlogout,name='userlogout'),
     path('dashboard/',views.dashboard,name='dashboard'),
+    path('buy-sell-form/',Trade.as_view(),name='buy-sell-form'),
     path('',home,name="home"),
     
 ]

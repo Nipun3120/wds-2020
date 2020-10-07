@@ -10,12 +10,22 @@ stock_list=(
     ('stock6','stock6'),
     ('stock7','stock7'),
     ('stock8','stock8'),
+    ('stock9','stock9'),
+    ('stock10','stock10'),
 )
 
 class Stock(models.Model):
     user=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
     stock1=models.IntegerField(default=0)
-    stock1=models.IntegerField(default=0)
+    stock2=models.IntegerField(default=0)
+    stock3=models.IntegerField(default=0)
+    stock4=models.IntegerField(default=0)
+    stock5=models.IntegerField(default=0)
+    stock6=models.IntegerField(default=0)
+    stock7=models.IntegerField(default=0)
+    stock8=models.IntegerField(default=0)
+    stock9=models.IntegerField(default=0)
+    stock10=models.IntegerField(default=0)
 
 class trade(models.Model):
     seller=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

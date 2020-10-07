@@ -11,7 +11,11 @@ from django.views.decorators.csrf import csrf_exempt
 from  django.http import HttpResponse, HttpResponseRedirect
 from .forms import RegisterForm,tradeform
 from django.urls import reverse
-from .models import Stock,trade
+from .models import Stock,trade,stock_list
+
+
+
+
 
 def home(request):
     return render(request,"base.html")
@@ -63,12 +67,55 @@ def userlogout(request):
 def dashboard(request):
     return render(request,'dashboard.html')
 
-#@login_required
-#def stocks(request):
- #   context = {
-  #      'stockss': Stock.objects.all()
-   # }
-    #return render(request,'stocks.html',context=context)
+posts = [
+    {
+        'stockname': stock_list[0][0],
+        'price': '50000',
+    },
+    {
+        'stockname': stock_list[1][0],
+        'price': '30000',
+    },
+    {
+        'stockname': stock_list[2][0],
+        'price': '25000',
+    },
+    {
+        'stockname': stock_list[3][0],
+        'price': '37000',
+    },
+    {
+        'stockname': stock_list[4][0],
+        'price': '30000',
+    },
+    {
+        'stockname': stock_list[5][0],
+        'price': '10000',
+    },
+    {
+        'stockname': stock_list[6][0],
+        'price': '15000',
+    },
+    {
+        'stockname': stock_list[7][0],
+        'price': '60000',
+    },
+    {
+        'stockname': stock_list[8][0],
+        'price': '20000',
+    },
+    {
+        'stockname': stock_list[9][0],
+        'price': '35000',
+    },
+
+]
+
+def stock_display(request):
+    context = {
+      'posts': posts
+    }
+    return render(request,'stocks.html', context)
 
 
 class Trade(ListView):
@@ -77,7 +124,7 @@ class Trade(ListView):
         context = {
             'form':form,
         }
-        return render(self.request, 'stocks.html', context)
+        return render(self.request, 'buy-sell-form.html', context)
 
     def post(self, *args, **kwargs):
         form = tradeform(self.request.POST or None)
@@ -99,7 +146,16 @@ class Trade(ListView):
                 )
                 stock_seller=Stock.objects.get(user=seller)
                 stock_buyer=Stock.objects.get(user=buyer)
-                if stock=="stock1":
+                for st in stock_list:
+                    if stock==st[0]:
+                        stock_seller.st[0]-=numberofstocks
+                        stock_seller.userbalance+=priceperstock*numberofstocks
+                        stock_buyer.st[0]+=numberofstocks
+                        stock_buyer.userbalance-=priceperstock*numberofstocks
+                        stock_seller.save()
+                        stock_buyer.save()
+
+                '''if stock=="stock1":
                     stock_seller.stock1-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
                     stock_buyer.stock1+=numberofstocks
@@ -112,7 +168,7 @@ class Trade(ListView):
                     stock_buyer.stock2+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
-                    stock_buyer.save()
+                    stock_buyer.save()'''
                 return redirect('/')
         except ObjectDoesNotExist:
                 messages.error(self.request, "fill the form correctly")
