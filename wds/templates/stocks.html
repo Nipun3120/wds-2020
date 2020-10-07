@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block content %}
+<div class="form-group">
+  
+  <a class="btn btn-outline-secondary" href="{% url 'core:buy-sell-form' %}">Buy/Sell</a>
+</div>
 <h1>All Available Stocks</h1>
 <div class="container-fluid">
   
@@ -10,14 +15,15 @@
     <th>Current Price</th>
   </thead>
 
-        {% for stock in stockss %}
+        {% for post in posts %}
         <tr>
-          <td>{{ stock.StockName }}</td>
-          <td>{{ stock.CurrentPrice }}</td>
+          <td>{{ post.stockname }}</td>
+          <td>{{ post.price }}</td>
         </tr>
-        {%endfor%}
+        {% endfor %}
 
 </table>
+
 </div>
 
 {% endblock %}

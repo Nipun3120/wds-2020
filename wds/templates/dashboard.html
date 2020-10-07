@@ -9,7 +9,31 @@
 <body>
     <h1>Dashboard</h1>
     <h2>{{ user.username }}</h2>
-    <h2>{{ user.id }}</h2>
+      {% for dd in dashdata %}
+        <h1>User Balance {{ dd.userbalance }}</h1>
+        {% endfor %}
+        <div class="container-fluid">
+  
+        <table class="table table-dark table-bordered table-hover">
+          <thead>
+            <th>Stock Name</th>
+            <th>Number Of Stocks</th>
+            <th>Current Price</th>
+          </thead>
+        
+                {% for dd in dashdata %}
+                <tr>
+                    <td>{{ dd.stock }}</td>
+                  <td>{{ dd.numberofstocks }}</td>
+                  <td>{{ dd.priceperstock }}</td>
+                </tr>
+                {% endfor %}
+        
+        </table>
+        
+        </div>
+        
+
 </body>
 </html>
 {% endblock content %}
