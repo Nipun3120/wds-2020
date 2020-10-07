@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import home
+from .views import home, Trade
 from core import views
 app_name="core"
 
@@ -10,9 +10,9 @@ urlpatterns = [
     
     path('register/',views.register,name='register'),
     path('userlogin/',views.user_login,name='userlogin'),
+    path('stocks/',Trade.as_view(),name='stocks'),
     path('userlogout/',views.userlogout,name='userlogout'),
     path('dashboard/',views.dashboard,name='dashboard'),
-    path('stocks/',views.Stock,name='stocks'),
     path('',home,name="home"),
     
 ]

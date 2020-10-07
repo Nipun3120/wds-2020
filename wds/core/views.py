@@ -11,7 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 from  django.http import HttpResponse, HttpResponseRedirect
 from .forms import RegisterForm,tradeform
 from django.urls import reverse
-from .models import *
+from .models import Stock,trade
 
 def home(request):
     return render(request,"base.html")
@@ -73,11 +73,11 @@ def dashboard(request):
 
 class Trade(ListView):
     def get(self, *args, **kwargs):
-        form = tradeform
+        form = tradeform()
         context = {
-            'form':form
+            'form':form,
         }
-        return render(self.request, 'dashboard.html', context)
+        return render(self.request, 'stocks.html', context)
 
     def post(self, *args, **kwargs):
         form = tradeform(self.request.POST or None)
@@ -92,7 +92,7 @@ class Trade(ListView):
                 trading=trade.objects.create(
                     seller=seller,
                     stock=stock,
-                    numberofstock=numberofstocks,
+                    numberofstocks=numberofstocks,
                     priceperstock=priceperstock,
                     buyer=buyer,
                     userbalance=userbalance,
