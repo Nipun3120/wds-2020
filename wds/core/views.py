@@ -146,31 +146,31 @@ class Trade(ListView):
                     buyer=buyer,
                     #userbalance=userbalance,
                 )
-                stock_seller=Stock.objects.get(user=seller)
+                print(priceperstock)
+                print(numberofstocks)
                 stock_buyer=Stock.objects.get(user=buyer)
-                for st in stock_list:
-                    if stock==st[0]:
-                        stock_seller.st[0]-=numberofstocks
-                        stock_seller.userbalance+=priceperstock*numberofstocks
-                        stock_buyer.st[0]+=numberofstocks
-                        stock_buyer.userbalance-=priceperstock*numberofstocks
-                        stock_seller.save()
-                        stock_buyer.save()
-
-                '''if stock=="stock1":
+                print(stock_buyer)
+                stock_seller=Stock.objects.get(user=seller)
+                #userbalance = Stock.objects.get(userbalance)
+                #print(userbalance)
+                print(stock_seller)
+                
+                
+                #if (priceperstock*numberofstocks<userbalance and (stock_seller==request.user or stock_buyer==request.user)):
+                if stock=="stock1":
                     stock_seller.stock1-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
                     stock_buyer.stock1+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
-                    stock_seller.save()
+                    stock_seller.save()                 
                     stock_buyer.save()
                 elif stock=="stock2":
                     stock_seller.stock2-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
                     stock_buyer.stock2+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
-                    stock_seller.save()
-                    stock_buyer.save()'''
+                    stock_seller.save()         
+                    stock_buyer.save()
                 return redirect('/')
         except ObjectDoesNotExist:
                 messages.error(self.request, "fill the form correctly")
