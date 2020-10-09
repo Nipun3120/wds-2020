@@ -148,16 +148,17 @@ class Trade(ListView):
                 )
                 stock_seller=Stock.objects.get(user=seller)
                 stock_buyer=Stock.objects.get(user=buyer)
-                for st in stock_list:
+                
+                '''for st in stock_list:
                     if stock==st[0]:
                         stock_seller.st[0]-=numberofstocks
                         stock_seller.userbalance+=priceperstock*numberofstocks
                         stock_buyer.st[0]+=numberofstocks
                         stock_buyer.userbalance-=priceperstock*numberofstocks
                         stock_seller.save()
-                        stock_buyer.save()
+                        stock_buyer.save()'''
 
-                '''if stock=="stock1":
+                if stock=="stock1":
                     stock_seller.stock1-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
                     stock_buyer.stock1+=numberofstocks
@@ -170,7 +171,63 @@ class Trade(ListView):
                     stock_buyer.stock2+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
-                    stock_buyer.save()'''
+                    stock_buyer.save()
+                elif stock=="stock3":
+                    stock_seller.stock3-=numberofstocks
+                    stock_seller.userbalance+=priceperstock*numberofstocks
+                    stock_buyer.stock3+=numberofstocks
+                    stock_buyer.userbalance-=priceperstock*numberofstocks
+                    stock_seller.save()
+                    stock_buyer.save()
+                elif stock=="stock4":
+                    stock_seller.stock4-=numberofstocks
+                    stock_seller.userbalance+=priceperstock*numberofstocks
+                    stock_buyer.stock4+=numberofstocks
+                    stock_buyer.userbalance-=priceperstock*numberofstocks
+                    stock_seller.save()
+                    stock_buyer.save()
+                elif stock=="stock5":
+                    stock_seller.stock5-=numberofstocks
+                    stock_seller.userbalance+=priceperstock*numberofstocks
+                    stock_buyer.stock5+=numberofstocks
+                    stock_buyer.userbalance-=priceperstock*numberofstocks
+                    stock_seller.save()
+                    stock_buyer.save()
+                elif stock=="stock6":
+                    stock_seller.stock6-=numberofstocks
+                    stock_seller.userbalance+=priceperstock*numberofstocks
+                    stock_buyer.stock6+=numberofstocks
+                    stock_buyer.userbalance-=priceperstock*numberofstocks
+                    stock_seller.save()
+                    stock_buyer.save()
+                elif stock=="stock7":
+                    stock_seller.stock7-=numberofstocks
+                    stock_seller.userbalance+=priceperstock*numberofstocks
+                    stock_buyer.stock7+=numberofstocks
+                    stock_buyer.userbalance-=priceperstock*numberofstocks
+                    stock_seller.save()
+                    stock_buyer.save()
+                elif stock=="stock8":
+                    stock_seller.stock8-=numberofstocks
+                    stock_seller.userbalance+=priceperstock*numberofstocks
+                    stock_buyer.stock8+=numberofstocks
+                    stock_buyer.userbalance-=priceperstock*numberofstocks
+                    stock_seller.save()
+                    stock_buyer.save()
+                elif stock=="stock9":
+                    stock_seller.stock9-=numberofstocks
+                    stock_seller.userbalance+=priceperstock*numberofstocks
+                    stock_buyer.stock9+=numberofstocks
+                    stock_buyer.userbalance-=priceperstock*numberofstocks
+                    stock_seller.save()
+                    stock_buyer.save()
+                elif stock=="stock10":
+                    stock_seller.stock10-=numberofstocks
+                    stock_seller.userbalance+=priceperstock*numberofstocks
+                    stock_buyer.stock10+=numberofstocks
+                    stock_buyer.userbalance-=priceperstock*numberofstocks
+                    stock_seller.save()
+                    stock_buyer.save()
                 return redirect('/')
         except ObjectDoesNotExist:
                 messages.error(self.request, "fill the form correctly")

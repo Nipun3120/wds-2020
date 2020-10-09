@@ -15,7 +15,7 @@ stock_list=(
 )
 
 class Stock(models.Model):
-    user=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
+    user=models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
     stock1=models.IntegerField(default=0)
     stock2=models.IntegerField(default=0)
     stock3=models.IntegerField(default=0)
