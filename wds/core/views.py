@@ -13,10 +13,6 @@ from .forms import RegisterForm,tradeform
 from django.urls import reverse
 from .models import Stock,trade,stock_list
 
-
-
-
-
 def home(request):
     return render(request,"base.html")
 
@@ -148,13 +144,12 @@ class Trade(ListView):
                 )
                 print(priceperstock)
                 print(numberofstocks)
+                stock_seller=Stock.objects.get(user=seller)
+                print(stock_seller)
+                          
                 stock_buyer=Stock.objects.get(user=buyer)
                 print(stock_buyer)
-                stock_seller=Stock.objects.get(user=seller)
-                #userbalance = Stock.objects.get(userbalance)
-                #print(userbalance)
-                print(stock_seller)
-                
+                       
                 
                 #if (priceperstock*numberofstocks<userbalance and (stock_seller==request.user or stock_buyer==request.user)):
                 if stock=="stock1":
