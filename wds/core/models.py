@@ -1,5 +1,7 @@
 from django.db import models
 from django.conf import settings
+from django.db.models.signals import post_save
+from django.contrib.auth.models import User
 # Create your models here.
 stock_list=(
     ('stock1','stock1'),
@@ -15,7 +17,7 @@ stock_list=(
 )
 
 class Stock(models.Model):
-    user=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
+    user=models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
     stock1=models.IntegerField(default=0)
     stock2=models.IntegerField(default=0)
     stock3=models.IntegerField(default=0)
@@ -37,3 +39,9 @@ class trade(models.Model):
     buyer=models.ForeignKey(settings.AUTH_USER_MODEL,related_name='buyer_of_stock', on_delete=models.CASCADE)
     #userbalance=models.FloatField(default=1000000.0)
     
+
+def create_stock(sender,instance,created,**kwargs):
+    if created:
+        Stock.objects.create(user=instance)
+
+post_save.connect(create_stock,sender=User)
