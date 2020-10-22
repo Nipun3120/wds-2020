@@ -1,0 +1,55 @@
+{% load static %}
+        <nav class="background-transparent background-primary-dott full-width sticky">
+            <!-- mobile version logo -->
+            <div class="logo hide-l hide-xl hide-xxl">
+                <a href="index.html" class="logo">
+                    <!-- Logo Dark Version -->
+                    <img class="logo-dark" src="{% static 'img/logo-dark.svg'%}" alt="">
+                </a>
+            </div>
+            <div class="top-nav">
+
+                <!-- left menu items -->
+                <div class="top-nav left-menu">
+                    <ul class="right top-ul chevron">
+                        <li class="active-item">
+                            <a href="{% url 'core:home' %}">Home</a>
+                            
+                        </li>
+                        <li>
+                            <a href="{% url 'core:stocks' %}">&nbsp Stocks</a>
+                            
+                        </li>
+                       
+                    </ul>
+                </div>
+
+                <!-- logo -->
+                <ul class="logo-menu">
+                    <a href="{% url 'core:home' %}" class="logo">
+                        <!-- Logo White Version -->
+                        <img class="logo-white" src="{% static 'images-2019/econ-logo.png'%}" alt="">
+                        <!-- Logo Dark Version -->
+                        <img class="logo-dark" src="{% static 'images-2019/econ-logo.png'%}" alt="">
+                        
+                    </a>
+                </ul>
+                
+                <!-- right menu items -->
+                <div class="top-nav right-menu">
+                    <ul class="top-ul chevron">
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'core:dashboard' %}">&nbsp Dashboard</a></li>
+                        <li><a href="{% url 'core:userlogout' %}">&nbsp Logout</a></li>
+                        {% else %}
+                        <li><a href="#">&nbsp News</a></li>
+                        <li><a href="{% url 'core:userlogin' %}">&nbsp Login</a></li>
+                        {% endif %}
+                        
+                                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+

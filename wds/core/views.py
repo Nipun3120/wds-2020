@@ -14,7 +14,7 @@ from django.urls import reverse
 from .models import Stock,trade,stock_list
 
 def home(request):
-    return render(request,"base.html")
+    return render(request,"home.html")
 
 
 def register(request):

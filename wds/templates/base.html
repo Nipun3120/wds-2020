@@ -1,65 +1,44 @@
 {% load static %}
- <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <title>WDS</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-      
-    </head>
-    <body>
+        
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ECON WDS</title>
+    <link rel="stylesheet" href="{% static 'css/components.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsee.css' %}">
+    <link rel="stylesheet" href="{% static 'owl-carousel/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'owl-carousel/owl.theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lightcase.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- CUSTOM STYLE -->
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/template-style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,700,900&amp;subset=latin-ext" rel="stylesheet">
+    <script type="text/javascript" src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/validation.js' %}"></script>
+</head>
+<body class="size-1280 primary-color-light-blue">
+<div id="page-overlay" class="background-dark"></div>
+  
+    {% block content %}
+    {% endblock content %}
+    {% block usrlgn %}
+    {% endblock usrlgn %}
     
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="{% url 'core:home' %}">WDS-2020</a>
-        </div>
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="{% url 'core:home' %}">Home</a></li>
-          <li><a href="#">Page 2</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          {% if user.is_authenticated %}
-          <li><a href="{% url 'core:stocks' %}"><span class="glyphicon glyphicon-user"></span>&nbsp Stocks</a></li>
-          <li><a href="{% url 'core:dashboard' %}"><span class="glyphicon glyphicon-user"></span>&nbsp Dashboard</a></li>
-          <li><a href="{% url 'core:userlogout' %}"><span class="glyphicon glyphicon-log-out"></span>&nbsp Logout</a></li>
-          {% else %}
-          <li><a href="{% url 'core:register' %}"><span class="glyphicon glyphicon-user"></span>&nbsp Sign Up</a></li>
-          <!--<li><a href=#><span class="glyphicon glyphicon-log-in"></span>&nbsp Contact Us</a></li>-->
-          <li><a href="{% url 'core:userlogin' %}"><span class="glyphicon glyphicon-log-in"></span>&nbsp Login</a></li>
-          
-          
-          {% endif %}
-        </ul>
-      </div>
-    </nav>
-    <div class="col-md-8">
-        {% if messages %}
-          {% for message in messages %}
-           <div class="alert alert-{{ message.tags }}">
-             {{ message }}
-           </div>
-          {% endfor %}
-        {% endif %}
-        {% block content %}{% endblock %}
-      </div>
-    <div class="container">
-     
-      
-    </div>
+   
+    <script type="text/javascript" src="{% static 'js/responsee.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/plugins.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'owl-carousel/owl.carousel.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.easypiechart.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/template-scripts.js' %}"></script>
     
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
 
-    </body>
-    </html>
-    
-
-
-
+</html>
 
