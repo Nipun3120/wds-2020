@@ -1,12 +1,26 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+      body{
+    background-image: url("{% static 'images-2019/bg-3.jpg' %}");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+	background-size: cover;
+    font:16px/1.6 Arial,  sans-serif;
+}
+
+    </style>
+
 </head>
 <body>
+    {% include "navbar.html" %}
     <h1>Dashboard</h1>
     <h2>{{ user.username }}</h2>
       {% for dd in dashdata %}
@@ -47,7 +61,7 @@
         
         </div>
         
-
+        {% include "footer.html" %}
 </body>
 </html>
 {% endblock content %}

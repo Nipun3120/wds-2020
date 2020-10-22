@@ -2,28 +2,50 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
-<div class="form-group">
+<head>
+<style>
+  body{
+background-image: url("{% static 'images-2019/bg-3.jpg' %}");
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+font:16px/1.6 Arial,  sans-serif;
+}
+
+</style>
+</head>
+<body>
+    <header role="banner" class="position-absolute">
+      <!-- Top Navigation -->
+    {% include "navbar.html" %}
+  </header>
+
+    <div class="form-group">
+        
+        <a class="btn btn-outline-secondary" href="{% url 'core:buy-sell-form' %}">Buy/Sell</a>
+      </div>
+      <h1>All Available Stocks</h1>
+      <div class="container-fluid">
+        
+      <table class="table table-dark table-bordered table-hover">
+        <thead>
+          <th>Stock Name</th>
+          <th>Current Price</th>
+        </thead>
+
+              {% for post in posts %}
+              <tr>
+                <td>{{ post.stockname }}</td>
+                <td>{{ post.price }}</td>
+              </tr>
+              {% endfor %}
+
+      </table>
+
+    </div>
   
-  <a class="btn btn-outline-secondary" href="{% url 'core:buy-sell-form' %}">Buy/Sell</a>
-</div>
-<h1>All Available Stocks</h1>
-<div class="container-fluid">
-  
-<table class="table table-dark table-bordered table-hover">
-  <thead>
-    <th>Stock Name</th>
-    <th>Current Price</th>
-  </thead>
-
-        {% for post in posts %}
-        <tr>
-          <td>{{ post.stockname }}</td>
-          <td>{{ post.price }}</td>
-        </tr>
-        {% endfor %}
-
-</table>
-
-</div>
+{% include "footer.html" %}
+</body>
 
 {% endblock %}
