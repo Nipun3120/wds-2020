@@ -234,6 +234,17 @@ class Trade(ListView):
                 messages.error(self.request, "fill the form correctly")
                 return redirect("/")
 
+def request_view(request, *arg, **kwargs):
+    context = {}
+    user = request.user
+    if user.is_authenticated:
+        trade_request = traderequest.objects.filter(receiver=user, is_active=True)
+        context = {
+            'trade_request' : trade_request
+        }
+    return render(request, "notifications.html", context)
+
+
 
 class sellrequest(ListView):
     def get(self, *args, **kwargs):
@@ -269,13 +280,41 @@ class sellrequest(ListView):
                 stock_buyer=Stock.objects.get(user=buyer)
                 print(stock_buyer)
 
+                payload = {}
+        
+                user_id = buyer
+                if user_id:
+                    receiver = Stock.objects.get(user=buyer)
+                    try:
+                        trade_request = traderequest.objects.filter(sender=seller, receiver=receiver)
+                        try:
+                            for request in trade_request:
+                                if request.is_active:
+                                    raise Exception("You already sent them a friend request")
 
+                            trade_request = traderequest(sender=seller, receiver=receiver)
+                            trade_request.save()
+                            payload['response'] = "Request Sent"
+                        except Exception as e:
+                            payload['response'] = str(e)
+                    except traderequest.DoesNotExist:
+                        trade_request = traderequest(sender=seller, receiver=receiver)
+                        trade_request.save()
+                        payload['response'] = "Request sent"
+
+                    if payload['response'] == None:
+                        payload['response'] = "Something Went Wrong"
+
+                else:
+                    payload['response'] = "Unable to send request"
+                return HttpResponse(json.dumps(payload), content_type="application/json")
 
                 return redirect('/')
         except ObjectDoesNotExist:
                 messages.error(self.request, "fill the form correctly")
                 return redirect("/")
-
+    
+        
         
     
 
@@ -289,7 +328,7 @@ def accept(sender, receiver, is_active):
 def decline(sender, receiver, is_active):
     is_active=False
 
-
+'''
 def send_sell_request(request, *args, **kwargs):
     user = request.user
     payload = {}
@@ -298,9 +337,9 @@ def send_sell_request(request, *args, **kwargs):
         if user_id:
             receiver = Stock.objects.get(pk=user_id)
             try:
-                trade_request = traderequests.objects.filter(sender=user, receiver=receiver)
+                trade_request = traderequest.objects.filter(sender=user, receiver=receiver)
                 try:
-                    for request in reade_request:
+                    for request in trade_request:
                         if request.is_active:
                             raise Exception("You already sent them a friend request")
 
@@ -322,4 +361,4 @@ def send_sell_request(request, *args, **kwargs):
     else:
         payload['response'] = "You must be logged in"
     return HttpResponse(json.dumps(payload), content_type="application/json")
-                
+                '''

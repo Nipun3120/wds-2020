@@ -9,7 +9,7 @@
     <form method='POST' enctype="\application/x-www-form-urlencoded">
     {% csrf_token %}
     {{ form|crispy }}
-    <button type="submit" class="btn btn-outline-info">Send Request</button>
+    <button type="submit" class="btn btn-outline-info" id="id_send_sell_request_btn">Send Request</button>
     </form>
 </div>
 
