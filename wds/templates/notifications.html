@@ -1,5 +1,13 @@
 {% extends "base.html" %}
+{% block content %}
 
+
+<h1>Notifications</h1>
+{% if trade_request %}
 {% for request in trade_request %}
-    
+    {{request.sender.username}}
 {% endfor %}
+{% else %}
+    <h2>Not loading</h2>
+{% endif %}
+{% endblock %}

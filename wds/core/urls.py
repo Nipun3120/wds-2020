@@ -14,6 +14,7 @@ urlpatterns = [
     path('userlogout/',views.userlogout,name='userlogout'),
     path('dashboard/',views.dashboard,name='dashboard'),
     path('buy-sell-form/',Trade.as_view(),name='buy-sell-form'),
+    path('notifications/',views.request_view,name='notifications'),
     path('sell-form/',sellrequest.as_view(),name='sell-form'),
     path('',home,name="home"),
     
