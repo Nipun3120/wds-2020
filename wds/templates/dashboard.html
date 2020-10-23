@@ -61,7 +61,26 @@
         
         </div>
         <a href="{% url 'core:sell-form' %}">Sell</a>
+        
         {% include "footer.html" %}
 </body>
+
+<script>
+
+function onSellRequestSent(){
+  location.replace("{% url 'core:dashboard' %}")
+  //add success message after redirect 
+}
+
+  var sendSellRequestBtn = document.getElementById("id_send_sell_request_btn")
+  if(sendSellRequestBtn != null){
+    sendSellRequestBtn.addEventListener("click", function(){
+      sendSellRequest("{{id}}", onSellRequestSent)
+    })
+  }
+</script>
+
+{% include "send-sell-request.html" %}
+
 </html>
 {% endblock content %}
