@@ -13,4 +13,10 @@ class tradeform(forms.ModelForm):
     class Meta:
         model=trade
         fields = "__all__"
+
+class requestsellform(forms.ModelForm):
+    class Meta:
+        model=trade
+        fields = "__all__"
+
     

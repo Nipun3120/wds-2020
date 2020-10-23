@@ -9,10 +9,10 @@ from django.views.generic import ListView, DetailView, View
 from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
 from  django.http import HttpResponse, HttpResponseRedirect
-from .forms import RegisterForm,tradeform
+from .forms import RegisterForm,tradeform,requestsellform
 from django.urls import reverse
-from .models import Stock,trade,stock_list
-
+from .models import Stock,trade,stock_list, traderequest
+import json
 def home(request):
     return render(request,"home.html")
 
@@ -148,7 +148,7 @@ class Trade(ListView):
                 print(stock_seller)
                           
                 stock_buyer=Stock.objects.get(user=buyer)
-                
+                print(stock_buyer)
                 '''for st in stock_list:
                     if stock==st[0]:
                         stock_seller.st[0]-=numberofstocks
@@ -235,6 +235,91 @@ class Trade(ListView):
                 return redirect("/")
 
 
+class sellrequest(ListView):
+    def get(self, *args, **kwargs):
+        form = requestsellform()
+        context = {
+            'form':form,
+        }
+        return render(self.request, 'sell-form.html', context)
+
+    def post(self, *args, **kwargs):
+        form = requestsellform(self.request.POST or None)
+        try:
+            if form.is_valid():
+                seller=self.request.user
+                stock=form.cleaned_data.get('stock')
+                numberofstocks=form.cleaned_data.get('numberofstocks')
+                priceperstock=form.cleaned_data.get('priceperstock')
+               # userbalance=form.cleaned_data.get('userbalance')
+                buyer=form.cleaned_data.get('buyer')
+                trading=trade.objects.create(
+                    seller=seller,
+                    stock=stock,
+                    numberofstocks=numberofstocks,
+                    priceperstock=priceperstock,
+                    buyer=buyer,
+                    #userbalance=userbalance,
+                )
+                print(priceperstock)
+                print(numberofstocks)
+                stock_seller=Stock.objects.get(user=seller)
+                print(stock_seller)
+                          
+                stock_buyer=Stock.objects.get(user=buyer)
+                print(stock_buyer)
 
 
+
+                return redirect('/')
+        except ObjectDoesNotExist:
+                messages.error(self.request, "fill the form correctly")
+                return redirect("/")
+
+        
+    
+
+
+
+def accept(sender, receiver, is_active):
+    if is_active:
+        """Call transaction"""
+
+
+def decline(sender, receiver, is_active):
+    is_active=False
+
+
+def send_sell_request(request, *args, **kwargs):
+    user = request.user
+    payload = {}
+    if request.method == "POST" and user.is_authenticated:
+        user_id = request.POST.get("receiver_user_id")
+        if user_id:
+            receiver = Stock.objects.get(pk=user_id)
+            try:
+                trade_request = traderequests.objects.filter(sender=user, receiver=receiver)
+                try:
+                    for request in reade_request:
+                        if request.is_active:
+                            raise Exception("You already sent them a friend request")
+
+                    trade_request = traderequest(sender=user, receiver=receiver)
+                    trade_request.save()
+                    payload['response'] = "Request Sent"
+                except Exception as e:
+                    payload['response'] = str(e)
+            except traderequest.DoesNotExist:
+                trade_request = traderequest(sender=user, receiver=receiver)
+                trade_request.save()
+                payload['response'] = "Request sent"
+
+            if payload['response'] == None:
+                payload['response'] = "Something Went Wrong"
+
+        else:
+            payload['response'] = "Unable to send request"
+    else:
+        payload['response'] = "You must be logged in"
+    return HttpResponse(json.dumps(payload), content_type="application/json")
                 

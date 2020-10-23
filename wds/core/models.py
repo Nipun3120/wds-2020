@@ -45,3 +45,15 @@ def create_stock(sender,instance,created,**kwargs):
         Stock.objects.create(user=instance)
 
 post_save.connect(create_stock,sender=User)
+
+
+class traderequest(models.Model):
+    sender = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="sender")
+    receiver = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name ="receiver")
+    is_active = models.BooleanField(blank=True, null=True, default=True)
+
+    def __str__(self):
+        return self.sender
+
+    
+
