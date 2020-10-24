@@ -3,11 +3,18 @@
 
 
 <h1>Notifications</h1>
-{% if trade_request %}
-{% for request in trade_request %}
-    {{request.sender.username}}
-{% endfor %}
-{% else %}
-    <h2>Not loading</h2>
-{% endif %}
+<div>
+        
+
+    {% if trade_request %}
+    {% for request in trade_request %}
+        {{request.sender.username}}
+    {% endfor %}
+    {% else %}
+        <h2>Not loading</h2>
+
+    {% endif %}
+    <span id="id_cancel_{{id}}" class="decline-trade-request material icons p-1" onclick='triggerDeclineTradeRequest("{{pending_trade_request_id}}")'>Decline</span>
+    <span id="id_confirm_{{id}}" class="confirm-trade-request material icons p-1" onclick='triggerAcceptTradeRequest("{{pending_trade_request_id}}")'>Accept</span>
+</div>
 {% endblock %}
