@@ -11,8 +11,10 @@ from django.views.decorators.csrf import csrf_exempt
 from  django.http import HttpResponse, HttpResponseRedirect
 from .forms import RegisterForm,tradeform,requestsellform
 from django.urls import reverse
-from .models import Stock,trade,stock_list, traderequest
+from .models import Stock,trade,stock_list, traderequest, TradeList
 import json
+from .utils import get_trade_request_or_false
+from .trade_request_status import TradeRequestStatus
 def home(request):
     return render(request,"home.html")
 

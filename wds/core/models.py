@@ -58,7 +58,7 @@ class TradeList(models.Model):
     notifications = GenericRelation(Notification) 
 
     def __str__(self):
-        return self.user.username
+        return self.user
 
     def add_trade_history(self, other_trader):
         if not other_trader in self.traderequesthistoryitem.all():
