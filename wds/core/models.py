@@ -5,9 +5,8 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.contenttypes.models import ContentType
 from django.utils import timezone
-
-from notification.models import Notification
-from chat.utils import find_or_create_private_chat
+from notifications.models import Notification
+from django.dispatch import receiver
 # Create your models here.
 stock_list=(
     ('stock1','stock1'),
