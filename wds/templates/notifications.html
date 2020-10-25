@@ -5,7 +5,7 @@
 <h1>Notifications</h1>
 <div>
         
-
+    <!--
     {% if trade_request %}
     {% for request in trade_request %}
         {{request.sender.username}}
@@ -14,7 +14,74 @@
         <h2>Not loading</h2>
 
     {% endif %}
-    <span id="id_cancel_{{id}}" class="decline-trade-request material icons p-1" onclick='triggerDeclineTradeRequest("{{pending_trade_request_id}}")'>Decline</span>
-    <span id="id_confirm_{{id}}" class="confirm-trade-request material icons p-1" onclick='triggerAcceptTradeRequest("{{pending_trade_request_id}}")'>Accept</span>
+   -->
+
+    {% if trade_requests %}
+			<div class="card m-2 px-4 pb-4">
+				<!-- Trade requests -->
+		  		<div class="d-flex flex-column pt-4">
+					<a href="#">
+						<div class="d-flex flex-row align-items-center justify-content-center icon-container">
+							<span class="material-icons mr-2 person-add-icon">Add</span><span class="friend-text">Trade Requests ({{trade_requests|length}})</span>
+						</div>
+					</a>
+				</div>
+			</div>
+			{% endif %}
+
+
+
+
+    <!-- THEM TO YOU -->
+    {% if request_sent == 0 %}
+        <div class="card m-2 p-4">
+            <div class="d-flex flex-row align-items-center">
+                <span class="align-items-center mr-2">Accept Trade Request</span>
+                <span id="id_cancel_{{id}}" class="decline-trade-request material-icons p-1" onclick='triggerDeclineTradeRequest("{{pending_trade_request_id}}")'>Cancel</span>
+                  <span id="id_confirm_{{id}}" class="confirm-trade-request material-icons p-1" onclick='triggerAcceptTradeRequest("{{pending_trade_request_id}}")'>Confirm</span>
+            </div>
+        </div>
+    
+    
+    {% endif %}
+
 </div>
+
+<script type="text/javascript">
+
+    function onTradeRequestSent(){
+		location.reload();
+	}
+    function onTradeRequestAccepted(){
+		location.reload();
+	}
+
+	function onTradeRequestDeclined(){
+		location.reload();
+	}
+
+
+    var sendTradeRequestBtn = document.getElementById("id_send_trade_request_btn")
+	if (sendTradeRequestBtn != null){
+		sendTradeRequestBtn.addEventListener("click", function(){
+			sendTradeRequest("{{id}}", onTradeRequestSent)
+		})
+	}
+
+
+
+    function triggerAcceptTradeRequest(trade_request_id){
+		acceptTradeRequest(trade_request_id, onTradeRequestAccepted)
+	}
+
+	function triggerDeclineTradeRequest(trade_request_id){
+		declineTradeRequest(trade_request_id, onTradeRequestDeclined)
+	}
+
+
+</script>
+{% include 'send_sell_request.html' %}
+{% include 'accept_friend_request.html' %}
+{% include 'decline_friend_request.html' %}
+
 {% endblock %}
