@@ -291,8 +291,9 @@ class sellrequest(ListView):
                         trade_request = traderequest.objects.filter(sender=seller, receiver=receiver)
                         try:
                             for request in trade_request:
+                                print(request)
                                 if request.is_active:
-                                    raise Exception("You already sent them a friend request")
+                                    raise Exception("You already sent them a Trade request")
 
                             trade_request = traderequest(sender=seller, receiver=receiver)
                             trade_request.save()
@@ -311,7 +312,7 @@ class sellrequest(ListView):
                     payload['response'] = "Unable to send request"
                 return HttpResponse(json.dumps(payload), content_type="application/json")
 
-                return redirect('/')
+                
         except ObjectDoesNotExist:
                 messages.error(self.request, "fill the form correctly")
                 return redirect("/")
@@ -321,14 +322,6 @@ class sellrequest(ListView):
     
 
 
-
-def accept(sender, receiver, is_active):
-    if is_active:
-        """Call transaction"""
-
-
-def decline(sender, receiver, is_active):
-    is_active=False
 
 '''
 def send_sell_request(request, *args, **kwargs):

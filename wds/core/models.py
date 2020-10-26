@@ -85,7 +85,7 @@ class traderequest(models.Model):
 
     def __str__(self):
         return self.sender
-
+    
     def accept(self):
         receiver_trade_list = TradeList.objects.get(user=self.receiver)
         if(receiver_trade_list):
