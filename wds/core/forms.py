@@ -22,4 +22,4 @@ class requestsellform(forms.ModelForm):
 class tradereqform(forms.ModelForm):
     class Meta():
         model=tradereq
-        fields=('sender','receiver','action','stock','numberofstocks','priceperstock')
+        fields=('receiver','action','stock','numberofstocks','priceperstock')

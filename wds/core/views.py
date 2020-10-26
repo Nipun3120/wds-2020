@@ -11,7 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 from  django.http import HttpResponse, HttpResponseRedirect
 from .forms import RegisterForm,tradeform,requestsellform,tradereqform
 from django.urls import reverse
-from .models import Stock,trade,stock_list
+from .models import Stock,trade,stock_list,tradereq
 
 def home(request):
     return render(request,"home.html")
@@ -235,4 +235,23 @@ class Trade(ListView):
                 return redirect("/")
 @login_required
 def reqcreate(request):
+    user=request.user
+    if request.method=='POST':
+        form = tradereqform(request.POST or None)
+        if form.is_valid():
+                sender=user
+                receiver=form.cleaned_data.get('receiver')
+                action=form.cleaned_data.get('action')
+                stock=form.cleaned_data.get('stock')
+                numberofstock=form.cleaned_data.get('numberofstocks')
+                priceperstock=form.cleaned_data.get('priceperstock')
+                request_trade=tradereq.objects.create(
+                    sender=sender,
+                    receiver=receiver,action=action,
+                    stock=stock,
+                    numberofstocks=numberofstock,
+                    priceperstock=priceperstock,
+                    is_active=True
+                )
+        return HttpResponse(receiver.username)
     return render(request,'create_request.html',{'form':tradereqform})

@@ -33,4 +33,6 @@ class FriendRequestAdmin(admin.ModelAdmin):
 
 admin.site.register(FriendRequest, FriendRequestAdmin)
 
-admin.site.register(tradereq)
+class requestadmin(admin.ModelAdmin):
+    list_display=('sender','receiver','action')
+admin.site.register(tradereq,requestadmin)
