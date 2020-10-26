@@ -124,4 +124,5 @@ class tradereq(models.Model):
         receiver_stock=Stock.objects.get(user=self.receiver)
         sender_stock=Stock.objects.get(user=self.sender)
         amount=self.numberofstocks*self.priceperstock
-        
+        self.is_active=False
+        self.save()

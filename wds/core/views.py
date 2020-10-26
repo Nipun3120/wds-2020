@@ -12,7 +12,7 @@ from  django.http import HttpResponse, HttpResponseRedirect
 from .forms import RegisterForm,tradeform,requestsellform,tradereqform
 from django.urls import reverse
 from .models import Stock,trade,stock_list,tradereq
-
+import json
 def home(request):
     return render(request,"home.html")
 
@@ -267,3 +267,26 @@ def sent_request(request):
     user=request.user
     sent_pending=tradereq.objects.order_by('-id').filter(sender=user,is_active=True)
     return render(request,'sent_requests.html',{'requests':sent_pending})
+
+@login_required
+def accept_request(request,*args, **kwargs):
+    user=request.user
+    payload={}
+    if request.method=='GET':
+        tradereq_id=kwargs.get("friend_request_id")
+        if tradereq_id:
+            trade_request=tradereq.objects.id(pk=tradereq_id)
+            if trade_request.receiver==user:
+                if trade_request:
+                    trade_request.accept()
+                    payload['response']="request accepted"
+                else:
+                    payload['response']="something went wrong"
+            else:
+                payload['response']="not yours request"
+        else:
+            payload['response']="unable not accepted"
+    else:
+        payload['response']="you must be authenticated to accpet a friend request"
+    return HttpResponse(json.dumps(payload),content_type="application/json")
+            

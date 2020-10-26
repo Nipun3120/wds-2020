@@ -1,6 +1,6 @@
 <html>
 
-<body><h1>received</h1>
+<body><h1>waiting for confirmation from another user</h1>
 <table border="1">
 <tr><th>receiver</th><th>type</th><th>stock</th><th>number of stocks</th><th>priceperstock</th><th>Cancel</th></tr>
 {% for req in requests %}
@@ -9,7 +9,7 @@
 <td>{{ req.stock }} </td>
 <td>{{ req.numberofstocks }}</td>
 <td>{{ req.priceperstock }}</td>   
-<td> <button>delete</button></td>
+<td> <button id="delete">delete</button></td>
 </tr>
 {% endfor %}
 </table>
