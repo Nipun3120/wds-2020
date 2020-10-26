@@ -255,3 +255,15 @@ def reqcreate(request):
                 )
         return HttpResponse(receiver.username)
     return render(request,'create_request.html',{'form':tradereqform})
+
+@login_required
+def received_request(request):
+    user=request.user
+    requests_pending=tradereq.objects.order_by('-id').filter(receiver=user,is_active=True)
+    return render(request,'received_request.html',{'requests':requests_pending})
+
+@login_required
+def sent_request(request):
+    user=request.user
+    sent_pending=tradereq.objects.order_by('-id').filter(sender=user,is_active=True)
+    return render(request,'sent_requests.html',{'requests':sent_pending})
