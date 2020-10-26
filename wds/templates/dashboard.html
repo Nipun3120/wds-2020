@@ -1,86 +1,89 @@
-{% extends "base.html" %}
-{% load static %}
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block content %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      body{
-    background-image: url("{% static 'images-2019/bg-3.jpg' %}");
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-	background-size: cover;
-    font:16px/1.6 Arial,  sans-serif;
-}
-
+      body {
+        background-image: url("{% static 'images-2019/bg-3.jpg' %}");
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        font: 16px/1.6 Arial, sans-serif;
+      }
     </style>
-
-</head>
-<body>
+  </head>
+  <body>
     {% include "navbar.html" %}
     <h1>Dashboard</h1>
     <h2>{{ user.username }}</h2>
-      {% for dd in dashdata %}
-        <h1>User Balance {{ dd.userbalance }}</h1>
+    {% for dd in dashdata %}
+    <h1>User Balance {{ dd.userbalance }}</h1>
+    {% endfor %}
+    <div class="container-fluid">
+      <table class="table table-dark table-bordered table-hover">
+        <thead>
+          <th>Stock Name</th>
+          <th>Number Of Stocks</th>
+          {% comment %}
+          <th>Current Price</th>
+          {% endcomment %}
+        </thead>
+        {% comment %} {% for dd in dashdata %}
+        <tr>
+          <td>{{ dd.stock }}</td>
+          <td>{{ dd.numberofstocks }}</td>
+          <td>{{ dd.priceperstock }}</td>
+        </tr>
+        {% endfor %} {% endcomment %} {% for dd in dashdata %}
+        <tr>
+          <td>Stock1</td>
+          <td>{{dd.stock1}}</td>
+        </tr>
+        <tr>
+          <td>Stock2</td>
+          <td>{{dd.stock2}}</td>
+        </tr>
+        <tr>
+          <td>Stock3</td>
+          <td>{{dd.stock3}}</td>
+        </tr>
+        <tr>
+          <td>Stock4</td>
+          <td>{{dd.stock4}}</td>
+        </tr>
+        <tr>
+          <td>Stock5</td>
+          <td>{{dd.stock5}}</td>
+        </tr>
+        <tr>
+          <td>Stock6</td>
+          <td>{{dd.stock6}}</td>
+        </tr>
+        <tr>
+          <td>Stock7</td>
+          <td>{{dd.stock7}}</td>
+        </tr>
+        <tr>
+          <td>Stock8</td>
+          <td>{{dd.stock8}}</td>
+        </tr>
+        <tr>
+          <td>Stock9</td>
+          <td>{{dd.stock9}}</td>
+        </tr>
+        <tr>
+          <td>Stock10</td>
+          <td>{{dd.stock10}}</td>
+        </tr>
         {% endfor %}
-        <div class="container-fluid">
-  
-        <table class="table table-dark table-bordered table-hover">
-          <thead>
-            <th>Stock Name</th>
-            <th>Number Of Stocks</th>
-         {% comment  %}<th>Current Price</th>
-         {% endcomment %}   
-          </thead>
-        {% comment  %}
-        {% for dd in dashdata %}
-                <tr>
-                    <td>{{ dd.stock }}</td>
-                  <td>{{ dd.numberofstocks }}</td>
-                  <td>{{ dd.priceperstock }}</td>
-                </tr>
-                {% endfor %}
-        {% endcomment %}
-                {% for dd in dashdata %}
-                  <tr><td>Stock1</td><td>{{dd.stock1}}</td></tr>
-                  <tr><td>Stock2</td><td>{{dd.stock2}}</td></tr>
-                  <tr><td>Stock3</td><td>{{dd.stock3}}</td></tr>
-                  <tr><td>Stock4</td><td>{{dd.stock4}}</td></tr>
-                  <tr><td>Stock5</td><td>{{dd.stock5}}</td></tr>
-                  <tr><td>Stock6</td><td>{{dd.stock6}}</td></tr>
-                  <tr><td>Stock7</td><td>{{dd.stock7}}</td></tr>
-                  <tr><td>Stock8</td><td>{{dd.stock8}}</td></tr>
-                  <tr><td>Stock9</td><td>{{dd.stock9}}</td></tr>
-                  <tr><td>Stock10</td><td>{{dd.stock10}}</td></tr>
-                {% endfor %}
-        
-        </table>
-        
-        </div>
-        <a href="{% url 'core:sell-form' %}">Sell</a>
-        
-        {% include "footer.html" %}
-</body>
+      </table>
+    </div>
+    <a href="#">Sell</a>
 
-<script>
-
-function onSellRequestSent(){
-  location.replace("{% url 'core:dashboard' %}")
-  //add success message after redirect 
-}
-
-  var sendSellRequestBtn = document.getElementById("id_send_sell_request_btn")
-  if(sendSellRequestBtn != null){
-    sendSellRequestBtn.addEventListener("click", function(){
-      sendSellRequest("{{id}}", onSellRequestSent)
-    })
-  }
-</script>
-
-{% include "send-sell-request.html" %}
-
+    {% include "footer.html" %}
+  </body>
 </html>
 {% endblock content %}
