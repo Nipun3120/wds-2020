@@ -9,7 +9,7 @@ from django.views.generic import ListView, DetailView, View
 from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
 from  django.http import HttpResponse, HttpResponseRedirect
-from .forms import RegisterForm,tradeform,requestsellform
+from .forms import RegisterForm,tradeform,requestsellform,tradereqform
 from django.urls import reverse
 from .models import Stock,trade,stock_list
 
@@ -233,3 +233,6 @@ class Trade(ListView):
         except ObjectDoesNotExist:
                 messages.error(self.request, "fill the form correctly")
                 return redirect("/")
+@login_required
+def reqcreate(request):
+    return render(request,'create_request.html',{'form':tradereqform})
