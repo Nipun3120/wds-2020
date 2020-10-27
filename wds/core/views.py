@@ -251,9 +251,9 @@ def reqcreate(request):
                     stock=stock,
                     numberofstocks=numberofstock,
                     priceperstock=priceperstock,
-                    is_active=True
+                    is_active=True,
                 )
-        return HttpResponse(receiver.username)
+        return redirect('core:sentreq')
     return render(request,'create_request.html',{'form':tradereqform})
 
 @login_required
@@ -294,7 +294,6 @@ def accept_request(request,*args, **kwargs):
 @login_required 
 def accept_request(request,*args, **kwargs):
     user =request.user
-    payload={}
     if request.method=='GET':
         tradereq_id=kwargs.get("friend_request_id")
         if tradereq_id:
@@ -302,3 +301,27 @@ def accept_request(request,*args, **kwargs):
             if trade_request:
                 trade_request.accept()
                 return redirect("core:receivedreq")
+
+@login_required
+def decline_request(request,*args, **kwargs):
+    user=request.user
+    if request.method=='GET':
+        tradereq_id=kwargs.get("friend_request_id")
+        if tradereq_id:
+            trade_request=tradereq.objects.filter(pk=tradereq_id)[0]
+            if trade_request:
+                trade_request.decline()
+                return redirect("core:receivedreq")
+
+
+@login_required
+def cancel_request(request,*args, **kwargs):
+    user=request.user
+    if request.method=='GET':
+        tradereq_id=kwargs.get("friend_request_id")
+        if tradereq_id:
+            trade_request=tradereq.objects.filter(pk=tradereq_id)[0]
+            if trade_request:
+                trade_request.cancel()
+                return redirect("core:sentreq")
+

@@ -203,3 +203,10 @@ class tradereq(models.Model):
                     #userbalance=userbalance,
                 )
         self.save()
+    def decline(self):
+        self.is_active=False
+        self.save()
+
+    def cancel(self):
+        self.is_active=False
+        self.save()
