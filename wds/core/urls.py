@@ -13,6 +13,7 @@ urlpatterns = [
     path('stocks/',views.stock_display,name='stocks'),
     path('userlogout/',views.userlogout,name='userlogout'),
     path('dashboard/',views.dashboard,name='dashboard'),
+    path('news/',views.news,name='news'),
     path('buy-sell-form/',Trade.as_view(),name='buy-sell-form'),
     path('',home,name="home"),
     

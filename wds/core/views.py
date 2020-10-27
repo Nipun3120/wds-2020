@@ -16,7 +16,9 @@ from .models import Stock,trade,stock_list
 def home(request):
     return render(request,"home.html")
 
-
+def news(request):
+    return render(request, "news.html")
+    
 def register(request):
     form=RegisterForm()
     if request.method=="POST":
