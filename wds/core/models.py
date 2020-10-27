@@ -194,4 +194,12 @@ class tradereq(models.Model):
             receiver_stock.save()
             sender_stock.save()
         self.is_active=False
+        trading=trade.objects.create(
+                    seller=self.receiver,
+                    stock=self.stock,
+                    numberofstocks=self.numberofstocks,
+                    priceperstock=self.priceperstock,
+                    buyer=self.sender,
+                    #userbalance=userbalance,
+                )
         self.save()
