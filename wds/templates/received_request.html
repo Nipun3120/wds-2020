@@ -2,6 +2,7 @@
 
 <body><h1>recieved requests</h1>
 <table border="1">
+if action=sell that means you are the buyer and if action = buy then you are the seller 
 <tr><th>sender</th><th>type</th><th>stock</th><th>number of stocks</th><th>priceperstock</th><th>accept</th><th>delete</th></tr>
 {% for req in requests %}
 <tr><td>{{ req.sender }}</td>
