@@ -267,7 +267,7 @@ def sent_request(request):
     user=request.user
     sent_pending=tradereq.objects.order_by('-id').filter(sender=user,is_active=True)
     return render(request,'sent_requests.html',{'requests':sent_pending})
-
+"""
 @login_required
 def accept_request(request,*args, **kwargs):
     user=request.user
@@ -289,4 +289,16 @@ def accept_request(request,*args, **kwargs):
     else:
         payload['response']="you must be authenticated to accpet a friend request"
     return HttpResponse(json.dumps(payload),content_type="application/json")
-            
+"""
+
+@login_required 
+def accept_request(request,*args, **kwargs):
+    user =request.user
+    payload={}
+    if request.method=='GET':
+        tradereq_id=kwargs.get("friend_request_id")
+        if tradereq_id:
+            trade_request=tradereq.objects.filter(pk=tradereq_id)[0]
+            if trade_request:
+                trade_request.accept()
+                return redirect("core:receivedreq")

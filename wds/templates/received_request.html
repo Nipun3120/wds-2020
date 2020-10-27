@@ -9,9 +9,13 @@
 <td>{{ req.stock }} </td>
 <td>{{ req.numberofstocks }}</td>
 <td>{{ req.priceperstock }}</td>
-
+<td><a href="{% url 'core:accept-request' req.id %}">accept</a></td>
+<td><a href="">decline</a></td>
+{% comment  %}
 <td> <button id="accept" onclick='triggerAcceptFriendRequest("{{ req.id }}")'>accept</button></td>   
 <td> <button id="decline">decline</button></td>
+{% endcomment %}
+
 </tr>
 {% endfor %}
 
