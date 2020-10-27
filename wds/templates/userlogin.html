@@ -30,33 +30,6 @@ body{
     font-size: 1rem;
 }
 
-.main-form {
-    background-color: #fff;
-    margin-top: 15rem;
-    max-width: 100%;
-}
-
-.main-form {
-    margin: initial auto;
-    width: 25rem;
-    min-height: 50vh;
-    padding: 3.2rem 2.6rem;
-    border: 1px solid #000;
-}
-.main-form form{
-    margin-top: .7rem;
-}
-.main-form .form-heading{
-    text-align: center;
-}
-.main-form .form-heading h2{
-    font-weight: 600;
-}
-.form-field{
-    
-    margin-top: 5px;
-}
-
 </style>
 
 
@@ -92,38 +65,27 @@ body{
 
     </header>
   <section>
-<<<<<<< HEAD
-<<<<<<< HEAD
     <div class="container-fluid col-xl-5" style="padding:7px; ">
-=======
-    <div class="container">
->>>>>>> parent of 0b54815... Login page
-=======
-    <div class="container">
->>>>>>> parent of 0b54815... Login page
-      <div class="row main-form">
-
-          <div class="form-heading">
-              <h2>Log In to WDS</h2>
-          </div>
-          
-          <form class="col s12" method="POST">
-            {% csrf_token %}
-          <div class="row">
-              <div class="input-field col s12 form-field">
-                  <input  id="first_name" type="text" class="validate form-field" placeholder="Enter user name" name="username">
-                  <label for="Username">User Name</label>
-              </div>
-          </div>
-
-
-          <div class="row">
-              <div class="input-field col s12 form-field">
-                  <input id="password" type="password" class="validate form-field" name="password" placeholder="Password">
-                  <label for="Password">Password</label>
-              </div>
-          </div>
-          
+        <div class="row main-form">
+  
+            <div class="form-heading">
+                <h2>Log In to WDS</h2>
+            </div>
+            
+            <form class="col s12" method="POST">
+              {% csrf_token %}
+            <div class="row">
+                <div class="input-field col s12 form-field">
+                    <input  id="first_name" type="text" class="validate form-field" placeholder="Enter user name" name="username">
+                    <label for="Username">User Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 form-field">
+                    <input id="password" type="password" class="validate form-field" name="password" placeholder="Password">
+                    <label for="Password">Password</label>
+                </div>
+            </div>
                           
           <button class="btn waves-effect waves-light form-field" type="submit" name="action">Login
               <i class="material-icons right"></i>
