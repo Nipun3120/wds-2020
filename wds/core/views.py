@@ -9,9 +9,9 @@ from django.views.generic import ListView, DetailView, View
 from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
 from  django.http import HttpResponse, HttpResponseRedirect
-from .forms import RegisterForm,tradeform,requestsellform,tradereqform
+from .forms import RegisterForm,tradeform,requestsellform,tradereqform,reportform
 from django.urls import reverse
-from .models import Stock,trade,stock_list,tradereq
+from .models import Stock,trade,stock_list,tradereq,Report
 import json
 def home(request):
     return render(request,"home.html")
@@ -259,6 +259,21 @@ def reqcreate(request):
         return redirect('core:sentreq')
     return render(request,'create_request.html',{'form':tradereqform})
 
+def report(request):
+    form = reportform()
+    if request.method=='POST':
+        form = reportform(request.POST or None)
+        if form.is_valid():
+            obj = Report()
+            obj.reporter=request.user
+            obj.reporting=form.cleaned_data.get('reporting')
+            print(obj.reporter)
+            print(obj.reporting)
+            obj.save()
+        else:
+            form=reportform()
+        return redirect('core:dashboard')
+    return render(request, 'report.html', {'form':form})
 @login_required
 def received_request(request):
     user=request.user
