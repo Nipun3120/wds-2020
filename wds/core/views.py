@@ -17,7 +17,12 @@ def home(request):
     return render(request,"home.html")
 
 def news(request):
+<<<<<<< HEAD
     return render(request,"news.html")
+=======
+    return render(request, "news.html")
+    
+>>>>>>> testing
 def register(request):
     form=RegisterForm()
     if request.method=="POST":

@@ -65,27 +65,32 @@ body{
 
     </header>
   <section>
+
     <div class="container-fluid col-xl-5" style="padding:7px; ">
-        <div class="row main-form">
-  
-            <div class="form-heading">
-                <h2>Log In to WDS</h2>
-            </div>
-            
-            <form class="col s12" method="POST">
-              {% csrf_token %}
-            <div class="row">
-                <div class="input-field col s12 form-field">
-                    <input  id="first_name" type="text" class="validate form-field" placeholder="Enter user name" name="username">
-                    <label for="Username">User Name</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12 form-field">
-                    <input id="password" type="password" class="validate form-field" name="password" placeholder="Password">
-                    <label for="Password">Password</label>
-                </div>
-            </div>
+
+      <div class="row main-form">
+
+          <div class="form-heading">
+              <h2>Log In to WDS</h2>
+          </div>
+          
+          <form class="col s12" method="POST">
+            {% csrf_token %}
+          <div class="row">
+              <div class="input-field col s12 form-field">
+                  <input  id="first_name" type="text" class="validate form-field"  name="username">
+                  <label for="Username">User Name</label>
+              </div>
+          </div>
+
+
+          <div class="row">
+              <div class="input-field col s12 form-field">
+                  <input id="password" type="password" class="validate form-field" name="password">
+                  <label for="Password">Password</label>
+              </div>
+          </div>
+          
                           
           <button class="btn waves-effect waves-light form-field" type="submit" name="action">Login
               <i class="material-icons right"></i>
