@@ -22,6 +22,13 @@
     {% for dd in dashdata %}
     <h1>User Balance {{ dd.userbalance }}</h1>
     {% endfor %}
+    <div>
+      <a class="btn btn-outline-secondary" href="{% url 'core:sentreq' %}">Requests Sent</a>
+      <a class="btn btn-outline-secondary" href="{% url 'core:receivedreq' %}">Received Requests</a>
+    </div>
+    <div>
+      <a class="btn btn-outline-secondary" href="{% url 'core:createrequest' %}">Create Trade Request</a>
+    </div>
     <div class="container-fluid">
       <table class="table table-dark table-bordered table-hover">
         <thead>
@@ -81,7 +88,7 @@
         {% endfor %}
       </table>
     </div>
-    <a href="#">Sell</a>
+    
 
     {% include "footer.html" %}
   </body>

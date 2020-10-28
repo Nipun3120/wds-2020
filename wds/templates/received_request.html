@@ -1,0 +1,66 @@
+<html>
+
+<body><h1>recieved requests</h1>
+<table border="1">
+if action=sell that means you are the buyer and if action = buy then you are the seller 
+<tr><th>sender</th><th>type</th><th>stock</th><th>number of stocks</th><th>priceperstock</th><th>accept</th><th>delete</th></tr>
+{% for req in requests %}
+<tr><td>{{ req.sender }}</td>
+<td>{{ req.action }} </td>
+<td>{{ req.stock }} </td>
+<td>{{ req.numberofstocks }}</td>
+<td>{{ req.priceperstock }}</td>
+<td><a href="{% url 'core:accept-request' req.id %}">accept</a></td>
+<td><a href="{% url 'core:decline-request' req.id %}">decline</a></td>
+{% comment  %}
+<td> <button id="accept" onclick='triggerAcceptFriendRequest("{{ req.id }}")'>accept</button></td>   
+<td> <button id="decline">decline</button></td>
+{% endcomment %}
+
+</tr>
+{% endfor %}
+
+</table>
+<script type="text/javascript">
+    function onFriendRequestAccepted(){
+		location.reload();
+	}
+
+	function onFriendRequestDeclined(){
+		location.reload();
+	}
+
+	function triggerAcceptFriendRequest(friend_request_id){
+		acceptFriendRequest(friend_request_id, onFriendRequestAccepted)
+	}
+
+	function triggerDeclineFriendRequest(friend_request_id){
+		declineFriendRequest(friend_request_id, onFriendRequestDeclined)
+	}
+    function acceptFriendRequest(friend_request_id, uiUpdateFunction){
+		var url = "{% url 'core:accept-request' friend_request_id=53252623623632623 %}".replace("53252623623632623", friend_request_id)
+		$.ajax({
+			type: 'GET',
+			dataType: "json",
+			url: url,
+			timeout: 5000,
+			success: function(data) {
+				console.log("SUCCESS", data)
+				if(data['response'] == "request accepted"){
+					// ui is updated
+				}
+				else if(data['response'] != null){
+					alert(data['response'])
+				}
+			},
+			error: function(data) {
+				console.error("ERROR...", data)
+				alert("Something went wrong.")
+			},
+			complete: function(data){
+				uiUpdateFunction()
+			}
+		});
+	}
+</script>
+</body></html>

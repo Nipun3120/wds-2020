@@ -9,12 +9,15 @@ from django.views.generic import ListView, DetailView, View
 from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
 from  django.http import HttpResponse, HttpResponseRedirect
-from .forms import RegisterForm,tradeform,requestsellform
+from .forms import RegisterForm,tradeform,requestsellform,tradereqform
 from django.urls import reverse
-from .models import Stock,trade,stock_list
-
+from .models import Stock,trade,stock_list,tradereq
+import json
 def home(request):
     return render(request,"home.html")
+
+def news(request):
+    return render(request,"news.html")
 
 
 def register(request):
@@ -233,3 +236,95 @@ class Trade(ListView):
         except ObjectDoesNotExist:
                 messages.error(self.request, "fill the form correctly")
                 return redirect("/")
+@login_required
+def reqcreate(request):
+    user=request.user
+    if request.method=='POST':
+        form = tradereqform(request.POST or None)
+        if form.is_valid():
+                sender=user
+                receiver=form.cleaned_data.get('receiver')
+                action=form.cleaned_data.get('action')
+                stock=form.cleaned_data.get('stock')
+                numberofstock=form.cleaned_data.get('numberofstocks')
+                priceperstock=form.cleaned_data.get('priceperstock')
+                request_trade=tradereq.objects.create(
+                    sender=sender,
+                    receiver=receiver,action=action,
+                    stock=stock,
+                    numberofstocks=numberofstock,
+                    priceperstock=priceperstock,
+                    is_active=True,
+                )
+        return redirect('core:sentreq')
+    return render(request,'create_request.html',{'form':tradereqform})
+
+@login_required
+def received_request(request):
+    user=request.user
+    requests_pending=tradereq.objects.order_by('-id').filter(receiver=user,is_active=True)
+    return render(request,'received_request.html',{'requests':requests_pending})
+
+@login_required
+def sent_request(request):
+    user=request.user
+    sent_pending=tradereq.objects.order_by('-id').filter(sender=user,is_active=True)
+    return render(request,'sent_requests.html',{'requests':sent_pending})
+"""
+@login_required
+def accept_request(request,*args, **kwargs):
+    user=request.user
+    payload={}
+    if request.method=='GET':
+        tradereq_id=kwargs.get("friend_request_id")
+        if tradereq_id:
+            trade_request=tradereq.objects.id(pk=tradereq_id)
+            if trade_request.receiver==user:
+                if trade_request:
+                    trade_request.accept()
+                    payload['response']="request accepted"
+                else:
+                    payload['response']="something went wrong"
+            else:
+                payload['response']="not yours request"
+        else:
+            payload['response']="unable not accepted"
+    else:
+        payload['response']="you must be authenticated to accpet a friend request"
+    return HttpResponse(json.dumps(payload),content_type="application/json")
+"""
+
+@login_required 
+def accept_request(request,*args, **kwargs):
+    user =request.user
+    if request.method=='GET':
+        tradereq_id=kwargs.get("friend_request_id")
+        if tradereq_id:
+            trade_request=tradereq.objects.filter(pk=tradereq_id)[0]
+            if trade_request:
+                trade_request.accept()
+                return redirect("core:receivedreq")
+
+@login_required
+def decline_request(request,*args, **kwargs):
+    user=request.user
+    if request.method=='GET':
+        tradereq_id=kwargs.get("friend_request_id")
+        if tradereq_id:
+            trade_request=tradereq.objects.filter(pk=tradereq_id)[0]
+            if trade_request:
+                trade_request.decline()
+                return redirect("core:receivedreq")
+
+
+@login_required
+def cancel_request(request,*args, **kwargs):
+    user=request.user
+    if request.method=='GET':
+        tradereq_id=kwargs.get("friend_request_id")
+        if tradereq_id:
+            trade_request=tradereq.objects.filter(pk=tradereq_id)[0]
+            if trade_request:
+                trade_request.cancel()
+                return redirect("core:sentreq")
+

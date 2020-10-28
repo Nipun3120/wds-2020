@@ -28,9 +28,9 @@
                 <ul class="logo-menu">
                     <a href="{% url 'core:home' %}" class="logo">
                         <!-- Logo White Version -->
-                        <img class="logo-white" src="{% static 'images-2019/econ-logo.png'%}" alt="">
+                        <img class="logo-white" src="{% static 'images-2019/WDS_Logo_Black.png'%}" alt="">
                         <!-- Logo Dark Version -->
-                        <img class="logo-dark" src="{% static 'images-2019/econ-logo.png'%}" alt="">
+                        <img class="logo-dark" src="{% static 'images-2019/WDS_Logo_Black.png'%}" alt="">
                         
                     </a>
                 </ul>
@@ -39,10 +39,11 @@
                 <div class="top-nav right-menu">
                     <ul class="top-ul chevron">
                         {% if user.is_authenticated %}
+                        <li><a href="{% url 'core:news' %}">&nbsp News</a></li>
                         <li><a href="{% url 'core:dashboard' %}">&nbsp Dashboard</a></li>
                         <li><a href="{% url 'core:userlogout' %}">&nbsp Logout</a></li>
                         {% else %}
-                        <li><a href="#">&nbsp News</a></li>
+                        <li><a href="{% url 'core:news' %}">&nbsp News</a></li>
                         <li><a href="{% url 'core:userlogin' %}">&nbsp Login</a></li>
                         {% endif %}
                         

@@ -1,0 +1,16 @@
+<html>
+
+<body><h1>waiting for confirmation from another user</h1>
+<table border="1">
+<tr><th>receiver</th><th>type</th><th>stock</th><th>number of stocks</th><th>priceperstock</th><th>Cancel</th></tr>
+{% for req in requests %}
+<tr><td>{{ req.receiver }}</td>
+<td>{{ req.action }} </td>
+<td>{{ req.stock }} </td>
+<td>{{ req.numberofstocks }}</td>
+<td>{{ req.priceperstock }}</td>   
+<td> <a href="{% url 'core:cancel-request' req.id %}">Cancel</a></td>
+</tr>
+{% endfor %}
+</table>
+</body></html>
