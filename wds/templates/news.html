@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<style>
+    .body{
+        background-color: #999;
+        z-index: 0;
+    }
+    .iframe-bg{
+        width:60%;
+        margin:auto;
+    }
+</style>
+
+
+
+<body>
+    <header role="banner" class="position-absolute">
+        <!-- Top Navigation -->
+    {% include "navbar.html" %}
+    </header>
+    
+    <main role="main">
+        <!-- Main Carousel -->
+        <div class="carousel-default owl-carousel carousel-main carousel-nav-white background-dark">
+            <div class="item">
+                <div class="s-12 center">
+                    <!-- For ZOOM effect add classes "background-image-zoom-out" or "background-image-zoom-in" -->
+                    <div class="section text-center background-image-zoom-out">
+                        <!-- ZOOMED Carousel Image -->
+                        <div class="background-image background-image-object" style="background-image:url({% static 'images-2019/bg-4.jpg'%})"></div>
+    
+                        <div class="line">
+                            <hr class="animated-carousel-element break background-primary break-small break-center margin-top-130">
+                            <p class="text-extra-thin animated-carousel-element text-white text-s-size-30 text-m-size-40 text-size-50 text-line-height-1 margin-bottom-0">
+                                News
+                            </p>
+                            <hr class="animated-carousel-element break background-primary break-small break-center">
+                            <p class="animated-carousel-element slow text-white margin-top-40"></p>
+                        </div>
+                        <!-- Pie Charts -->
+                      
+                    </div>
+                </div>
+                <!-- white full width arrow object -->
+                <img class="arrow-object" src="{% static 'img/arrow-object-white.svg'%}" alt="">
+            </div>
+        </div>
+    
+    </main>
+    <div class="iframe-bg">
+
+<iframe width="90%" height="600px" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+</iframe>
+
+    </div>
+{% include "footer.html" %}
+</body>
+
+
+
+{%endblock%}

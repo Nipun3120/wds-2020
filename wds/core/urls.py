@@ -12,6 +12,7 @@ urlpatterns = [
     path('userlogin/',views.user_login,name='userlogin'),
     path('stocks/',views.stock_display,name='stocks'),
     path('userlogout/',views.userlogout,name='userlogout'),
+    path('news/',views.news,name='news'),
     path('dashboard/',views.dashboard,name='dashboard'),
     path('buy-sell-form/',Trade.as_view(),name='buy-sell-form'),
     path('reqcreate/',reqcreate,name='createrequest'),
