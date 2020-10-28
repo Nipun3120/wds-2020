@@ -162,3 +162,11 @@ class tradereq(models.Model):
     def cancel(self):
         self.is_active=False
         self.save()
+
+
+class reporting(models.Model):
+    teamname = models.CharField(max_length=100)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
+
+    def __str__(self):
+        return f"{self.user}"

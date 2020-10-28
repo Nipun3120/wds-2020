@@ -9,9 +9,9 @@ from django.views.generic import ListView, DetailView, View
 from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
 from  django.http import HttpResponse, HttpResponseRedirect
-from .forms import RegisterForm,tradeform,requestsellform,tradereqform
+from .forms import RegisterForm,tradeform,requestsellform,tradereqform,reportform
 from django.urls import reverse
-from .models import Stock,trade,stock_list,tradereq
+from .models import Stock,trade,stock_list,tradereq,reporting
 import json
 def home(request):
     return render(request,"home.html")
@@ -36,6 +36,10 @@ def register(request):
         form=RegisterForm()
         
     return render(request, 'register.html', {'form': form})
+
+
+
+
 
 def user_login(request):
     if request.method=='POST':
@@ -259,6 +263,21 @@ def reqcreate(request):
         return redirect('core:sentreq')
     return render(request,'create_request.html',{'form':tradereqform})
 
+
+def report(request,*args, **kwargs):
+    form=reportform()
+    
+    if request.method=='POST':
+        form=reportform(request.POST or None)
+        if (form.is_valid()):
+            user=request.user
+            teamname=form.cleaned_data.get('teamname')
+            
+        return redirect('core:dashboard')
+        
+    return render(request, 'report.html', {'form': reportform})
+    
+
 @login_required
 def received_request(request):
     user=request.user
@@ -327,4 +346,3 @@ def cancel_request(request,*args, **kwargs):
             if trade_request:
                 trade_request.cancel()
                 return redirect("core:sentreq")
-
