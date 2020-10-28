@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import home, Trade, reqcreate,received_request,sent_request,accept_request,decline_request,cancel_request
+from .views import home, Trade, reqcreate,received_request,sent_request,accept_request,decline_request,cancel_request,report
 from core import views
 app_name="core"
 
@@ -15,6 +15,7 @@ urlpatterns = [
     path('news/',views.news,name='news'),
     path('dashboard/',views.dashboard,name='dashboard'),
     path('news/',views.news,name='news'),
+    path('report/',report,name='report'),
     path('buy-sell-form/',Trade.as_view(),name='buy-sell-form'),
     path('reqcreate/',reqcreate,name='createrequest'),
     path('receivedreq/',received_request,name='receivedreq'),

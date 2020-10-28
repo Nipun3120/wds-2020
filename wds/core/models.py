@@ -162,3 +162,10 @@ class tradereq(models.Model):
     def cancel(self):
         self.is_active=False
         self.save()
+
+class Report(models.Model):
+    reporter=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="reporter")
+    reporting=models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.reporter}"
