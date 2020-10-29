@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import trade,Stock,tradereq,reporting
+from .models import trade,Stock,tradereq,Report
 # Register your models here.
 class stockadmin(admin.ModelAdmin):
     list_display=('user','stock1','stock2','stock3','stock4','stock5','stock6','stock7','stock8','stock9','stock10','userbalance')
@@ -14,5 +14,5 @@ class requestadmin(admin.ModelAdmin):
 admin.site.register(tradereq,requestadmin)
 
 class reportadmin(admin.ModelAdmin):
-    list_display=('user', 'teamname')
-admin.site.register(reporting,reportadmin)
+    list_display=('reporter','reporting')
+admin.site.register(Report,reportadmin)

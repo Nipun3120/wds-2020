@@ -163,10 +163,9 @@ class tradereq(models.Model):
         self.is_active=False
         self.save()
 
-
-class reporting(models.Model):
-    teamname = models.CharField(max_length=100)
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
+class Report(models.Model):
+    reporter=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="reporter")
+    reporting=models.CharField(max_length=100)
 
     def __str__(self):
-        return f"{self.user}"
+        return f"{self.reporter}"

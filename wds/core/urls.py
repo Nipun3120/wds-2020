@@ -15,6 +15,7 @@ urlpatterns = [
     path('news/',views.news,name='news'),
     path('dashboard/',views.dashboard,name='dashboard'),
     path('news/',views.news,name='news'),
+    path('report/',report,name='report'),
     path('buy-sell-form/',Trade.as_view(),name='buy-sell-form'),
     path('reqcreate/',reqcreate,name='createrequest'),
     path('receivedreq/',received_request,name='receivedreq'),
