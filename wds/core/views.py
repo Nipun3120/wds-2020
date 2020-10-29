@@ -252,15 +252,36 @@ def reqcreate(request):
                 stock=form.cleaned_data.get('stock')
                 numberofstock=form.cleaned_data.get('numberofstocks')
                 priceperstock=form.cleaned_data.get('priceperstock')
-                request_trade=tradereq.objects.create(
-                    sender=sender,
-                    receiver=receiver,action=action,
-                    stock=stock,
-                    numberofstocks=numberofstock,
-                    priceperstock=priceperstock,
-                    is_active=True,
-                )
-        return redirect('core:sentreq')
+                amount = numberofstock*priceperstock
+                stock_request_sender=Stock.objects.get(user=sender)
+                if action=='buy':
+                    if (amount<=stock_request_sender.userbalance):
+                        request_trade=tradereq.objects.create(
+                            sender=sender,
+                            receiver=receiver,action=action,
+                            stock=stock,
+                            numberofstocks=numberofstock,
+                            priceperstock=priceperstock,
+                            is_active=True,
+                        )
+                        return redirect('core:sentreq')
+                    else:
+                        messages.warning(request, f'Insufficient Balance for transaction!!')
+                elif action=='sell':
+                    if (stock<=stock_request_sender.stock):
+                        request_trade=tradereq.objects.create(
+                            sender=sender,
+                            receiver=receiver,action=action,
+                            stock=stock,
+                            numberofstocks=numberofstock,
+                            priceperstock=priceperstock,
+                            is_active=True,
+                        )
+                        return redirect('core:sentreq')
+                    else:
+                        messages.warning(request, f'Insufficient Stock holdings!!')
+
+        
     return render(request,'create_request.html',{'form':tradereqform})
 @login_required
 def report(request):

@@ -1,10 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-<<<<<<< HEAD
-from .models import trade,tradereq,reporting
-=======
 from .models import trade,tradereq,Report
->>>>>>> master
 
 class RegisterForm(forms.ModelForm):
     password=forms.CharField(widget=forms.PasswordInput)
@@ -30,10 +26,5 @@ class tradereqform(forms.ModelForm):
 
 class reportform(forms.ModelForm):
     class Meta():
-<<<<<<< HEAD
-        model=reporting
-        fields=('teamname',)
-=======
         model=Report
         fields=('reporting',)
->>>>>>> master
