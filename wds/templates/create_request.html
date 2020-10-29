@@ -1,9 +1,265 @@
-<html><body><h1>form</h1>
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load materializecss%}
+{% load static %}
+{% block content %}
 
-<form method="POST" action="">
-{% csrf_token %}
-{{ form.as_p }}
+{% block css %}
 
- <button type="submit">Submit</button>
-</form>
-</body></html>
+{% endblock css%}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+</head>
+
+  
+
+
+<style>
+    :root{
+  --form-height:550px;
+  --form-width: 900px;
+  /*  Sea Green */
+  --left-color: #9fdeaf;
+  /*  Light Blue  */
+  --right-color: #96dbe2;
+}
+
+body, html{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  letter-spacing: 0.5px;
+  background-image: url("{% static 'images-2019/2.jpg' %}");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+        
+}
+
+.container{
+  width: var(--form-width);
+  height: var(--form-height);
+  position: relative;
+  margin:0 auto;
+  box-shadow: 2px 10px 40px rgba(22,20,19,0.4);
+  border-radius: 10px;
+  margin-top: 20vh;
+  
+}
+/* 
+----------------------
+      Overlay
+----------------------
+*/
+.overlay{
+  width: 100%; 
+  height: 100%;
+  position: absolute;
+  z-index: 100;
+  background-image: linear-gradient(to right, var(--left-color), var(--right-color));
+  border-radius: 10px;
+  color: white;
+  clip: rect(0, 385px, var(--form-height), 0);
+}
+
+
+
+.overlay .sign-in, .overlay .sign-up{
+  /*  Width is 385px - padding  */
+  --padding: 50px;
+  width: calc(385px - var(--padding) * 2);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px var(--padding);
+  text-align: center;
+}
+
+.overlay .sign-in{
+  float: left;
+  text-align: center;
+}
+
+
+.overlay .sign-up{
+  float:right;
+}
+
+
+.overlay h1{
+  font-weight: 400;
+  font-size: 2.5rem;
+  text-align: center;
+}
+.overlay h4{
+  margin:2%;
+}
+.overlay p{
+  margin-bottom: 2%;
+  font-weight: 200;
+  color: blue;
+}
+/* 
+------------------------
+      Buttons
+------------------------
+*/
+.switch-button, .control-button{
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 140px;
+  height: 40px;
+  font-size: 14px;
+  text-transform: uppercase;
+  background: none;
+  border-radius: 20px;
+  color: white;
+}
+
+.switch-button{
+  border: 2px solid;
+}
+
+.control-button{
+  border: none;
+  margin-top: 15px;
+}
+
+.switch-button:focus, .control-button:focus{
+  outline:none;
+}
+
+.control-button.up{
+  background-color: var(--left-color);
+}
+
+.control-button.in{
+  background-color: var(--right-color);
+}
+
+/* 
+--------------------------
+      Forms
+--------------------------
+*/
+.form{
+  width: 100%; 
+  height: 100%;
+  position: absolute;
+  border-radius: 10px;
+}
+
+.form .sign-in, .form .sign-up{
+  --padding: 50px;
+  position:absolute;
+    /*  Width is 100% - 385px - padding  */
+  width: calc(var(--form-width) - 385px - var(--padding) * 2);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px var(--padding);
+  text-align: center;
+}
+
+/* Sign in is initially not displayed */
+.form .sign-in{
+  display: none;
+}
+
+.form .sign-in{
+  left:0;
+}
+
+.form .sign-up{
+  right: 0;
+}
+
+.form .sign-in h1{
+  color: var(--right-color);
+  margin: 0;
+}
+
+.form .sign-up h1{
+  color: black;
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+
+.small{
+  font-size: 13px;
+  color: grey;
+  font-weight: 200;
+  margin: 5px;
+}
+
+#sign-in-form input, #sign-up-form input{
+  margin: 5px;
+  font-size: 1rem;
+  padding: 5px;
+  width: 260px;
+  font-weight: 300;
+  border: none;
+  background-color: #e4e4e494;
+  font-family: 'Helvetica Neue', sans-serif;
+  letter-spacing: 1.5px;
+  
+}
+
+#sign-in-form input::placeholder{
+  letter-spacing: 1px;
+}
+
+</style>
+<body>
+
+
+
+<div class="container">
+    <div class="overlay" id="overlay">
+      <div class="sign-in" id="sign-in">
+        <h1>Create Trade Request</h1>
+        <h4>#For selling</h4>
+        <p>You should have the number of stocks(of stock you are selling) at present in your holdings!</p>
+        <h4>#For buying</h4>
+        <p>Account balance > (Number of stocks) x (Price per stock) </p>
+      </div>
+      <div class="sign-up" id="sign-up">
+        <h1>Hello, Friend!</h1>
+        <p>Enter your personal details and start a journey with us</p>
+        
+      </div>
+    </div>
+    <div class="form">
+      <div class="sign-in" id="sign-in-info">
+     
+             
+      </div>
+      <div class="sign-up" id="sign-up-info">
+        <!--<h1>Create Trade Request</h1><br>-->
+              
+        <form id="sign-up-form" method="POST" enctype="\application/x-www-form-urlencoded">
+            {% csrf_token %}
+            {{ form|materializecss:'custom_size=s6' }}
+            
+          <button class="control-button up">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+  {% endblock %}

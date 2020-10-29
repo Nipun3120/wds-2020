@@ -2,58 +2,70 @@
 {% block content %}
 {% load static %}
 <style>
-    .body{
-        background-color: #999;
-        z-index: 0;
-    }
-    .iframe-bg{
-        width:60%;
-        margin:auto;
-    }
+  body {
+        background-image: url("{% static 'images-2019/2.jpg' %}");
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        font: 16px/1.6 Arial, sans-serif;
+      }
+  .iframe-container{
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; 
+  height: 0;
+}
+.iframe-container iframe{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.cont{
+    width: 70%;
+    height: 60%;
+    
+    margin: auto;
+    background-color: azure;
+}
+h1 {
+    font-size:4rem;
+    color: black;
+    font-weight: bold;
+    margin-top: 15vh;
+    margin-bottom: 0;
+    z-index: 1 !important;
+}
+p{
+    font-size:2.5rem;
+    color: black;
+    font-weight: bold;
+    line-height: 1;
+}
+.container{
+    text-align: center;
+}
 </style>
 
 
 
 <body>
-    <header role="banner" class="position-absolute">
+    <header role="banner" class="position-absolute" style="background-color: #060930;margin-top: 0;">
         <!-- Top Navigation -->
     {% include "navbar.html" %}
     </header>
-    
-    <main role="main">
-        <!-- Main Carousel -->
-        <div class="carousel-default owl-carousel carousel-main carousel-nav-white background-dark">
-            <div class="item">
-                <div class="s-12 center">
-                    <!-- For ZOOM effect add classes "background-image-zoom-out" or "background-image-zoom-in" -->
-                    <div class="section text-center background-image-zoom-out">
-                        <!-- ZOOMED Carousel Image -->
-                        <div class="background-image background-image-object" style="background-color: purple;)"></div>
-    
-                        <div class="line">
-                            <hr class="animated-carousel-element break background-primary break-small break-center margin-top-130">
-                            <p class="text-extra-thin animated-carousel-element text-white text-s-size-30 text-m-size-40 text-size-50 text-line-height-1 margin-bottom-0">
-                                News
-                            </p>
-                            <hr class="animated-carousel-element break background-primary break-small break-center">
-                            <p class="animated-carousel-element slow text-white margin-top-40"></p>
-                        </div>
-                        <!-- Pie Charts -->
-                      
-                    </div>
-                </div>
-                <!-- white full width arrow object -->
-                <img class="arrow-object" src="{% static 'img/arrow-object-white.svg'%}" alt="">
-            </div>
+    <div class="container">
+    <h1>NEWS</h1>
+    <p>Stock Market is not all about trading.</p><p> How well you understand your surroundings will decide whether you gain or lose.</p><p> So watch the NEWS carefully!</p><br>
+    <div class="cont">
+        
+        <div class="iframe-container">
+            <iframe width="1000" height="500" src="https://www.youtube-nocookie.com/embed/57MhCvW9caw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-    
-    </main>
-    <div class="iframe-bg">
-
-<iframe width="90%" height="600px" src="https://www.youtube.com/watch?v=57MhCvW9caw">
-</iframe>
-
     </div>
+</div>
 {% include "footer.html" %}
 </body>
 
