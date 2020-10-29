@@ -258,7 +258,7 @@ def reqcreate(request):
                 )
         return redirect('core:sentreq')
     return render(request,'create_request.html',{'form':tradereqform})
-
+@login_required
 def report(request):
     form = reportform()
     if request.method=='POST':
