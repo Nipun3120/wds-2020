@@ -14,7 +14,7 @@ from django.urls import reverse
 from .models import Stock,trade,stock_list,tradereq,Report
 import json
 def home(request):
-    return render(request,"home.html")
+    return render(request,"home.html", {'messages': messages.get_messages(request)})
 
 def news(request):
     return render(request,"news.html")
