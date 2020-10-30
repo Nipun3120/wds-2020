@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+<html>
+
+<body><h1>Transaction Log</h1>
+<table border="1">
+<tr><th>receiver</th><th>type</th><th>stock</th><th>number of stocks</th><th>priceperstock</th><th>Status</th></tr>
+{% for req in requests %}
+
+<tr><td>{{ req.receiver }}</td>
+<td>{{ req.action }} </td>
+<td>{{ req.stock }} </td>
+<td>{{ req.numberofstocks }}</td>
+<td>{{ req.priceperstock }}</td> 
+<td>{{ req.status }}</td>
+</tr>
+{% endfor %}
+</table>
+</body></html>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
