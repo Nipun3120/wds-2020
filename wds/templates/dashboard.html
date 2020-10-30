@@ -6,104 +6,263 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <!-- <link href="{% static '/css/css/bootstrap.min.css' %}" rel="stylesheet"> 
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">-->
+
+    
     <style>
-      body {
-        background-image: url("{% static 'images-2019/bg-7.jpg' %}");
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        font:  font-family: Verdana, Geneva, Tahoma, sans-serif;;
-      }
-    </style>
+      *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+      
+}
+
+
+
+body {
+    background-image: url("{% static '/images-2019/bg-10.png' %}");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font: 16px/1.6 Arial, sans-serif; 
+    height: 100vh;
+}
+
+
+main{
+    margin-top: 150px;
+    display: flex;
+    height: 65vh;
+    
+}
+
+/*   ---------------------------    SIDE BAR   -------------------------------- */
+.side-bar-wrapper {
+    width: 20%;
+    background: white;
+    padding: 0 10px 0 35px;
+}
+
+/*   ------------------ team info  ------------------ */
+
+.side-bar-wrapper .team-info{
+    padding-left: 3vw;
+}
+.side-bar-wrapper .team-info .team-name h2{             /*  name size */
+    font-size: 2.3rem;
+    font-weight: bolder;
+    margin-bottom: 25px;
+}
+.side-bar-wrapper .team-info .team-balance h5 {
+    font-size: 1.6em;
+    font-weight: 600;
+    
+}
+
+
+/*   ------------------ Buttons  ------------------ */
+.requestButtons{
+    margin-top: 30px;
+}
+.requestButtons .req-btn{
+    margin-bottom: 10px;
+    /* width: 100%; */
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.requestButtons .req-btn:hover{
+    cursor: pointer;
+    text-align: center;
+}
+.requestButtons .req-btn a{
+    width: 100%;
+    padding: 15px 10px;
+    background: tomato;
+}
+
+
+/*   ---------------------------    table   -------------------------------- */
+
+/* overriding  */
+table{
+    background: transparent;
+}
+.stock-table{
+    width: 50%;
+    padding-left: 10vh;
+    margin-left: 10%;
+    padding: 10px;
+    margin-top: -15px;
+    
+}
+
+.stock-table .stockTableInsider table {
+    background: transparent;
+}
+.stock-table .stockTableInsider .talberow{
+    background: none;
+
+}
+.stockTableInsider thead{
+    height: 70px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #fff;
+    background-image: linear-gradient(to right, #423366d0, #295763d0);
+}
+
+.stockTableInsider thead th{
+    font-size: 2rem;
+    text-align: center;
+    height: 50px;
+    color: white;
+}
+
+.stockTableInsider tbody{
+    background: rgba(128, 128, 128, 0.308);
+}
+
+.stockTableInsider tbody tr{
+    color: white;
+}
+
+.stockTableInsider tbody td{
+    text-align: center;
+    font-size: 1.3rem;
+    margin-right: 1px;
+    padding-right: 10px;
+    color: white;
+}
+
+th, table tr:nth-of-type(2n){
+    border: none;
+    background: none;
+}
+
+th, table tr:nth-of-type(2n) td{
+    border: none;
+    background: none;
+}
+
+@media (max-width: 425px) {
+
+    main{
+        margin-top: 50px;
+        /* display: flexbox; */
+        /* flex-direction: column-reverse; */
+        
+    }
+}
+    </style>    
   </head>
   <body>
-    {% include "navbar.html" %}
-    <h1 class="dash"><b>DASHBOARD</b></h1>
-    <h2 class="dash">{{ user.username }}</h2>
-    {% for dd in dashdata %}    
-    <h1 class="dash">User Balance {{ dd.userbalance }}</h1>
-    {% endfor %}
-    <div class="store">
-      <br/>
-      <a class="btn btn-outline-secondary" href="{% url 'core:sentreq' %}">Requests Sent</a>
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      <a class="btn btn-outline-secondary" href="{% url 'core:receivedreq' %}">Received Requests</a>
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      <a class="btn btn-outline-secondary" href="{% url 'core:createrequest' %}">Create Trade Request</a>
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      <a class="btn btn-outline-secondary" href="{% url 'core:report' %}">Report(Insider Trading)</a>
-      <br/>
-      <br/>
-    </div>
-   <br/>
-    <div class="container">
-      <table class="table table-primary table-bordered table-hover">
-        <thead>
-          <th>Stock Name</th>
-          <th>Number Of Stocks</th>
-          {% comment %}
-          <th>Current Price</th>
-          {% endcomment %}
-        </thead>
-        {% comment %} {% for dd in dashdata %}
-        <tr>
-          <td>{{ dd.stock }}</td>
-          <td>{{ dd.numberofstocks }}</td>
-          <td>{{ dd.priceperstock }}</td>
-        </tr>
-        {% endfor %} {% endcomment %} {% for dd in dashdata %}
-        <tr>
-          <td>Stock1</td>
-          <td>{{dd.stock1}}</td>
-        </tr>
-        <tr>
-          <td>Stock2</td>
-          <td>{{dd.stock2}}</td>
-        </tr>
-        <tr>
-          <td>Stock3</td>
-          <td>{{dd.stock3}}</td>
-        </tr>
-        <tr>
-          <td>Stock4</td>
-          <td>{{dd.stock4}}</td>
-        </tr>
-        <tr>
-          <td>Stock5</td>
-          <td>{{dd.stock5}}</td>
-        </tr>
-        <tr>
-          <td>Stock6</td>
-          <td>{{dd.stock6}}</td>
-        </tr>
-        <tr>
-          <td>Stock7</td>
-          <td>{{dd.stock7}}</td>
-        </tr>
-        <tr>
-          <td>Stock8</td>
-          <td>{{dd.stock8}}</td>
-        </tr>
-        <tr>
-          <td>Stock9</td>
-          <td>{{dd.stock9}}</td>
-        </tr>
-        <tr>
-          <td>Stock10</td>
-          <td>{{dd.stock10}}</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
-    
+    <header role="banner" class="position-absolute">
+      <!-- Top Navigation -->
+  {% include "navbar.html" %}
+  </header>
 
+    <main class="mainpage">
+
+      
+      <div class="side-bar-wrapper">
+          
+            <div class="team-info">
+              <div class="team-name"><h2>{{ user.username }}</h2></div>
+              <div class="team-balance">    
+                {% for dd in dashdata %}
+                <h5>Team Balance {{ dd.userbalance }}</h5>
+                {% endfor %}
+              </div>
+            </div>
+
+            <div class="requestButtons">
+              <div class="req-btn"><a class="btn-insider" href="{% url 'core:sentreq' %}">Requests Sent</a></div>
+              <div class="req-btn"><a class="btn-insider" href="{% url 'core:receivedreq' %}">Received Requests</a></div>
+              <div class="req-btn"><a class="btn-insider" href="{% url 'core:createrequest' %}">Create Trade Request</a></div>
+              <div class="req-btn"><a class="btn-insider" href="{% url 'core:report' %}">Report(Insider Trading)</a></div>
+              <div class="req-btn"><a class="btn-insider" href="{% url 'core:transaction-history' %}">transaction history</a></div>
+          </div>
+          
+      </div>
+
+      <!--    ----------------- STOCKS TABLE -------------------     -->
+        <div class="stock-table">
+            
+              <table class="stockTableInsider">
+                
+                <thead >
+                  <th>Stock Name</th>
+                  <th>Number Of Stocks</th>
+                  {% comment %}
+                  <th>Current Price</th>
+                  {% endcomment %}
+                </thead>
+                
+                <tbody>
+
+                  {% comment %} {% for dd in dashdata %}
+                  <tr class="tablerow1">
+                    <td>{{ dd.stock }}</td>
+                    <td>{{ dd.numberofstocks }}</td>
+                    <td>{{ dd.priceperstock }}</td>
+                  </tr>
+                  {% endfor %} {% endcomment %} {% for dd in dashdata %}
+                  <tr class="tablerow">
+                    <td>Stock1</td>
+                    <td>{{dd.stock1}}</td>
+                  </tr>
+                  <tr class="tablerow">
+                    <td>Stock2</td>
+                    <td>{{dd.stock2}}</td>
+                  </tr>
+                  <tr class="tablerow">
+                    <td>Stock3</td>
+                    <td>{{dd.stock3}}</td>
+                  </tr>
+                  <tr class="tablerow">
+                    <td>Stock4</td>
+                    <td>{{dd.stock4}}</td>
+                  </tr>
+                  <tr class="tablerow">
+                    <td>Stock5</td>
+                    <td>{{dd.stock5}}</td>
+                  </tr>
+                  <tr class="tablerow">
+                    <td>Stock6</td>
+                    <td>{{dd.stock6}}</td>
+                  </tr>
+                  <tr class="tablerow">
+                    <td>Stock7</td>
+                    <td>{{dd.stock7}}</td>
+                  </tr>
+                  <tr class="tablerow">
+                    <td>Stock8</td>
+                    <td>{{dd.stock8}}</td>
+                  </tr>
+                  <tr class="tablerow">
+                    <td>Stock9</td>
+                    <td>{{dd.stock9}}</td>
+                  </tr>
+                  <tr class="lastrow talberow">
+                    <td>Stock10</td>
+                    <td>{{dd.stock10}}</td>
+                  </tr>
+                  {% endfor %}
+
+                  
+                </tbody>
+              </table>
+            
+            
+      </div>
+      
+ </main>
+    
     {% include "footer.html" %}
   </body>
 </html>
