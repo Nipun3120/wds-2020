@@ -254,7 +254,7 @@ def reqcreate(request):
                 priceperstock=form.cleaned_data.get('priceperstock')
                 amount = numberofstock*priceperstock
                 stock_request_sender=Stock.objects.get(user=sender)
-                
+                status='pending'
                 if action=='buy':
                     if (amount<=stock_request_sender.userbalance):
                         request_trade=tradereq.objects.create(

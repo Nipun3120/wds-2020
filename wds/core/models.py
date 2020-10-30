@@ -68,11 +68,12 @@ class tradereq(models.Model):
     sender=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="sender_trade")
     receiver=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="receiver_trade")
     action=models.CharField(choices=action_list,max_length=10,default='buy')
+    status=models.CharField(choices=status_list,max_length=50,default='pending')
     stock=models.CharField(choices=stock_list,max_length=100)
     numberofstocks=models.IntegerField(default=0)
     priceperstock=models.FloatField(null=True, blank=False)
     is_active= models.BooleanField(blank=False, null=False, default=True)
-    status=models.CharField(choices=status_list,max_length=50,default='pending')
+    
     def __str__(self):
         return self.sender.username
     def accept(self):
@@ -154,6 +155,7 @@ class tradereq(models.Model):
             sender_stock.save()
         self.is_active=False
         self.status="accepted"
+        print(self.status)
         trading=trade.objects.create(
                     seller=self.receiver,
                     stock=self.stock,
@@ -166,12 +168,13 @@ class tradereq(models.Model):
     def decline(self):
         self.is_active=False
         self.status="declined"
-        
+        print(self.status)
         self.save()
 
     def cancel(self):
         self.is_active=False
         self.status="cancelled"
+        print(self.status)
         self.save()
 
 class Report(models.Model):
