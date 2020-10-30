@@ -1,4 +1,6 @@
-{% extends "base.html" %} {% load static %} {% block content %}
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -28,6 +30,7 @@
     </div>
     <div>
       <a class="btn btn-outline-secondary" href="{% url 'core:createrequest' %}">Create Trade Request</a>
+      <a class="btn btn-outline-secondary" href="{% url 'core:transaction-history' %}">Transaction Log</a>
     </div>
     <div class="container-fluid">
       <table class="table table-dark table-bordered table-hover">
