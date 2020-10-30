@@ -22,7 +22,7 @@
   --form-height:550px;
   --form-width: 900px;
   /*  Sea Green */
-  --left-color: #9fdeaf;
+  --left-color: #21bfae;
   /*  Light Blue  */
   --right-color: #96dbe2;
 }
@@ -31,7 +31,7 @@ body, html{
   width: 100%;
   height: 100%;
   margin: 0;
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
   letter-spacing: 0.5px;
   background-image: url("{% static 'images-2019/2.jpg' %}");
   background-attachment: fixed;
@@ -51,6 +51,8 @@ body, html{
   margin-top: 20vh;
   
 }
+
+
 /* 
 ----------------------
       Overlay
@@ -94,17 +96,19 @@ body, html{
 
 
 .overlay h1{
-  font-weight: 400;
-  font-size: 2.5rem;
+  font-weight: 800;
+  font-size: 3 rem;
   text-align: center;
+  color: white;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .overlay h4{
   margin:2%;
 }
 .overlay p{
   margin-bottom: 2%;
-  font-weight: 200;
-  color: blue;
+  font-weight: 400;
+  color: purple;
 }
 /* 
 ------------------------
@@ -241,7 +245,7 @@ body, html{
 <div class="container">
     <div class="overlay" id="overlay">
       <div class="sign-in" id="sign-in">
-        <h1>Create Trade Request</h1>
+        <h1><b>Create Trade Request</b></h1>
         <h4>#For selling</h4>
         <p>You should have the number of stocks(of stock you are selling) at present in your holdings!</p>
         <h4>#For buying</h4>

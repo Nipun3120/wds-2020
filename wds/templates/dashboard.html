@@ -8,32 +8,43 @@
     <title>Document</title>
     <style>
       body {
-        background-image: url("{% static 'images-2019/bg-3.jpg' %}");
+        background-image: url("{% static 'images-2019/bg-7.jpg' %}");
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        font: 16px/1.6 Arial, sans-serif;
+        font:  font-family: Verdana, Geneva, Tahoma, sans-serif;;
       }
     </style>
   </head>
   <body>
     {% include "navbar.html" %}
-    <h1>Dashboard</h1>
-    <h2>{{ user.username }}</h2>
-    {% for dd in dashdata %}
-    <h1>User Balance {{ dd.userbalance }}</h1>
+    <h1 class="dash"><b>DASHBOARD</b></h1>
+    <h2 class="dash">{{ user.username }}</h2>
+    {% for dd in dashdata %}    
+    <h1 class="dash">User Balance {{ dd.userbalance }}</h1>
     {% endfor %}
-    <div>
+    <div class="store">
+      <br/>
       <a class="btn btn-outline-secondary" href="{% url 'core:sentreq' %}">Requests Sent</a>
+      &nbsp;
+      &nbsp;
+      &nbsp;
       <a class="btn btn-outline-secondary" href="{% url 'core:receivedreq' %}">Received Requests</a>
-    </div>
-    <div>
+      &nbsp;
+      &nbsp;
+      &nbsp;
       <a class="btn btn-outline-secondary" href="{% url 'core:createrequest' %}">Create Trade Request</a>
-      <a class="btn btn-outline-secondary" href="{% url 'core:transaction-history' %}">Transaction Log</a>
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      <a class="btn btn-outline-secondary" href="{% url 'core:report' %}">Report(Insider Trading)</a>
+      <br/>
+      <br/>
     </div>
-    <div class="container-fluid">
-      <table class="table table-dark table-bordered table-hover">
+   <br/>
+    <div class="container">
+      <table class="table table-primary table-bordered table-hover">
         <thead>
           <th>Stock Name</th>
           <th>Number Of Stocks</th>
@@ -91,7 +102,7 @@
         {% endfor %}
       </table>
     </div>
-    <a class="btn btn-outline-secondary" href="{% url 'core:report' %}">Report(Insider Trading)</a>
+    
 
     {% include "footer.html" %}
   </body>

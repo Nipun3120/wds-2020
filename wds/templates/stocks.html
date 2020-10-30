@@ -12,7 +12,10 @@ background-repeat: no-repeat;
 background-size: cover;
 font:16px/1.6 Arial,  sans-serif;
 }
-
+.cs{
+  color: white;
+  font-size: 40px;
+}
 </style>
 </head>
 <body>
@@ -25,10 +28,11 @@ font:16px/1.6 Arial,  sans-serif;
         
         <a class="btn btn-outline-secondary" href="{% url 'core:createrequest' %}">Create Trade Request</a>
       </div>
-      <h1>All Available Stocks</h1>
-      <div class="container-fluid">
+      &nbsp;
+      <h1 class="cs"><b>All Available Stocks</b></h1>
+      <div class="container">
         
-      <table class="table-primary pt-3 table-bordered table-hover">
+      <table class="table table-primary table-bordered table-hover">
         <thead>
           <th>Stock Name</th>
           <th>Current Price</th>
