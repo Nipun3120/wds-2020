@@ -428,6 +428,14 @@ def sent_request(request):
     user=request.user
     sent_pending=tradereq.objects.order_by('-id').filter(sender=user,is_active=True)
     return render(request,'sent_requests.html',{'requests':sent_pending})
+
+@login_required
+def history(request):
+    user=request.user
+    transactions=tradereq.objects.order_by('-id').filter(sender=user)
+    return render(request,'transaction-history.html',{'requests':transactions})
+
+
 """
 @login_required
 def accept_request(request,*args, **kwargs):
@@ -485,3 +493,5 @@ def cancel_request(request,*args, **kwargs):
             if trade_request:
                 trade_request.cancel()
                 return redirect("core:sentreq")
+
+
