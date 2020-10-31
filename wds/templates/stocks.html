@@ -24,10 +24,7 @@ font:16px/1.6 Arial,  sans-serif;
     {% include "navbar.html" %}
   </header>
 
-    <div class="form-group">
-        
-        <a class="btn btn-outline-secondary" href="{% url 'core:createrequest' %}">Create Trade Request</a>
-      </div>
+    
       &nbsp;
       <h1 class="cs"><b>All Available Stocks</b></h1>
       <div class="container">
@@ -41,7 +38,7 @@ font:16px/1.6 Arial,  sans-serif;
               {% for post in posts %}
               <tr>
                 <td>{{ post.stockname }}</td>
-                <td>{{ post.price }}</td>
+                <td>{{ post.stockprice }}</td>
               </tr>
               {% endfor %}
 

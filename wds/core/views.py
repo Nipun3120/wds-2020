@@ -11,7 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 from  django.http import HttpResponse, HttpResponseRedirect
 from .forms import RegisterForm,tradeform,requestsellform,tradereqform,reportform
 from django.urls import reverse
-from .models import Stock,trade,stock_list,tradereq,Report
+from .models import Stock,trade,stock_list,tradereq,Report,StockList
 import json
 def home(request):
     return render(request,"home.html", {'messages': messages.get_messages(request)})
@@ -71,7 +71,7 @@ def dashboard(request):
     user_dashdata = Stock.objects.filter(user=request.user)
     dash_dic = {'dashdata':user_dashdata}
     return render(request,'dashboard.html', {'dashdata':user_dashdata})
-
+'''
 posts = [
     {
         'stockname': stock_list[0][0],
@@ -115,10 +115,10 @@ posts = [
     },
 
 ]
-
+'''
 def stock_display(request):
     context = {
-      'posts': posts
+      'posts': StockList.objects.all()
     }
     return render(request,'stocks.html', context)
 
