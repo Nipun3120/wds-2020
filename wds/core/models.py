@@ -31,6 +31,13 @@ action_list=(
     ('sell','sell')
 )
 
+class StockList(models.Model):
+    stockname = models.CharField(max_length=100)
+    stockprice = models.IntegerField(default=0)
+    def __str__(self):
+        return f"{self.stockname}"
+
+
 class Stock(models.Model):
     user=models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
     stock1=models.IntegerField(default=0)
