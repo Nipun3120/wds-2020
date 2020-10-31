@@ -31,7 +31,7 @@ body {
 }
 
 
-main{
+section{
     margin-top: 150px;
     display: flex;
     height: 65vh;
@@ -159,14 +159,26 @@ th, table tr:nth-of-type(2n) td{
     }
 }
     </style>    
-  </head>
+  
+</head>
+
+  
+  
+  
+  
+  
+  
+  
   <body>
+
     <header role="banner" class="position-absolute">
       <!-- Top Navigation -->
   {% include "navbar.html" %}
+      
+
   </header>
 
-    <main class="mainpage">
+    <section class="mainpage">
 
       
       <div class="side-bar-wrapper">
@@ -261,9 +273,9 @@ th, table tr:nth-of-type(2n) td{
             
       </div>
       
- </main>
+    </section>
     
-    {% include "footer.html" %}
+    
   </body>
 </html>
 {% endblock content %}
