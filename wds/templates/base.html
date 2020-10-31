@@ -49,18 +49,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
   <style>
     a:hover{text-decoration: none;}
+    msg-style{
+      
+    }
   </style>
     {% endblock css %}
 
-
+<center>
 {% if messages %}
   {% for message in messages %}
-    <div class="alert alert-{{ message.tags }}">
+    <div class="alert {{ message.tags }} msg-style">
       {{ message }}
     </div>
   {% endfor %}
 {% endif %}
-
+</center>
 
 
     
