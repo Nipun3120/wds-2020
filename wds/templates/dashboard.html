@@ -5,7 +5,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Dashboard</title>
     <!-- <link href="{% static '/css/css/bootstrap.min.css' %}" rel="stylesheet"> 
     <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">-->
 
@@ -22,14 +22,17 @@
 
 
 body {
-    /* background-image: url("{% static '/images-2019/bg-10.png' %}"); */
-    /* background-attachment: fixed;
+  
+    /* background-image: url("{% static '/images-2019/bg-10.png' %}");
+    background-attachment: fixed; 
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover; */
+    background-size: cover;  */
+
+    /* background: linear-gradient(to right, #2A5470, #4C4177); */
+
     font: 16px/1.6 Arial, sans-serif; 
-    background-color: #000;
-    /* height: 100vh; */
+    background: linear-gradient(to left, #393f92 25%, #690077 100%);
 }
 
 .nav-carosel-height{
@@ -37,17 +40,18 @@ body {
 }
 
 main{
-    /* margin-top: 220px; */
 
     display: flex;
-    height: 65vh;
+    height: 50rem;
     
 }
 
 /*   ---------------------------    SIDE BAR   -------------------------------- */
 .side-bar-wrapper {
     width: 20%;
+    /* background: linear-gradient(to right, #2A5470, #4C4177); */
     background: white;
+    
     padding: 0 10px 0 35px;
 }
 
@@ -94,10 +98,7 @@ main{
 
 /*   ---------------------------    table   -------------------------------- */
 
-/* overriding  */
-table{
-    background: transparent;
-}
+
 .stock-table{
     width: 50%;
     padding-left: 10vh;
@@ -106,9 +107,23 @@ table{
     margin-top: -15px;
     
 }
+/* overriding  */
+th, table tr:nth-of-type(2n){
+    border: none;
+    background: transparent;
+}
+
+th, table tr:nth-of-type(2n) td{
+    border: none;
+    background: transparent;
+}
+table{
+    background: transparent;
+}
+
 
 .stock-table .stockTableInsider table {
-    background: transparent;
+
 }
 .stock-table .stockTableInsider .talberow{
     background: none;
@@ -131,6 +146,7 @@ table{
 
 .stockTableInsider tbody{
     background: rgba(128, 128, 128, 0.308);
+    
 }
 
 .stockTableInsider tbody tr{
@@ -145,15 +161,6 @@ table{
     color: white;
 }
 
-th, table tr:nth-of-type(2n){
-    border: none;
-    background: none;
-}
-
-th, table tr:nth-of-type(2n) td{
-    border: none;
-    background: none;
-}
 
 @media (max-width: 425px) {
 
@@ -165,24 +172,15 @@ th, table tr:nth-of-type(2n) td{
     }
 }
     </style>    
-  
-</head>
-
-  
-  
-  
-  
-  
-  
-  
+  </head>
   <body>
 
     <header role="banner" class="position-absolute">
       <!-- Top Navigation -->
   {% include "navbar.html" %}
-      
-
   </header>
+
+  <!-- ---------  nav-carousel -------- -->
   <div class="carousel-default owl-carousel carousel-main carousel-nav-white nav-carosel-height">
     <div class="item">
         <div class="s-12 center">
@@ -209,9 +207,8 @@ th, table tr:nth-of-type(2n) td{
 </div>
 
 
-    <section class="mainpage">
+    <main class="mainpage">
 
-      
       <div class="side-bar-wrapper">
           
             <div class="team-info">
@@ -236,6 +233,9 @@ th, table tr:nth-of-type(2n) td{
       <!--    ----------------- STOCKS TABLE -------------------     -->
         <div class="stock-table">
             
+          <div class="table-heading">
+            Stock Holdings
+          </div>
               <table class="stockTableInsider">
                 
                 <thead >
@@ -304,8 +304,7 @@ th, table tr:nth-of-type(2n) td{
             
       </div>
       
-    </section>
-    
+ </main>
     
  {% include "footer.html" %}
     
