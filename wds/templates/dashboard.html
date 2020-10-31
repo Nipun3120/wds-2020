@@ -11,7 +11,8 @@
 
     
     <style>
-      *{
+
+    *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -21,18 +22,23 @@
 
 
 body {
-    background-image: url("{% static '/images-2019/bg-10.png' %}");
-    background-attachment: fixed;
+    /* background-image: url("{% static '/images-2019/bg-10.png' %}"); */
+    /* background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
     font: 16px/1.6 Arial, sans-serif; 
-    height: 100vh;
+    background-color: #000;
+    /* height: 100vh; */
 }
 
+.nav-carosel-height{
+   height: 250px;
+}
 
-section{
-    margin-top: 150px;
+main{
+    /* margin-top: 220px; */
+
     display: flex;
     height: 65vh;
     
@@ -177,6 +183,31 @@ th, table tr:nth-of-type(2n) td{
       
 
   </header>
+  <div class="carousel-default owl-carousel carousel-main carousel-nav-white nav-carosel-height">
+    <div class="item">
+        <div class="s-12 center">
+            <!-- For ZOOM effect add classes "background-image-zoom-out" or "background-image-zoom-in" -->
+            <div class="section text-center background-image-zoom-out">
+                <!-- ZOOMED Carousel Image -->
+                <div class="background-image background-image-object" style="background-image:url({% static 'images-2019/bg-6.png'%})"></div>
+
+                <div class="line" style="visibility: hidden;">
+                    <hr class="animated-carousel-element break background-primary break-small break-center margin-top-130">
+                    <p class="text-extra-thin animated-carousel-element text-white text-s-size-30 text-m-size-40 text-size-50 text-line-height-1 margin-bottom-0">
+                        
+                    </p>
+                    <hr class="animated-carousel-element break background-primary break-small break-center">
+                    <p class="animated-carousel-element slow text-white margin-top-40"></p>
+                </div>
+                <!-- Pie Charts -->
+              
+            </div>
+        </div>
+        <!-- white full width arrow object -->
+        <img class="arrow-object" src="{% static 'img/arrow-object-white.svg'%}" alt="">
+    </div>
+</div>
+
 
     <section class="mainpage">
 
@@ -275,6 +306,8 @@ th, table tr:nth-of-type(2n) td{
       
     </section>
     
+    
+ {% include "footer.html" %}
     
   </body>
 </html>
