@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.contenttypes.models import ContentType
 from django.utils import timezone
+from django.contrib import messages
+from  django.http import HttpResponse
 #from notifications.models import Notification
 #from django.dispatch import receiver
 # Create your models here.
@@ -91,77 +93,132 @@ class tradereq(models.Model):
             sender_stock.userbalance=sender_stock.userbalance-amount
             receiver_stock.userbalance=receiver_stock.userbalance+amount
             if self.stock=='stock1':
-                sender_stock.stock1=sender_stock.stock1+self.numberofstocks
-                receiver_stock.stock1=receiver_stock.stock1-self.numberofstocks
+                if (receiver_stock.stock1>=self.numberofstocks):
+                    sender_stock.stock1=sender_stock.stock1+self.numberofstocks
+                    receiver_stock.stock1=receiver_stock.stock1-self.numberofstocks
+                    self.is_active=False
+                    self.status='accepted'
+                else:
+                    return ('Insufficient Stock Holdings')
             elif self.stock=='stock2':
-                sender_stock.stock2=sender_stock.stock2+self.numberofstocks
-                receiver_stock.stock2=receiver_stock.stock2-self.numberofstocks
+                if (receiver_stock.stock2>=self.numberofstocks):
+                    sender_stock.stock2=sender_stock.stock2+self.numberofstocks
+                    receiver_stock.stock2=receiver_stock.stock2-self.numberofstocks
+                    self.is_active=False
+                    self.status='accepted'
+                else:
+                    return ('Insufficient Stock Holdings')
             elif self.stock=='stock3':
-                sender_stock.stock3=sender_stock.stock3+self.numberofstocks
-                receiver_stock.stock3=receiver_stock.stock3-self.numberofstocks
+                if (receiver_stock.stock3>=self.numberofstocks):
+                    sender_stock.stock3=sender_stock.stock3+self.numberofstocks
+                    receiver_stock.stock3=receiver_stock.stock3-self.numberofstocks
+                    self.is_active=False
+                    self.status='accepted'
+                else:
+                    return ('Insufficient Stock Holdings')
             elif self.stock=='stock4':
-                sender_stock.stock4=sender_stock.stock4+self.numberofstocks
-                receiver_stock.stock4=receiver_stock.stock4-self.numberofstocks
+                if (receiver_stock.stock4>=self.numberofstocks):
+                    sender_stock.stock4=sender_stock.stock4+self.numberofstocks
+                    receiver_stock.stock4=receiver_stock.stock4-self.numberofstocks
+                    self.is_active=False
+                    self.status='accepted'
+                else:
+                    return ('Insufficient Stock Holdings')
             elif self.stock=='stock5':
-                sender_stock.stock5=sender_stock.stock5+self.numberofstocks
-                receiver_stock.stock5=receiver_stock.stock5-self.numberofstocks
+                if (receiver_stock.stock5>=self.numberofstocks):
+                    sender_stock.stock1=sender_stock.stock5+self.numberofstocks
+                    receiver_stock.stock5=receiver_stock.stock5-self.numberofstocks
+                    self.is_active=False
+                    self.status='accepted'
+                else:
+                    return ('Insufficient Stock Holdings')
             elif self.stock=='stock6':
-                sender_stock.stock6=sender_stock.stock6+self.numberofstocks
-                receiver_stock.stock6=receiver_stock.stock6-self.numberofstocks
+                if (receiver_stock.stock6>=self.numberofstocks):
+                    sender_stock.stock6=sender_stock.stock6+self.numberofstocks
+                    receiver_stock.stock6=receiver_stock.stock6-self.numberofstocks
+                    self.is_active=False
+                    self.status='accepted'
+                else:
+                    return ('Insufficient Stock Holdings')
             elif self.stock=='stock7':
-                sender_stock.stock7=sender_stock.stock7+self.numberofstocks
-                receiver_stock.stock7=receiver_stock.stock7-self.numberofstocks
+                if (receiver_stock.stock7>=self.numberofstocks):
+                    sender_stock.stock7=sender_stock.stock7+self.numberofstocks
+                    receiver_stock.stock7=receiver_stock.stock7-self.numberofstocks
+                    self.is_active=False
+                    self.status='accepted'
+                else:
+                    return ('Insufficient Stock Holdings')
             elif self.stock=='stock8':
-                sender_stock.stock8=sender_stock.stock8+self.numberofstocks
-                receiver_stock.stock8=receiver_stock.stock8-self.numberofstocks
+                if (receiver_stock.stock8>=self.numberofstocks):
+                    sender_stock.stock8=sender_stock.stock8+self.numberofstocks
+                    receiver_stock.stock8=receiver_stock.stock8-self.numberofstocks
+                    self.is_active=False
+                    self.status='accepted'
+                else:
+                    return ('Insufficient Stock Holdings')
             elif self.stock=='stock9':
-                sender_stock.stock9=sender_stock.stock9+self.numberofstocks
-                receiver_stock.stock9=receiver_stock.stock9-self.numberofstocks
+                if (receiver_stock.stock9>=self.numberofstocks):
+                    sender_stock.stock9=sender_stock.stock9+self.numberofstocks
+                    receiver_stock.stock9=receiver_stock.stock9-self.numberofstocks
+                    self.is_active=False
+                    self.status='accepted'
+                else:
+                    return ('Insufficient Stock Holdings')
             elif self.stock=='stock10':
-                sender_stock.stock10=sender_stock.stock10+self.numberofstocks
-                receiver_stock.stock10=receiver_stock.stock10-self.numberofstocks
+                if (receiver_stock.stock10>=self.numberofstocks):
+                    sender_stock.stock10=sender_stock.stock10+self.numberofstocks
+                    receiver_stock.stock10=receiver_stock.stock10-self.numberofstocks
+                    self.is_active=False
+                    self.status='accepted'
+                else:
+                    return ('Insufficient Stock Holdings')
             
             receiver_stock.save()
             sender_stock.save()
         elif self.action=='sell':
             sender_stock,receiver_stock=receiver_stock,sender_stock
-            sender_stock.userbalance=sender_stock.userbalance-amount
-            receiver_stock.userbalance=receiver_stock.userbalance+amount
-            if self.stock=='stock1':
-                sender_stock.stock1=sender_stock.stock1+self.numberofstocks
-                receiver_stock.stock1=receiver_stock.stock1-self.numberofstocks
-            elif self.stock=='stock2':
-                sender_stock.stock2=sender_stock.stock2+self.numberofstocks
-                receiver_stock.stock2=receiver_stock.stock2-self.numberofstocks
-            elif self.stock=='stock3':
-                sender_stock.stock3=sender_stock.stock3+self.numberofstocks
-                receiver_stock.stock3=receiver_stock.stock3-self.numberofstocks
-            elif self.stock=='stock4':
-                sender_stock.stock4=sender_stock.stock4+self.numberofstocks
-                receiver_stock.stock4=receiver_stock.stock4-self.numberofstocks
-            elif self.stock=='stock5':
-                sender_stock.stock5=sender_stock.stock5+self.numberofstocks
-                receiver_stock.stock5=receiver_stock.stock5-self.numberofstocks
-            elif self.stock=='stock6':
-                sender_stock.stock6=sender_stock.stock6+self.numberofstocks
-                receiver_stock.stock6=receiver_stock.stock6-self.numberofstocks
-            elif self.stock=='stock7':
-                sender_stock.stock7=sender_stock.stock7+self.numberofstocks
-                receiver_stock.stock7=receiver_stock.stock7-self.numberofstocks
-            elif self.stock=='stock8':
-                sender_stock.stock8=sender_stock.stock8+self.numberofstocks
-                receiver_stock.stock8=receiver_stock.stock8-self.numberofstocks
-            elif self.stock=='stock9':
-                sender_stock.stock9=sender_stock.stock9+self.numberofstocks
-                receiver_stock.stock9=receiver_stock.stock9-self.numberofstocks
-            elif self.stock=='stock10':
-                sender_stock.stock10=sender_stock.stock10+self.numberofstocks
-                receiver_stock.stock10=receiver_stock.stock10-self.numberofstocks
+            if (amount<=receiver_stock.userbalance):
+                sender_stock.userbalance=sender_stock.userbalance-amount
+                receiver_stock.userbalance=receiver_stock.userbalance+amount
+                if self.stock=='stock1':
+                    sender_stock.stock1=sender_stock.stock1+self.numberofstocks
+                    receiver_stock.stock1=receiver_stock.stock1-self.numberofstocks
+                elif self.stock=='stock2':
+                    sender_stock.stock2=sender_stock.stock2+self.numberofstocks
+                    receiver_stock.stock2=receiver_stock.stock2-self.numberofstocks
+                elif self.stock=='stock3':
+                    sender_stock.stock3=sender_stock.stock3+self.numberofstocks
+                    receiver_stock.stock3=receiver_stock.stock3-self.numberofstocks
+                elif self.stock=='stock4':
+                    sender_stock.stock4=sender_stock.stock4+self.numberofstocks
+                    receiver_stock.stock4=receiver_stock.stock4-self.numberofstocks
+                elif self.stock=='stock5':
+                    sender_stock.stock5=sender_stock.stock5+self.numberofstocks
+                    receiver_stock.stock5=receiver_stock.stock5-self.numberofstocks
+                elif self.stock=='stock6':
+                    sender_stock.stock6=sender_stock.stock6+self.numberofstocks
+                    receiver_stock.stock6=receiver_stock.stock6-self.numberofstocks
+                elif self.stock=='stock7':
+                    sender_stock.stock7=sender_stock.stock7+self.numberofstocks
+                    receiver_stock.stock7=receiver_stock.stock7-self.numberofstocks
+                elif self.stock=='stock8':
+                    sender_stock.stock8=sender_stock.stock8+self.numberofstocks
+                    receiver_stock.stock8=receiver_stock.stock8-self.numberofstocks
+                elif self.stock=='stock9':
+                    sender_stock.stock9=sender_stock.stock9+self.numberofstocks
+                    receiver_stock.stock9=receiver_stock.stock9-self.numberofstocks
+                elif self.stock=='stock10':
+                    sender_stock.stock10=sender_stock.stock10+self.numberofstocks
+                    receiver_stock.stock10=receiver_stock.stock10-self.numberofstocks
+                self.is_active=False
+                self.status='accepted'
+            else:
+                return ('Insufficent Balance')
             
             receiver_stock.save()
             sender_stock.save()
-        self.is_active=False
-        self.status="accepted"
+        #self.is_active=False
+        #self.status="accepted"
         print(self.status)
         trading=trade.objects.create(
                     seller=self.receiver,
