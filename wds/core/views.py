@@ -13,6 +13,7 @@ from .forms import RegisterForm,tradeform,requestsellform,tradereqform,reportfor
 from django.urls import reverse
 from .models import Stock,trade,stock_list,tradereq,Report,StockList
 import json
+from django.db.models import Q
 def home(request):
     return render(request,"home.html", {'messages': messages.get_messages(request)})
 
@@ -437,6 +438,15 @@ def history(request):
     transactions=tradereq.objects.order_by('-id').filter(sender=user)
     return render(request,'transaction-history.html',{'requests':transactions})
 
+@login_required
+def all_history(request):
+    user=request.user
+    #transactions=tradereq.objects.order_by('-id').filter(Q(receiver=user) | Q(sender=user))
+    comb_query = tradereq.objects.filter(sender=user) | tradereq.objects.filter(receiver=user)
+    final_query = comb_query.filter(status='accepted')
+    transactions=final_query.order_by('-id')
+    return render(request,'transaction-log.html',{'requests':transactions})
+
 
 """
 @login_required
@@ -470,7 +480,9 @@ def accept_request(request,*args, **kwargs):
         if tradereq_id:
             trade_request=tradereq.objects.filter(pk=tradereq_id)[0]
             if trade_request:
-                trade_request.accept()
+                msg = trade_request.accept()
+                print(msg)
+                messages.error(request, msg)
                 return redirect("core:receivedreq")
 
 @login_required

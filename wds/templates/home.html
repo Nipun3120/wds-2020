@@ -16,19 +16,19 @@
         Welcome to <b>WDS</b></h1>
         <p class="para text-size-20">Humans have come very far in their knowledge of money. From the barter system to the stock market, from copper tokens to printed notes, we have covered quite a journey. 
             For all the zealous participants out there, The Econ Club releases the teaser for their annual flagship event "Wolf of Dalal Street". Brush up your knowledge about domestic and international markets, and get ready to tackle the bull and the bear. Turn your losses into profits with your prudence and prove to the world that money indeed grows on trees!</p>
-            {% comment  %}
+            
         {% if user.is_authenticated %}
         <a href="{% url 'core:dashboard' %}" class="s-12 m-6 l-3 center button border-radius background-purple text-size-20 margin-top-60 text-white">Enter WDS</a>
         {% else %}
         <a href="{% url 'core:userlogin' %}" class="s-12 m-6 l-3 center button border-radius background-purple text-size-20 margin-top-60 text-white">Enter WDS</a>
         {% endif %}
-        {% endcomment %}
+        {% comment  %}
         {% if user.is_authenticated %}
         <a href="{% url 'international:dashboard' %}" class="s-12 m-6 l-3 center button border-radius background-purple text-size-20 margin-top-60 text-white">Enter WDS</a>
         {% else %}
         <a href="{% url 'international:userlogin' %}" class="s-12 m-6 l-3 center button border-radius background-purple text-size-20 margin-top-60 text-white">Enter WDS</a>
         {% endif %}
-        
+        {% endcomment %}
         
         
     </div>

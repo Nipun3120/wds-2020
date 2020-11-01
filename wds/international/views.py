@@ -11,8 +11,9 @@ from django.views.decorators.csrf import csrf_exempt
 from  django.http import HttpResponse, HttpResponseRedirect
 from .forms import RegisterForm,tradeform,requestsellform,tradereqform,reportform
 from django.urls import reverse
-from .models import Stock_intt,trade,stock_list,tradereq,Report,StockList
+from .models import Stock,trade,stock_list,tradereq,Report,StockList
 import json
+from django.db.models import Q
 def home(request):
     return render(request,"home.html", {'messages': messages.get_messages(request)})
 
@@ -70,8 +71,8 @@ def userlogout(request):
 
 @login_required
 def dashboard(request):
-    user_dashdata = Stock_intt.objects.filter(user=request.user)
-    #dash_dic = {'dashdata':user_dashdata}
+    user_dashdata = Stock.objects.filter(user=request.user)
+    dash_dic = {'dashdata':user_dashdata}
     return render(request,'dashboard.html', {'dashdata':user_dashdata})
 '''
 posts = [
@@ -153,10 +154,10 @@ class Trade(ListView):
                 )
                 print(priceperstock)
                 print(numberofstocks)
-                stock_seller=Stock_intt.objects.get(user=seller)
+                stock_seller=Stock.objects.get(user=seller)
                 print(stock_seller)
                           
-                stock_buyer=Stock_intt.objects.get(user=buyer)
+                stock_buyer=Stock.objects.get(user=buyer)
                 print(stock_buyer)
                 '''for st in stock_list:
                     if stock==st[0]:
@@ -255,7 +256,7 @@ def reqcreate(request):
                 numberofstock=form.cleaned_data.get('numberofstocks')
                 priceperstock=form.cleaned_data.get('priceperstock')
                 amount = numberofstock*priceperstock
-                stock_request_sender=Stock_intt.objects.get(user=sender)
+                stock_request_sender=Stock.objects.get(user=sender)
                 status='pending'
                 if action=='buy':
                     if (amount<=stock_request_sender.userbalance):
@@ -438,6 +439,16 @@ def history(request):
     return render(request,'transaction-history.html',{'requests':transactions})
 
 
+@login_required
+def all_history(request):
+    user=request.user
+    #transactions=tradereq.objects.order_by('-id').filter(Q(receiver=user) | Q(sender=user))
+    comb_query = tradereq.objects.filter(sender=user) | tradereq.objects.filter(receiver=user)
+    final_query = comb_query.filter(status='accepted')
+    transactions=final_query.order_by('-id')
+    return render(request,'transaction-log.html',{'requests':transactions})
+
+
 """
 @login_required
 def accept_request(request,*args, **kwargs):
@@ -470,7 +481,9 @@ def accept_request(request,*args, **kwargs):
         if tradereq_id:
             trade_request=tradereq.objects.filter(pk=tradereq_id)[0]
             if trade_request:
-                trade_request.accept()
+                msg = trade_request.accept()
+                print(msg)
+                messages.error(request, msg)
                 return redirect("international:receivedreq")
 
 @login_required
