@@ -39,7 +39,7 @@ class StockList(models.Model):
 
 
 class Stock(models.Model):
-    user=models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
+    user=models.OneToOneField(settings.AUTH_USER_MODEL,related_name='dom', on_delete=models.CASCADE, default=1)
     stock1=models.IntegerField(default=0)
     stock2=models.IntegerField(default=0)
     stock3=models.IntegerField(default=0)
