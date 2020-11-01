@@ -33,13 +33,13 @@ action_list=(
 
 class StockList(models.Model):
     stockname = models.CharField(max_length=100)
-    stockprice = models.IntegerField(default=0)
+    stockprice = models.FloatField(default=0)
     def __str__(self):
         return f"{self.stockname}"
 
 
 class Stock(models.Model):
-    user=models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
+    user=models.OneToOneField(settings.AUTH_USER_MODEL,related_name='dom', on_delete=models.CASCADE, default=1)
     stock1=models.IntegerField(default=0)
     stock2=models.IntegerField(default=0)
     stock3=models.IntegerField(default=0)
