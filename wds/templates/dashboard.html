@@ -226,6 +226,13 @@ table{
               <div class="req-btn"><a class="btn-insider" href="{% url 'core:createrequest' %}">Create Trade Request</a></div>
               <div class="req-btn"><a class="btn-insider" href="{% url 'core:report' %}">Report(Insider Trading)</a></div>
               <div class="req-btn"><a class="btn-insider" href="{% url 'core:transaction-history' %}">transaction history</a></div>
+              {% comment  %}
+              <div class="req-btn"><a class="btn-insider" href="{% url 'international:sentreq' %}">Requests Sent</a></div>
+              <div class="req-btn"><a class="btn-insider" href="{% url 'international:receivedreq' %}">Received Requests</a></div>
+              <div class="req-btn"><a class="btn-insider" href="{% url 'international:createrequest' %}">Create Trade Request</a></div>
+              <div class="req-btn"><a class="btn-insider" href="{% url 'international:report' %}">Report(Insider Trading)</a></div>
+              <div class="req-btn"><a class="btn-insider" href="{% url 'international:transaction-history' %}">transaction history</a></div>
+              {% endcomment %}
           </div>
           
       </div>

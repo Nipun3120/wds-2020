@@ -8,7 +8,9 @@
 <td>{{ req.action }} </td>
 <td>{{ req.stock }} </td>
 <td>{{ req.numberofstocks }}</td>
-<td>{{ req.priceperstock }}</td>   
+<td>{{ req.priceperstock }}</td>  
+{% comment  %}<td> <a href="{% url 'international:cancel-request' req.id %}">Cancel</a></td>
+{% endcomment %} 
 <td> <a href="{% url 'core:cancel-request' req.id %}">Cancel</a></td>
 </tr>
 {% endfor %}

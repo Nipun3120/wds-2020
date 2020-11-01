@@ -14,9 +14,12 @@
                     <ul class="right top-ul chevron">
                         <li class="active-item">
                             <a href="{% url 'core:home' %}">Home</a>
-                            
+                            {% comment  %}<a href="{% url 'international:home' %}">Home</a>
+                            {% endcomment %}
                         </li>
                         <li>
+                        {% comment  %}<a href="{% url 'international:stocks' %}">&nbsp Stocks</a>
+                        {% endcomment %}
                             <a href="{% url 'core:stocks' %}">&nbsp Stocks</a>
                             
                         </li>
@@ -26,6 +29,8 @@
 
                 <!-- logo -->
                 <ul class="logo-menu">
+                {% comment  %}<a href="{% url 'international:home' %}" class="logo">
+                {% endcomment %}
                     <a href="{% url 'core:home' %}" class="logo">
                         <!-- Logo White Version -->
                         <img class="logo-white" src="{% static 'images-2019/WDS_Logo_Black.png'%}" alt="">
@@ -46,6 +51,16 @@
                         <li><a href="{% url 'core:news' %}">&nbsp News</a></li>
                         <li><a href="{% url 'core:userlogin' %}">&nbsp Login</a></li>
                         {% endif %}
+                        {% comment  %}
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'international':news' %}">&nbsp News</a></li>
+                        <li><a href="{% url 'international:dashboard' %}">&nbsp Dashboard</a></li>
+                        <li><a href="{% url 'international:userlogout' %}">&nbsp Logout</a></li>
+                        {% else %}
+                        <li><a href="{% url 'international:news' %}">&nbsp News</a></li>
+                        <li><a href="{% url 'international:userlogin' %}">&nbsp Login</a></li>
+                        {% endif %}
+                        {% endcomment %}
                         
                                         
                     </ul>
