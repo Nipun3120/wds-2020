@@ -71,7 +71,7 @@ def userlogout(request):
 @login_required
 def dashboard(request):
     user_dashdata = Stock.objects.filter(user=request.user)
-    dash_dic = {'dashdata':user_dashdata}
+    #dash_dic = {'dashdata':user_dashdata}
     return render(request,'dashboard.html', {'dashdata':user_dashdata})
 '''
 posts = [

@@ -33,7 +33,7 @@ action_list=(
 
 class StockList(models.Model):
     stockname = models.CharField(max_length=100)
-    stockprice = models.IntegerField(default=0)
+    stockprice = models.FloatField(default=0)
     def __str__(self):
         return f"{self.stockname}"
 
