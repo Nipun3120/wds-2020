@@ -19,32 +19,31 @@ stock_list=(
     ('ONGC','ONGC'),
     ('DMART','DMART'),
     ('SUNPHARMA','SUNPHARMA'),
-    ('stock9','stock9'),
+    ('HINDUUNILVR','HINDUUNILVR'),
     ('ADANIPOWER','ADANIPOWER'),
-    ('stock11','stock11'),
-    ('stock12','stock12'),
-    ('stock13','stock13'),
-    ('stock14','stock14'),
-    ('stock15','stock15'),
-    ('stock16','stock16'),
-    ('stock17','stock17'),
-    ('stock18','stock18'),
-    ('stock19','stock19'),
-    ('stock20','stock20'),
-    ('stock21','stock21'),
-    ('stock22','stock22'),
-    ('stock23','stock23'),
-    ('stock24','stock24'),
-    ('stock25','stock25'),
-    ('stock26','stock26'),
-    ('stock27','stock27'),
-    ('stock28','stock28'),
-    ('stock29','stock29'),
-    ('stock30','stock30'),
-    ('stock31','stock31'),
-    ('stock32','stock32'),
-    ('stock33','stock33'),
-    
+    ('TATASTEEL','TATASTEEL'),
+    ('IOC','IOC'),
+    ('JINDALSTL','JINDALSTL'),
+    ('INDIAMART','INDIAMART'),
+    ('RELIANCE','RELIANCE'),
+    ('INFOSYS','INFOSYS'),
+    ('BATA','BATA'),
+    ('BHARTIARTL','BHARTIARTL'),
+    ('MARUTI','MARUTI'),
+    ('ITC','ITC'),
+    ('HDFCBANK','HDFCBANK'),
+    ('IGL','IGL'),
+    ('VOLTAS','VOLTAS'),
+    ('BAJFINANCE','BAJFINANCE'),
+    ('SBI','SBI'),
+    ('CIPLA','CIPLA'),
+    ('TCS','TCS'),
+    ('LT','LT'),
+    ('ASIANPAINT','ASIANPAINT'),
+    ('ICICIPRULI','ICICIPRULI'),
+    ('PVR','PVR'),
+    ('PIDILITIND','PIDILITIND'),
+    ('TRENT','TRENT'),
     
 )
 status_list=(
@@ -77,31 +76,31 @@ class Stock(models.Model):
     ONGC=models.IntegerField(default=0)
     DMART=models.IntegerField(default=0)
     SUNPHARMA=models.IntegerField(default=0)
-    stock9=models.IntegerField(default=0)
+    HINDUUNILVR=models.IntegerField(default=0)
     ADANIPOWER=models.IntegerField(default=0)
-    stock12=models.IntegerField(default=0)
-    stock12=models.IntegerField(default=0)
-    stock13=models.IntegerField(default=0)
-    stock14=models.IntegerField(default=0)
-    stock15=models.IntegerField(default=0)
-    stock16=models.IntegerField(default=0)
-    stock17=models.IntegerField(default=0)
-    stock18=models.IntegerField(default=0)
-    stock19=models.IntegerField(default=0)
-    stock20=models.IntegerField(default=0)
-    stock21=models.IntegerField(default=0)
-    stock22=models.IntegerField(default=0)
-    stock23=models.IntegerField(default=0)
-    stock24=models.IntegerField(default=0)
-    stock25=models.IntegerField(default=0)
-    stock26=models.IntegerField(default=0)
-    stock27=models.IntegerField(default=0)
-    stock28=models.IntegerField(default=0)
-    stock29=models.IntegerField(default=0)
-    stock30=models.IntegerField(default=0)
-    stock31=models.IntegerField(default=0)
-    stock32=models.IntegerField(default=0)
-    stock33=models.IntegerField(default=0)
+    TATASTEEL=models.IntegerField(default=0)
+    IOC=models.IntegerField(default=0)
+    JINDALSTL=models.IntegerField(default=0)
+    INDIAMART=models.IntegerField(default=0)
+    RELIANCE=models.IntegerField(default=0)
+    INFOSYS=models.IntegerField(default=0)
+    BATA=models.IntegerField(default=0)
+    BHARTIARTL=models.IntegerField(default=0)
+    MARUTI=models.IntegerField(default=0)
+    ITC=models.IntegerField(default=0)
+    HDFCBANK=models.IntegerField(default=0)
+    IGL=models.IntegerField(default=0)
+    VOLTAS=models.IntegerField(default=0)
+    BAJFINANCE=models.IntegerField(default=0)
+    SBI=models.IntegerField(default=0)
+    CIPLA=models.IntegerField(default=0)
+    TCS=models.IntegerField(default=0)
+    LT=models.IntegerField(default=0)
+    ASIANPAINT=models.IntegerField(default=0)
+    ICICIPRULI=models.IntegerField(default=0)
+    PVR=models.IntegerField(default=0)
+    PIDILITIND=models.IntegerField(default=0)
+    TRENT=models.IntegerField(default=0)
     
     
     
@@ -233,11 +232,11 @@ class tradereq(models.Model):
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock9':
-                if (receiver_stock.stock9>=self.numberofstocks):
+            elif self.stock=='HINDUUNILVR':
+                if (receiver_stock.HINDUUNILVR>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock9=sender_stock.stock9+self.numberofstocks
-                        receiver_stock.stock9=receiver_stock.stock9-self.numberofstocks
+                        sender_stock.HINDUUNILVR=sender_stock.HINDUUNILVR+self.numberofstocks
+                        receiver_stock.HINDUUNILVR=receiver_stock.HINDUUNILVR-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
@@ -255,253 +254,253 @@ class tradereq(models.Model):
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock11':
-                if (receiver_stock.stock11>=self.numberofstocks):
+            elif self.stock=='TATASTEEL':
+                if (receiver_stock.TATASTEEL>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock11=sender_stock.stock11+self.numberofstocks
-                        receiver_stock.stock11=receiver_stock.stock11-self.numberofstocks
+                        sender_stock.TATASTEEL=sender_stock.TATASTEEL+self.numberofstocks
+                        receiver_stock.TATASTEEL=receiver_stock.TATASTEEL-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock12':
-                if (receiver_stock.stock12>=self.numberofstocks):
+            elif self.stock=='IOC':
+                if (receiver_stock.IOC>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock12=sender_stock.stock12+self.numberofstocks
-                        receiver_stock.stock12=receiver_stock.stock12-self.numberofstocks
+                        sender_stock.IOC=sender_stock.IOC+self.numberofstocks
+                        receiver_stock.IOC=receiver_stock.IOC-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock13':
-                if (receiver_stock.stock13>=self.numberofstocks):
+            elif self.stock=='JINDALSTL':
+                if (receiver_stock.JINDALSTL>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock13=sender_stock.stock13+self.numberofstocks
-                        receiver_stock.stock13=receiver_stock.stock13-self.numberofstocks
+                        sender_stock.JINDALSTL=sender_stock.JINDALSTL+self.numberofstocks
+                        receiver_stock.JINDALSTL=receiver_stock.JINDALSTL-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock14':
-                if (receiver_stock.stock14>=self.numberofstocks):
+            elif self.stock=='INDIAMART':
+                if (receiver_stock.INDIAMART>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock14=sender_stock.stock14+self.numberofstocks
-                        receiver_stock.stock14=receiver_stock.stock14-self.numberofstocks
+                        sender_stock.INDIAMART=sender_stock.INDIAMART+self.numberofstocks
+                        receiver_stock.INDIAMART=receiver_stock.INDIAMART-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock15':
-                if (receiver_stock.stock15>=self.numberofstocks):
+            elif self.stock=='RELIANCE':
+                if (receiver_stock.RELIANCE>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock15=sender_stock.stock15+self.numberofstocks
-                        receiver_stock.stock15=receiver_stock.stock15-self.numberofstocks
+                        sender_stock.RELIANCE=sender_stock.RELIANCE+self.numberofstocks
+                        receiver_stock.RELIANCE=receiver_stock.RELIANCE-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock16':
-                if (receiver_stock.stock16>=self.numberofstocks):
+            elif self.stock=='INFOSYS':
+                if (receiver_stock.INFOSYS>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock16=sender_stock.stock16+self.numberofstocks
-                        receiver_stock.stock16=receiver_stock.stock16-self.numberofstocks
+                        sender_stock.INFOSYS=sender_stock.INFOSYS+self.numberofstocks
+                        receiver_stock.INFOSYS=receiver_stock.INFOSYS-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock17':
-                if (receiver_stock.stock17>=self.numberofstocks):
+            elif self.stock=='BATA':
+                if (receiver_stock.BATA>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock17=sender_stock.stock17+self.numberofstocks
-                        receiver_stock.stock17=receiver_stock.stock17-self.numberofstocks
+                        sender_stock.BATA=sender_stock.BATA+self.numberofstocks
+                        receiver_stock.BATA=receiver_stock.BATA-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock18':
-                if (receiver_stock.stock18>=self.numberofstocks):
+            elif self.stock=='BHARTIARTL':
+                if (receiver_stock.BHARTIARTL>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock18=sender_stock.stock18+self.numberofstocks
-                        receiver_stock.stock18=receiver_stock.stock18-self.numberofstocks
+                        sender_stock.BHARTIARTL=sender_stock.BHARTIARTL+self.numberofstocks
+                        receiver_stock.BHARTIARTL=receiver_stock.BHARTIARTL-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock19':
-                if (receiver_stock.stock19>=self.numberofstocks):
+            elif self.stock=='MARUTI':
+                if (receiver_stock.MARUTI>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock19=sender_stock.stock19+self.numberofstocks
-                        receiver_stock.stock19=receiver_stock.stock19-self.numberofstocks
+                        sender_stock.MARUTI=sender_stock.MARUTI+self.numberofstocks
+                        receiver_stock.MARUTI=receiver_stock.MARUTI-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock20':
-                if (receiver_stock.stock20>=self.numberofstocks):
+            elif self.stock=='ITC':
+                if (receiver_stock.ITC>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock20=sender_stock.stock20+self.numberofstocks
-                        receiver_stock.stock20=receiver_stock.stock20-self.numberofstocks
+                        sender_stock.ITC=sender_stock.ITC+self.numberofstocks
+                        receiver_stock.ITC=receiver_stock.ITC-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock21':
-                if (receiver_stock.stock21>=self.numberofstocks):
+            elif self.stock=='HDFCBANK':
+                if (receiver_stock.HDFCBANK>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock21=sender_stock.stock21+self.numberofstocks
-                        receiver_stock.stock21=receiver_stock.stock21-self.numberofstocks
+                        sender_stock.HDFCBANK=sender_stock.HDFCBANK+self.numberofstocks
+                        receiver_stock.HDFCBANK=receiver_stock.HDFCBANK-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock22':
-                if (receiver_stock.stock22>=self.numberofstocks):
+            elif self.stock=='IGL':
+                if (receiver_stock.IGL>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock22=sender_stock.stock22+self.numberofstocks
-                        receiver_stock.stock22=receiver_stock.stock22-self.numberofstocks
+                        sender_stock.IGL=sender_stock.IGL+self.numberofstocks
+                        receiver_stock.IGL=receiver_stock.IGL-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock23':
-                if (receiver_stock.stock23>=self.numberofstocks):
+            elif self.stock=='VOLTAS':
+                if (receiver_stock.VOLTAS>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock23=sender_stock.stock23+self.numberofstocks
-                        receiver_stock.stock23=receiver_stock.stock23-self.numberofstocks
+                        sender_stock.VOLTAS=sender_stock.VOLTAS+self.numberofstocks
+                        receiver_stock.VOLTAS=receiver_stock.VOLTAS-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock24':
-                if (receiver_stock.stock24>=self.numberofstocks):
+            elif self.stock=='BAJFINANCE':
+                if (receiver_stock.BAJFINANCE>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock24=sender_stock.stock24+self.numberofstocks
-                        receiver_stock.stock24=receiver_stock.stock24-self.numberofstocks
+                        sender_stock.BAJFINANCE=sender_stock.BAJFINANCE+self.numberofstocks
+                        receiver_stock.BAJFINANCE=receiver_stock.BAJFINANCE-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock25':
-                if (receiver_stock.stock25>=self.numberofstocks):
+            elif self.stock=='SBI':
+                if (receiver_stock.SBI>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock25=sender_stock.stock25+self.numberofstocks
-                        receiver_stock.stock25=receiver_stock.stock25-self.numberofstocks
+                        sender_stock.SBI=sender_stock.SBI+self.numberofstocks
+                        receiver_stock.SBI=receiver_stock.SBI-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock26':
-                if (receiver_stock.stock26>=self.numberofstocks):
+            elif self.stock=='CIPLA':
+                if (receiver_stock.CIPLA>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock26=sender_stock.stock26+self.numberofstocks
-                        receiver_stock.stock26=receiver_stock.stock26-self.numberofstocks
+                        sender_stock.CIPLA=sender_stock.CIPLA+self.numberofstocks
+                        receiver_stock.CIPLA=receiver_stock.CIPLA-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock27':
-                if (receiver_stock.stock27>=self.numberofstocks):
+            elif self.stock=='TCS':
+                if (receiver_stock.TCS>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock27=sender_stock.stock27+self.numberofstocks
-                        receiver_stock.stock27=receiver_stock.stock27-self.numberofstocks
+                        sender_stock.TCS=sender_stock.TCS+self.numberofstocks
+                        receiver_stock.TCS=receiver_stock.TCS-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock28':
-                if (receiver_stock.stock28>=self.numberofstocks):
+            elif self.stock=='LT':
+                if (receiver_stock.LT>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock28=sender_stock.stock28+self.numberofstocks
-                        receiver_stock.stock28=receiver_stock.stock28-self.numberofstocks
+                        sender_stock.LT=sender_stock.LT+self.numberofstocks
+                        receiver_stock.LT=receiver_stock.LT-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock29':
-                if (receiver_stock.stock29>=self.numberofstocks):
+            elif self.stock=='ASIANPAINT':
+                if (receiver_stock.ASIANPAINT>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock29=sender_stock.stock29+self.numberofstocks
-                        receiver_stock.stock29=receiver_stock.stock29-self.numberofstocks
+                        sender_stock.ASIANPAINT=sender_stock.ASIANPAINT+self.numberofstocks
+                        receiver_stock.ASIANPAINT=receiver_stock.ASIANPAINT-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock30':
-                if (receiver_stock.stock30>=self.numberofstocks):
+            elif self.stock=='ICICIPRULI':
+                if (receiver_stock.ICICIPRULI>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock30=sender_stock.stock30+self.numberofstocks
-                        receiver_stock.stock30=receiver_stock.stock30-self.numberofstocks
+                        sender_stock.ICICIPRULI=sender_stock.ICICIPRULI+self.numberofstocks
+                        receiver_stock.ICICIPRULI=receiver_stock.ICICIPRULI-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock31':
-                if (receiver_stock.stock31>=self.numberofstocks):
+            elif self.stock=='PVR':
+                if (receiver_stock.PVR>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock31=sender_stock.stock31+self.numberofstocks
-                        receiver_stock.stock31=receiver_stock.stock31-self.numberofstocks
+                        sender_stock.PVR=sender_stock.PVR+self.numberofstocks
+                        receiver_stock.PVR=receiver_stock.PVR-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock32':
-                if (receiver_stock.stock32>=self.numberofstocks):
+            elif self.stock=='PIDILITIND':
+                if (receiver_stock.PIDILITIND>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock32=sender_stock.stock32+self.numberofstocks
-                        receiver_stock.stock32=receiver_stock.stock32-self.numberofstocks
+                        sender_stock.PIDILITIND=sender_stock.PIDILITIND+self.numberofstocks
+                        receiver_stock.PIDILITIND=receiver_stock.PIDILITIND-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
                         return ('Currently Sender have Insufficient Balance to Buy!')
                 else:
                     return ('Insufficient Stock Holdings')
-            elif self.stock=='stock33':
-                if (receiver_stock.stock33>=self.numberofstocks):
+            elif self.stock=='TRENT':
+                if (receiver_stock.TRENT>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.stock33=sender_stock.stock33+self.numberofstocks
-                        receiver_stock.stock33=receiver_stock.stock33-self.numberofstocks
+                        sender_stock.TRENT=sender_stock.TRENT+self.numberofstocks
+                        receiver_stock.TRENT=receiver_stock.TRENT-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
                     else:
@@ -565,10 +564,10 @@ class tradereq(models.Model):
                         receiver_stock.SUNPHARMA=receiver_stock.SUNPHARMA-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock9':
-                    if(sender_stock.stock9>=self.numberofstocks):
-                        sender_stock.stock9=sender_stock.stock9+self.numberofstocks
-                        receiver_stock.stock9=receiver_stock.stock9-self.numberofstocks
+                elif self.stock=='HINDUUNILVR':
+                    if(sender_stock.HINDUUNILVR>=self.numberofstocks):
+                        sender_stock.HINDUUNILVR=sender_stock.HINDUUNILVR+self.numberofstocks
+                        receiver_stock.HINDUUNILVR=receiver_stock.HINDUUNILVR-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
                 elif self.stock=='ADANIPOWER':
@@ -577,142 +576,142 @@ class tradereq(models.Model):
                         receiver_stock.ADANIPOWER=receiver_stock.ADANIPOWER-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock11':
-                    if(sender_stock.stock11>=self.numberofstocks):
-                        sender_stock.stock11=sender_stock.stock11+self.numberofstocks
-                        receiver_stock.stock11=receiver_stock.stock11-self.numberofstocks
+                elif self.stock=='TATASTEEL':
+                    if(sender_stock.TATASTEEL>=self.numberofstocks):
+                        sender_stock.TATASTEEL=sender_stock.TATASTEEL+self.numberofstocks
+                        receiver_stock.TATASTEEL=receiver_stock.TATASTEEL-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock12':
-                    if(sender_stock.stock12>=self.numberofstocks):
-                        sender_stock.stock12=sender_stock.stock12+self.numberofstocks
-                        receiver_stock.stock12=receiver_stock.stock12-self.numberofstocks
+                elif self.stock=='IOC':
+                    if(sender_stock.IOC>=self.numberofstocks):
+                        sender_stock.IOC=sender_stock.IOC+self.numberofstocks
+                        receiver_stock.IOC=receiver_stock.IOC-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock13':
-                    if(sender_stock.stock13>=self.numberofstocks):
-                        sender_stock.stock13=sender_stock.stock13+self.numberofstocks
-                        receiver_stock.stock13=receiver_stock.stock13-self.numberofstocks
+                elif self.stock=='JINDALSTL':
+                    if(sender_stock.JINDALSTL>=self.numberofstocks):
+                        sender_stock.JINDALSTL=sender_stock.JINDALSTL+self.numberofstocks
+                        receiver_stock.JINDALSTL=receiver_stock.JINDALSTL-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock14':
-                    if(sender_stock.stock14>=self.numberofstocks):
-                        sender_stock.stock14=sender_stock.stock14+self.numberofstocks
-                        receiver_stock.stock14=receiver_stock.stock14-self.numberofstocks
+                elif self.stock=='INDIAMART':
+                    if(sender_stock.INDIAMART>=self.numberofstocks):
+                        sender_stock.INDIAMART=sender_stock.INDIAMART+self.numberofstocks
+                        receiver_stock.INDIAMART=receiver_stock.INDIAMART-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock15':
-                    if(sender_stock.stock15>=self.numberofstocks):
-                        sender_stock.stock15=sender_stock.stock15+self.numberofstocks
-                        receiver_stock.stock15=receiver_stock.stock15-self.numberofstocks
+                elif self.stock=='RELIANCE':
+                    if(sender_stock.RELIANCE>=self.numberofstocks):
+                        sender_stock.RELIANCE=sender_stock.RELIANCE+self.numberofstocks
+                        receiver_stock.RELIANCE=receiver_stock.RELIANCE-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock16':
-                    if(sender_stock.stock16>=self.numberofstocks):
-                        sender_stock.stock16=sender_stock.stock16+self.numberofstocks
-                        receiver_stock.stock16=receiver_stock.stock16-self.numberofstocks
+                elif self.stock=='INFOSYS':
+                    if(sender_stock.INFOSYS>=self.numberofstocks):
+                        sender_stock.INFOSYS=sender_stock.INFOSYS+self.numberofstocks
+                        receiver_stock.INFOSYS=receiver_stock.INFOSYS-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock17':
-                    if(sender_stock.stock17>=self.numberofstocks):
-                        sender_stock.stock17=sender_stock.stock17+self.numberofstocks
-                        receiver_stock.stock17=receiver_stock.stock17-self.numberofstocks
+                elif self.stock=='BATA':
+                    if(sender_stock.BATA>=self.numberofstocks):
+                        sender_stock.BATA=sender_stock.BATA+self.numberofstocks
+                        receiver_stock.BATA=receiver_stock.BATA-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock18':
-                    if(sender_stock.stock18>=self.numberofstocks):
-                        sender_stock.stock18=sender_stock.stock18+self.numberofstocks
-                        receiver_stock.stock18=receiver_stock.stock18-self.numberofstocks
+                elif self.stock=='BHARTIARTL':
+                    if(sender_stock.BHARTIARTL>=self.numberofstocks):
+                        sender_stock.BHARTIARTL=sender_stock.BHARTIARTL+self.numberofstocks
+                        receiver_stock.BHARTIARTL=receiver_stock.BHARTIARTL-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock19':
-                    if(sender_stock.stock19>=self.numberofstocks):
-                        sender_stock.stock19=sender_stock.stock19+self.numberofstocks
-                        receiver_stock.stock19=receiver_stock.stock19-self.numberofstocks
+                elif self.stock=='MARUTI':
+                    if(sender_stock.MARUTI>=self.numberofstocks):
+                        sender_stock.MARUTI=sender_stock.MARUTI+self.numberofstocks
+                        receiver_stock.MARUTI=receiver_stock.MARUTI-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock20':
-                    if(sender_stock.stock20>=self.numberofstocks):
-                        sender_stock.stock20=sender_stock.stock20+self.numberofstocks
-                        receiver_stock.stock20=receiver_stock.stock20-self.numberofstocks
+                elif self.stock=='ITC':
+                    if(sender_stock.ITC>=self.numberofstocks):
+                        sender_stock.ITC=sender_stock.ITC+self.numberofstocks
+                        receiver_stock.ITC=receiver_stock.ITC-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock21':
-                    if(sender_stock.stock21>=self.numberofstocks):
-                        sender_stock.stock21=sender_stock.stock21+self.numberofstocks
-                        receiver_stock.stock21=receiver_stock.stock21-self.numberofstocks
+                elif self.stock=='HDFCBANK':
+                    if(sender_stock.HDFCBANK>=self.numberofstocks):
+                        sender_stock.HDFCBANK=sender_stock.HDFCBANK+self.numberofstocks
+                        receiver_stock.HDFCBANK=receiver_stock.HDFCBANK-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock22':
-                    if(sender_stock.stock22>=self.numberofstocks):
-                        sender_stock.stock22=sender_stock.stock22+self.numberofstocks
-                        receiver_stock.stock22=receiver_stock.stock22-self.numberofstocks
+                elif self.stock=='IGL':
+                    if(sender_stock.IGL>=self.numberofstocks):
+                        sender_stock.IGL=sender_stock.IGL+self.numberofstocks
+                        receiver_stock.IGL=receiver_stock.IGL-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock23':
-                    if(sender_stock.stock23>=self.numberofstocks):
-                        sender_stock.stock23=sender_stock.stock23+self.numberofstocks
-                        receiver_stock.stock23=receiver_stock.stock23-self.numberofstocks
+                elif self.stock=='VOLTAS':
+                    if(sender_stock.VOLTAS>=self.numberofstocks):
+                        sender_stock.VOLTAS=sender_stock.VOLTAS+self.numberofstocks
+                        receiver_stock.VOLTAS=receiver_stock.VOLTAS-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock24':
-                    if(sender_stock.stock24>=self.numberofstocks):
-                        sender_stock.stock24=sender_stock.stock24+self.numberofstocks
-                        receiver_stock.stock24=receiver_stock.stock24-self.numberofstocks
+                elif self.stock=='BAJFINANCE':
+                    if(sender_stock.BAJFINANCE>=self.numberofstocks):
+                        sender_stock.BAJFINANCE=sender_stock.BAJFINANCE+self.numberofstocks
+                        receiver_stock.BAJFINANCE=receiver_stock.BAJFINANCE-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock25':
-                    if(sender_stock.stock25>=self.numberofstocks):
-                        sender_stock.stock25=sender_stock.stock25+self.numberofstocks
-                        receiver_stock.stock25=receiver_stock.stock25-self.numberofstocks
+                elif self.stock=='SBI':
+                    if(sender_stock.SBI>=self.numberofstocks):
+                        sender_stock.SBI=sender_stock.SBI+self.numberofstocks
+                        receiver_stock.SBI=receiver_stock.SBI-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock26':
-                    if(sender_stock.stock26>=self.numberofstocks):
-                        sender_stock.stock26=sender_stock.stock26+self.numberofstocks
-                        receiver_stock.stock26=receiver_stock.stock26-self.numberofstocks
+                elif self.stock=='CIPLA':
+                    if(sender_stock.CIPLA>=self.numberofstocks):
+                        sender_stock.CIPLA=sender_stock.CIPLA+self.numberofstocks
+                        receiver_stock.CIPLA=receiver_stock.CIPLA-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock27':
-                    if(sender_stock.stock27>=self.numberofstocks):
-                        sender_stock.stock27=sender_stock.stock27+self.numberofstocks
-                        receiver_stock.stock27=receiver_stock.stock27-self.numberofstocks
+                elif self.stock=='TCS':
+                    if(sender_stock.TCS>=self.numberofstocks):
+                        sender_stock.TCS=sender_stock.TCS+self.numberofstocks
+                        receiver_stock.TCS=receiver_stock.TCS-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock28':
-                    if(sender_stock.stock28>=self.numberofstocks):
-                        sender_stock.stock28=sender_stock.stock28+self.numberofstocks
-                        receiver_stock.stock28=receiver_stock.stock28-self.numberofstocks
+                elif self.stock=='LT':
+                    if(sender_stock.LT>=self.numberofstocks):
+                        sender_stock.LT=sender_stock.LT+self.numberofstocks
+                        receiver_stock.LT=receiver_stock.LT-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock29':
-                    if(sender_stock.stock29>=self.numberofstocks):
-                        sender_stock.stock29=sender_stock.stock29+self.numberofstocks
-                        receiver_stock.stock29=receiver_stock.stock29-self.numberofstocks
+                elif self.stock=='ASIANPAINT':
+                    if(sender_stock.ASIANPAINT>=self.numberofstocks):
+                        sender_stock.ASIANPAINT=sender_stock.ASIANPAINT+self.numberofstocks
+                        receiver_stock.ASIANPAINT=receiver_stock.ASIANPAINT-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock30':
-                    if(sender_stock.stock30>=self.numberofstocks):
-                        sender_stock.stock30=sender_stock.stock30+self.numberofstocks
-                        receiver_stock.stock30=receiver_stock.stock30-self.numberofstocks
+                elif self.stock=='ICICIPRULI':
+                    if(sender_stock.ICICIPRULI>=self.numberofstocks):
+                        sender_stock.ICICIPRULI=sender_stock.ICICIPRULI+self.numberofstocks
+                        receiver_stock.ICICIPRULI=receiver_stock.ICICIPRULI-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock31':
-                    if(sender_stock.stock31>=self.numberofstocks):
-                        sender_stock.stock31=sender_stock.stock31+self.numberofstocks
-                        receiver_stock.stock31=receiver_stock.stock31-self.numberofstocks
+                elif self.stock=='PVR':
+                    if(sender_stock.PVR>=self.numberofstocks):
+                        sender_stock.PVR=sender_stock.PVR+self.numberofstocks
+                        receiver_stock.PVR=receiver_stock.PVR-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock32':
-                    if(sender_stock.stock32>=self.numberofstocks):
-                        sender_stock.stock32=sender_stock.stock32+self.numberofstocks
-                        receiver_stock.stock32=receiver_stock.stock32-self.numberofstocks
+                elif self.stock=='PIDILITIND':
+                    if(sender_stock.PIDILITIND>=self.numberofstocks):
+                        sender_stock.PIDILITIND=sender_stock.PIDILITIND+self.numberofstocks
+                        receiver_stock.PIDILITIND=receiver_stock.PIDILITIND-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
-                elif self.stock=='stock33':
-                    if(sender_stock.stock33>=self.numberofstocks):
-                        sender_stock.stock33=sender_stock.stock33+self.numberofstocks
-                        receiver_stock.stock33=receiver_stock.stock33-self.numberofstocks
+                elif self.stock=='TRENT':
+                    if(sender_stock.TRENT>=self.numberofstocks):
+                        sender_stock.TRENT=sender_stock.TRENT+self.numberofstocks
+                        receiver_stock.TRENT=receiver_stock.TRENT-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
                 

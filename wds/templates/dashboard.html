@@ -286,7 +286,7 @@
               <div class="req-btn"><a class="btn-insider" href="{% url 'international:report' %}">Report(Insider Trading)</a></div>
               {% endcomment %}
               
-              <div class="req-btn"><a class="btn-insider" href="#">Insider Training</a></div>
+              <div class="req-btn"><a class="btn-insider" href="#">Insider Trading</a></div>
           </div>
           
       </div>
@@ -308,13 +308,11 @@
               </thead>
               
               <tbody>
-                {% comment %} {% for dd in dashdata %}
-                <tr class="tablerow1">
-                  <td>{{ dd.stock }}</td>
-                  <td>{{ dd.numberofstocks }}</td>
-                  <td>{{ dd.priceperstock }}</td>
-                </tr>
-                {% endfor %} {% endcomment %} {% for dd in dashdata %}
+                
+                 
+                 <!--DOMESTIC-->
+                 
+                 {% for dd in dashdata %}
                 <tr class="tablerow">
                   <td>ASHOKLEY</td>
                   <td>{{dd.ASHOKLEY}}</td>
@@ -348,106 +346,265 @@
                   <td>{{dd.SUNPHARMA}}</td>
                 </tr>
                 <tr class="tablerow">
-                  <td>Stock9</td>
-                  <td>{{dd.stock9}}</td>
+                  <td>HINDUUNILVR</td>
+                  <td>{{dd.HINDUUNILVR}}</td>
                 </tr>
                 <tr class="lastrow talberow">
                   <td>ADANIPOWER</td>
                   <td>{{dd.ADANIPOWER}}</td>
                 </tr>
                 <tr class="tablerow">
-                  <td>Stock11</td>
-                  <td>{{dd.stock11}}</td>
+                  <td>TATASTEEL</td>
+                  <td>{{dd.TATASTEEL}}</td>
                 </tr>
                 <tr class="tablerow">
-                  <td>Stock12</td>
-                  <td>{{dd.stock12}}</td>
+                  <td>AXP</td>
+                  <td>{{dd.AXP}}</td>
                 </tr>
                 <tr class="tablerow">
-                  <td>Stock13</td>
-                  <td>{{dd.stock13}}</td>
+                  <td>JINDALSTL</td>
+                  <td>{{dd.JINDALSTL}}</td>
                 </tr>
                 <tr class="tablerow">
-                  <td>Stock14</td>
-                  <td>{{dd.stock14}}</td>
+                  <td>INDIAMART</td>
+                  <td>{{dd.INDIAMART}}</td>
                 </tr>
                 <tr class="tablerow">
-                  <td>Stock15</td>
-                  <td>{{dd.stock15}}</td>
+                  <td>RELIANCE</td>
+                  <td>{{dd.RELIANCE}}</td>
                 </tr>
                 <tr class="tablerow">
-                  <td>Stock16</td>
-                  <td>{{dd.stock16}}</td>
+                  <td>INFOSYS</td>
+                  <td>{{dd.INFOSYS}}</td>
                 </tr>
                 <tr class="tablerow">
-                  <td>Stock17</td>
-                  <td>{{dd.stock17}}</td>
+                  <td>BATA</td>
+                  <td>{{dd.BATA}}</td>
                 </tr>
                 <tr class="tablerow">
-                  <td>Stock18</td>
-                  <td>{{dd.stock18}}</td>
+                  <td>BHARTIARTL</td>
+                  <td>{{dd.BHARTIARTL}}</td>
                 </tr>
                 <tr class="tablerow">
-                  <td>Stock19</td>
-                  <td>{{dd.stock19}}</td>
+                  <td>MARUTI</td>
+                  <td>{{dd.MARUTI}}</td>
                 </tr>
                 <tr class="lastrow talberow">
-                  <td>Stock20</td>
-                  <td>{{dd.stock20}}</td>
+                  <td>ITC</td>
+                  <td>{{dd.ITC}}</td>
                 </tr>
                 <tr class="tablerow">
-                  <td>Stock21</td>
-                  <td>{{dd.stock21}}</td>
+                  <td>HDFCBANK</td>
+                  <td>{{dd.HDFCBANK}}</td>
                 </tr>
                 <tr class="tablerow">
-                  <td>Stock22</td>
-                  <td>{{dd.stock22}}</td>
+                  <td>IGL</td>
+                  <td>{{dd.IGL}}</td>
                 </tr>
                 <tr class="tablerow">
-                  <td>Stock23</td>
-                  <td>{{dd.stock23}}</td>
+                  <td>VOLTAS</td>
+                  <td>{{dd.VOLTAS}}</td>
                 </tr>
                 <tr class="tablerow">
-                  <td>Stock24</td>
-                  <td>{{dd.stock24}}</td>
+                  <td>BAJFINANCE</td>
+                  <td>{{dd.BAJFINANCE}}</td>
                 </tr>
                 <tr class="tablerow">
-                  <td>Stock25</td>
-                  <td>{{dd.stock25}}</td>
+                  <td>SBI</td>
+                  <td>{{dd.SBI}}</td>
                 </tr>
                 <tr class="tablerow">
-                  <td>Stock26</td>
-                  <td>{{dd.stock26}}</td>
+                  <td>CIPLA</td>
+                  <td>{{dd.CIPLA}}</td>
                 </tr>
                 <tr class="tablerow">
-                  <td>Stock27</td>
-                  <td>{{dd.stock27}}</td>
+                  <td>TCS</td>
+                  <td>{{dd.TCS}}</td>
                 </tr>
                 <tr class="tablerow">
-                  <td>Stock28</td>
-                  <td>{{dd.stock28}}</td>
+                  <td>LT</td>
+                  <td>{{dd.LT}}</td>
                 </tr>
                 <tr class="tablerow">
-                  <td>Stock29</td>
-                  <td>{{dd.stock29}}</td>
+                  <td>ASIANPAINT</td>
+                  <td>{{dd.ASIANPAINT}}</td>
                 </tr>
                 <tr class="lastrow talberow">
-                  <td>Stock30</td>
-                  <td>{{dd.stock30}}</td>
+                  <td>ICICIPRULI</td>
+                  <td>{{dd.ICICIPRULI}}</td>
                 </tr>
                 <tr class="tablerow">
-                  <td>Stock31</td>
-                  <td>{{dd.stock31}}</td>
+                  <td>PVR</td>
+                  <td>{{dd.PVR}}</td>
                 </tr>
                 <tr class="tablerow">
-                  <td>Stock32</td>
-                  <td>{{dd.stock32}}</td>
+                  <td>PIDILITIND</td>
+                  <td>{{dd.PIDILITIND}}</td>
                 </tr>
                 <tr class="lastrow talberow">
-                  <td>Stock33</td>
-                  <td>{{dd.stock33}}</td>
+                  <td>TRENT</td>
+                  <td>{{dd.TRENT}}</td>
                 </tr>
                 {% endfor %}
+              
+                <!-- INTERNATIONAL-->
+              
+                {% comment %}
+              {% for dd in dashdata %}
+              <tr class="tablerow">
+                <td>TM</td>
+                <td>{{dd.TM}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>UL</td>
+                <td>{{dd.UL}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>CVX</td>
+                <td>{{dd.CVX}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>BRK</td>
+                <td>{{dd.BRK}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>JPM</td>
+                <td>{{dd.JPM}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>T</td>
+                <td>{{dd.T}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>WFC</td>
+                <td>{{dd.WFC}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>HD</td>
+                <td>{{dd.HD}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>KO</td>
+                <td>{{dd.KO}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>VISA</td>
+                <td>{{dd.VISA}}</td>
+              </tr>
+              <tr class="lastrow talberow">
+                <td>WMT</td>
+                <td>{{dd.WMT}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>AXP</td>
+                <td>{{dd.AXP}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>BA</td>
+                <td>{{dd.BA}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>PFE</td>
+                <td>{{dd.PFE}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>VZ</td>
+                <td>{{dd.VZ}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>HMC</td>
+                <td>{{dd.HMC}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>QCOM</td>
+                <td>{{dd.QCOM}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>NFLX</td>
+                <td>{{dd.NFLX}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>FB</td>
+                <td>{{dd.FB}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>ADBE</td>
+                <td>{{dd.ADBE}}</td>
+              </tr>
+              <tr class="lastrow talberow">
+                <td>VWS</td>
+                <td>{{dd.VWS}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>GAZP</td>
+                <td>{{dd.GAZP}}</td>
+              </tr>
+              <tr class="lastrow talberow">
+                <td>GS</td>
+                <td>{{dd.GS}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>MCD</td>
+                <td>{{dd.MCD}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>ZM</td>
+                <td>{{dd.ZM}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>PYPL</td>
+                <td>{{dd.PYPL}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>TCEHY</td>
+                <td>{{dd.TCEHY}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>BABA</td>
+                <td>{{dd.BABA}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>AAPL</td>
+                <td>{{dd.AAPL}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>MSFT</td>
+                <td>{{dd.MSFT}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>TSLA</td>
+                <td>{{dd.TSLA}}</td>
+              </tr>
+              <tr class="lastrow talberow">
+                <td>TXN</td>
+                <td>{{dd.TXN}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>INTC</td>
+                <td>{{dd.INTC}}</td>
+              </tr>
+              
+              
+              {% endfor %}
+
+
+
+
+
+
+
+
+
+              {% endcomment %}
+              
+              
+              
+              
+              
+              
+              
+              
+              
               </tbody>
             </table>
           
