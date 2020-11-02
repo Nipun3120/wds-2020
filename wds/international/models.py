@@ -38,7 +38,7 @@ class StockList(models.Model):
         return f"{self.stockname}"
 
 
-class Stock_intt(models.Model):
+class Stock(models.Model):
     user=models.OneToOneField(settings.AUTH_USER_MODEL,related_name='inter' ,on_delete=models.CASCADE, default=1)
     stock1=models.IntegerField(default=0)
     stock2=models.IntegerField(default=0)
@@ -65,7 +65,7 @@ class trade(models.Model):
 
 def create_stock(sender,instance,created,**kwargs):
     if created:
-        Stock_intt.objects.create(user=instance)
+        Stock.objects.create(user=instance)
 
 post_save.connect(create_stock,sender=User)
 
@@ -84,8 +84,8 @@ class tradereq(models.Model):
     def __str__(self):
         return self.sender.username
     def accept(self):
-        receiver_stock=Stock_intt.objects.get(user=self.receiver)
-        sender_stock=Stock_intt.objects.get(user=self.sender)
+        receiver_stock=Stock.objects.get(user=self.receiver)
+        sender_stock=Stock.objects.get(user=self.sender)
         amount=self.numberofstocks*self.priceperstock
         if self.action=='buy':
             sender_stock.userbalance=sender_stock.userbalance-amount
