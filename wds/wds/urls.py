@@ -22,8 +22,8 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     #path('register/', core_views.register, name='register'),
-    #path('',include('core.urls',namespace='core')),
-    path('',include('international.urls',namespace='international'))
+    path('',include('core.urls',namespace='core')),
+    #path('',include('international.urls',namespace='international'))
 ]
 if settings.DEBUG:
     import debug_toolbar

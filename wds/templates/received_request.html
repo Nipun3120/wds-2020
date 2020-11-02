@@ -13,13 +13,13 @@ if action=sell that means you are the buyer and if action = buy then you are the
 <td>{{ req.stock }} </td>
 <td>{{ req.numberofstocks }}</td>
 <td>{{ req.priceperstock }}</td>
-{% comment  %}
+
 <td><a href="{% url 'core:accept-request' req.id %}">accept</a></td>
 <td><a href="{% url 'core:decline-request' req.id %}">decline</a></td>
-{% endcomment %}
+{% comment  %}
 <td><a href="{% url 'international:accept-request' req.id %}">accept</a></td>
 <td><a href="{% url 'international:decline-request' req.id %}">decline</a></td>
-
+{% endcomment %}
 </tr>
 {% endfor %}
 

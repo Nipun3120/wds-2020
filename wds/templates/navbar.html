@@ -13,15 +13,18 @@
                 <div class="top-nav left-menu">
                     <ul class="right top-ul chevron">
                         <li class="active-item">
-                            {% comment  %}<a href="{% url 'core:home' %}">Home</a>{% endcomment %}
-                            <a href="{% url 'international:home' %}">Home</a>
                             
+                            <a href="{% url 'core:home' %}">Home</a>
+                            {% comment  %}
+                            <a href="{% url 'international:home' %}">Home</a>
+                            {% endcomment %}
                         </li>
                         <li>
-                        <a href="{% url 'international:stocks' %}">&nbsp Stocks</a>
+                        
+                        <a href="{% url 'core:stocks' %}">&nbsp Stocks</a>
                         {% comment  %}
-                            <a href="{% url 'core:stocks' %}">&nbsp Stocks</a>
-                            {% endcomment %}
+                        <a href="{% url 'international:stocks' %}">&nbsp Stocks</a>
+                        {% endcomment %}
                         </li>
                        
                     </ul>
@@ -29,12 +32,11 @@
 
                 <!-- logo -->
                 <ul class="logo-menu">
-                {% comment  %}<a href="{% url 'international:home' %}" class="logo">
+                    
+                <a href="{% url 'core:home' %}" class="logo">
+                {% comment  %}
+                <a href="{% url 'international:home' %}" class="logo"></a>
                 {% endcomment %}
-                    <a href="{% url 'international:home' %}" class="logo">
-                        {% comment  %}
-                    <a href="{% url 'core:home' %}" class="logo">
-                        {% endcomment %}
                         <!-- Logo White Version -->
                         <img class="logo-white" src="{% static 'images-2019/WDS_Logo_Black.png'%}" alt="">
                         <!-- Logo Dark Version -->
@@ -46,7 +48,7 @@
                 <!-- right menu items -->
                 <div class="top-nav right-menu">
                     <ul class="top-ul chevron">
-                        {% comment  %}
+                        
                         {% if user.is_authenticated %}
                         <li><a href="{% url 'core:news' %}">&nbsp News</a></li>
                         <li><a href="{% url 'core:dashboard' %}">&nbsp Dashboard</a></li>
@@ -55,7 +57,7 @@
                         <li><a href="{% url 'core:news' %}">&nbsp News</a></li>
                         <li><a href="{% url 'core:userlogin' %}">&nbsp Login</a></li>
                         {% endif %}
-                        {% endcomment %}
+                        {% comment  %}
                         {% if user.is_authenticated %}
                         <li><a href="{% url 'international:news' %}">&nbsp News</a></li>
                         <li><a href="{% url 'international:dashboard' %}">&nbsp Dashboard</a></li>
@@ -64,7 +66,7 @@
                         <li><a href="{% url 'international:news' %}">&nbsp News</a></li>
                         <li><a href="{% url 'international:userlogin' %}">&nbsp Login</a></li>
                         {% endif %}
-                        
+                        {% endcomment %}
                         
                                         
                     </ul>
