@@ -5,9 +5,9 @@
 
 <html>
 
-<body><h1>Transaction Log</h1>
+<body><h1>Successfull Transaction</h1>
 <table border="1">
-<tr><th>sender</th><th>receiver</th><th>type</th><th>stock</th><th>number of stocks</th><th>priceperstock</th><th>Status</th></tr>
+<tr><th>sender</th><th>receiver</th><th>type</th><th>stock</th><th>number of stocks</th><th>priceperstock</th><!--<th>Status</th>--></tr>
 {% for req in requests %}
 
 <tr><td>{{ req.sender }}</td>
@@ -16,7 +16,7 @@
 <td>{{ req.stock }} </td>
 <td>{{ req.numberofstocks }}</td>
 <td>{{ req.priceperstock }}</td> 
-<td>{{ req.status }}</td>
+<!--<td>{{ req.status }}</td>-->
 </tr>
 {% endfor %}
 

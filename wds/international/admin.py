@@ -18,5 +18,5 @@ class reportadmin(admin.ModelAdmin):
 admin.site.register(Report,reportadmin)
 
 class stocklistadmin(admin.ModelAdmin):
-    list_display=('stockname','stockprice')
+    list_display=('stockattribute','stockname','stockprice')
 admin.site.register(StockList,stocklistadmin)
