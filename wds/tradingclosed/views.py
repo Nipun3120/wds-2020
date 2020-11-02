@@ -1,0 +1,40 @@
+from django.conf import settings
+from django.contrib import messages
+from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render, get_object_or_404,redirect
+from django.views.generic import ListView, DetailView, View
+from django.utils import timezone
+from django.views.decorators.csrf import csrf_exempt
+from  django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
+
+def home(request):
+    return render(request,"home.html", {'messages': messages.get_messages(request)})
+
+def trading(request):
+    return render(request,"trading-closed.html")
+
+    
+def user_login(request):
+    if request.method=='POST':
+        username=request.POST.get('username')
+        password=request.POST.get('password')
+        print(username)
+        print(password)
+
+
+        user=authenticate(username=username,password=password)
+
+        if user is not None:
+                login(request,user)
+        else:
+            print("false login")
+            messages.error(request, f'Invalid Teamname or Password')
+            return redirect('tradingclosed:userlogin')
+        return redirect('tradingclosed:trading-closed')
+    else:
+        print("render part ran successfully")
+        return render(request,'userlogin.html')
