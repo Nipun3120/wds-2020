@@ -168,74 +168,74 @@ class Trade(ListView):
                         stock_seller.save()
                         stock_buyer.save()'''
 
-                if stock=="ASHOKLEY":
-                    stock_seller.ASHOKLEY-=numberofstocks
+                if stock=="TM":
+                    stock_seller.TM-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.ASHOKLEY+=numberofstocks
+                    stock_buyer.TM+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()                 
                     stock_buyer.save()
-                elif stock=="WIPRO":
-                    stock_seller.WIPRO-=numberofstocks
+                elif stock=="UL":
+                    stock_seller.UL-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.WIPRO+=numberofstocks
+                    stock_buyer.UL+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()         
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="RAJESHEXPO":
-                    stock_seller.RAJESHEXPO-=numberofstocks
+                elif stock=="CVX":
+                    stock_seller.CVX-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.RAJESHEXPO+=numberofstocks
+                    stock_buyer.CVX+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="AMBUJACEM":
-                    stock_seller.AMBUJACEM-=numberofstocks
+                elif stock=="BRK":
+                    stock_seller.BRK-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.AMBUJACEM+=numberofstocks
+                    stock_buyer.BRK+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="MM":
-                    stock_seller.MM-=numberofstocks
+                elif stock=="JPM":
+                    stock_seller.JPM-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.MM+=numberofstocks
+                    stock_buyer.JPM+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="ONGC":
-                    stock_seller.ONGC-=numberofstocks
+                elif stock=="T":
+                    stock_seller.T-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.ONGC+=numberofstocks
+                    stock_buyer.T+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="DMART":
-                    stock_seller.DMART-=numberofstocks
+                elif stock=="WFC":
+                    stock_seller.WFC-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.DMART+=numberofstocks
+                    stock_buyer.WFC+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="SUNPHARMA":
-                    stock_seller.SUNPHARMA-=numberofstocks
+                elif stock=="HD":
+                    stock_seller.HD-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.SUNPHARMA+=numberofstocks
+                    stock_buyer.HD+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="stock9":
-                    stock_seller.stock9-=numberofstocks
+                elif stock=="KO":
+                    stock_seller.KO-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.stock9+=numberofstocks
+                    stock_buyer.KO+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="ADANIPOWER":
-                    stock_seller.ADANIPOWER-=numberofstocks
+                elif stock=="VISA":
+                    stock_seller.VISA-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.ADANIPOWER+=numberofstocks
+                    stock_buyer.VISA+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
@@ -272,8 +272,8 @@ def reqcreate(request):
                     else:
                         messages.error(request, f'Insufficient Balance for transaction!!')
                 elif action=='sell':
-                    if stock=='ASHOKLEY':
-                        if (numberofstock<=stock_request_sender.ASHOKLEY):
+                    if stock=='TM':
+                        if (numberofstock<=stock_request_sender.TM):
                             request_trade=tradereq.objects.create(
                                 sender=sender,
                                 receiver=receiver,action=action,
@@ -285,8 +285,8 @@ def reqcreate(request):
                             return redirect('international:sentreq')
                         else:
                              messages.error(request, f'Insufficient Stock holdings!!')
-                    elif stock=='WIPRO':
-                        if (numberofstock<=stock_request_sender.WIPRO):
+                    elif stock=='UL':
+                        if (numberofstock<=stock_request_sender.UL):
                             request_trade=tradereq.objects.create(
                                 sender=sender,
                                 receiver=receiver,action=action,
@@ -298,8 +298,8 @@ def reqcreate(request):
                             return redirect('international:sentreq')
                         else:
                              messages.warning(request, f'Insufficient Stock holdings!!')
-                    elif stock=='RAJESHEXPO':
-                        if (numberofstock<=stock_request_sender.RAJESHEXPO):
+                    elif stock=='CVX':
+                        if (numberofstock<=stock_request_sender.CVX):
                             request_trade=tradereq.objects.create(
                                 sender=sender,
                                 receiver=receiver,action=action,
@@ -311,8 +311,8 @@ def reqcreate(request):
                             return redirect('international:sentreq')
                         else:
                              messages.error(request, f'Insufficient Stock holdings!!')
-                    elif stock=='AMBUJACEM':
-                        if (numberofstock<=stock_request_sender.AMBUJACEM):
+                    elif stock=='BRK':
+                        if (numberofstock<=stock_request_sender.BRK):
                             request_trade=tradereq.objects.create(
                                 sender=sender,
                                 receiver=receiver,action=action,
@@ -324,8 +324,8 @@ def reqcreate(request):
                             return redirect('international:sentreq')
                         else:
                              messages.error(request, f'Insufficient Stock holdings!!')
-                    elif stock=='MM':
-                        if (numberofstock<=stock_request_sender.MM):
+                    elif stock=='JPM':
+                        if (numberofstock<=stock_request_sender.JPM):
                             request_trade=tradereq.objects.create(
                                 sender=sender,
                                 receiver=receiver,action=action,
@@ -337,8 +337,8 @@ def reqcreate(request):
                             return redirect('international:sentreq')
                         else:
                              messages.error(request, f'Insufficient Stock holdings!!')
-                    elif stock=='ONGC':
-                        if (numberofstock<=stock_request_sender.ONGC):
+                    elif stock=='T':
+                        if (numberofstock<=stock_request_sender.T):
                             request_trade=tradereq.objects.create(
                                 sender=sender,
                                 receiver=receiver,action=action,
@@ -350,8 +350,8 @@ def reqcreate(request):
                             return redirect('international:sentreq')
                         else:
                              messages.error(request, f'Insufficient Stock holdings!!')
-                    elif stock=='DMART':
-                        if (numberofstock<=stock_request_sender.DMART):
+                    elif stock=='WFC':
+                        if (numberofstock<=stock_request_sender.WFC):
                             request_trade=tradereq.objects.create(
                                 sender=sender,
                                 receiver=receiver,action=action,
@@ -363,8 +363,8 @@ def reqcreate(request):
                             return redirect('international:sentreq')
                         else:
                              messages.error(request, f'Insufficient Stock holdings!!')
-                    elif stock=='SUNPHARMA':
-                        if (numberofstock<=stock_request_sender.SUNPHARMA):
+                    elif stock=='HD':
+                        if (numberofstock<=stock_request_sender.HD):
                             request_trade=tradereq.objects.create(
                                 sender=sender,
                                 receiver=receiver,action=action,
@@ -376,8 +376,8 @@ def reqcreate(request):
                             return redirect('international:sentreq')
                         else:
                              messages.error(request, f'Insufficient Stock holdings!!')
-                    elif stock=='stock9':
-                        if (numberofstock<=stock_request_sender.stock9):
+                    elif stock=='KO':
+                        if (numberofstock<=stock_request_sender.KO):
                             request_trade=tradereq.objects.create(
                                 sender=sender,
                                 receiver=receiver,action=action,
@@ -389,8 +389,8 @@ def reqcreate(request):
                             return redirect('international:sentreq')
                         else:
                              messages.error(request, f'Insufficient Stock holdings!!')
-                    elif stock=='ADANIPOWER':
-                        if (numberofstock<=stock_request_sender.ADANIPOWER):
+                    elif stock=='VISA':
+                        if (numberofstock<=stock_request_sender.VISA):
                             request_trade=tradereq.objects.create(
                                 sender=sender,
                                 receiver=receiver,action=action,
@@ -402,7 +402,306 @@ def reqcreate(request):
                             return redirect('international:sentreq')
                         else:
                              messages.error(request, f'Insufficient Stock holdings!!')              
- 
+                    elif stock=='WMT':
+                        if (numberofstock<=stock_request_sender.WMT):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='AXP':
+                        if (numberofstock<=stock_request_sender.AXP):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='BA':
+                        if (numberofstock<=stock_request_sender.BA):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='PFE':
+                        if (numberofstock<=stock_request_sender.PFE):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='VZ':
+                        if (numberofstock<=stock_request_sender.VZ):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='HMC':
+                        if (numberofstock<=stock_request_sender.HMC):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='QCOM':
+                        if (numberofstock<=stock_request_sender.QCOM):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='NFLX':
+                        if (numberofstock<=stock_request_sender.NFLX):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='FB':
+                        if (numberofstock<=stock_request_sender.FB):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='ADBE':
+                        if (numberofstock<=stock_request_sender.ADBE):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='VWS':
+                        if (numberofstock<=stock_request_sender.VWS):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='GAZP':
+                        if (numberofstock<=stock_request_sender.GAZP):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='GS':
+                        if (numberofstock<=stock_request_sender.GS):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='MCD':
+                        if (numberofstock<=stock_request_sender.MCD):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='ZM':
+                        if (numberofstock<=stock_request_sender.ZM):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='PYPL':
+                        if (numberofstock<=stock_request_sender.PYPL):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='TCEHY':
+                        if (numberofstock<=stock_request_sender.TCEHY):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='BABA':
+                        if (numberofstock<=stock_request_sender.BABA):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='AAPL':
+                        if (numberofstock<=stock_request_sender.AAPL):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='MSFT':
+                        if (numberofstock<=stock_request_sender.MSFT):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='TSLA':
+                        if (numberofstock<=stock_request_sender.TSLA):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='TXN':
+                        if (numberofstock<=stock_request_sender.TXN):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='INTC':
+                        if (numberofstock<=stock_request_sender.INTC):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('core:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    
     return render(request,'create_request.html',{'form':tradereqform})
 @login_required
 def report(request):
