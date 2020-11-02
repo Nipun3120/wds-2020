@@ -470,7 +470,9 @@ def accept_request(request,*args, **kwargs):
         if tradereq_id:
             trade_request=tradereq.objects.filter(pk=tradereq_id)[0]
             if trade_request:
-                trade_request.accept()
+                msg = trade_request.accept()
+                print(msg)
+                messages.error(request, msg)
                 return redirect("international:receivedreq")
 
 @login_required
