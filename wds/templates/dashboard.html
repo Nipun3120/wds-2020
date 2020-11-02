@@ -11,167 +11,215 @@
 
     
     <style>
-
-    *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-      
-}
-
-
-
-body {
-  
-    /* background-image: url("{% static '/images-2019/bg-10.png' %}");
-    background-attachment: fixed; 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;  */
-
-    /* background: linear-gradient(to right, #2A5470, #4C4177); */
-
-    font: 16px/1.6 Arial, sans-serif; 
-    background: linear-gradient(to left, #393f92 25%, #690077 100%);
-}
-
-.nav-carosel-height{
-   height: 250px;
-}
-
-main{
-
-    display: flex;
-    height: 50rem;
-    
-}
-
-/*   ---------------------------    SIDE BAR   -------------------------------- */
-.side-bar-wrapper {
-    width: 20%;
-    /* background: linear-gradient(to right, #2A5470, #4C4177); */
-    background: white;
-    
-    padding: 0 10px 0 35px;
-}
-
-/*   ------------------ team info  ------------------ */
-
-.side-bar-wrapper .team-info{
-    padding-left: 3vw;
-}
-.side-bar-wrapper .team-info .team-name h2{             /*  name size */
-    font-size: 2.3rem;
-    font-weight: bolder;
-    margin-bottom: 25px;
-}
-.side-bar-wrapper .team-info .team-balance h5 {
-    font-size: 1.6em;
-    font-weight: 600;
-    
-}
-
-
-/*   ------------------ Buttons  ------------------ */
-.requestButtons{
-    margin-top: 30px;
-}
-.requestButtons .req-btn{
-    margin-bottom: 10px;
-    /* width: 100%; */
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-.requestButtons .req-btn:hover{
-    cursor: pointer;
-    text-align: center;
-}
-.requestButtons .req-btn a{
-    width: 100%;
-    padding: 15px 10px;
-    background: tomato;
-}
-
-
-/*   ---------------------------    table   -------------------------------- */
-
-
-.stock-table{
-    width: 50%;
-    padding-left: 10vh;
-    margin-left: 10%;
-    padding: 10px;
-    margin-top: -15px;
-    
-}
-/* overriding  */
-th, table tr:nth-of-type(2n){
-    border: none;
-    background: transparent;
-}
-
-th, table tr:nth-of-type(2n) td{
-    border: none;
-    background: transparent;
-}
-table{
-    background: transparent;
-}
-
-
-.stock-table .stockTableInsider table {
-
-}
-.stock-table .stockTableInsider .talberow{
-    background: none;
-
-}
-.stockTableInsider thead{
-    height: 70px;
-    background: none;
-    border: none;
-    border-bottom: 2px solid #fff;
-    background-image: linear-gradient(to right, #423366d0, #295763d0);
-}
-
-.stockTableInsider thead th{
-    font-size: 2rem;
-    text-align: center;
-    height: 50px;
-    color: white;
-}
-
-.stockTableInsider tbody{
-    background: rgba(128, 128, 128, 0.308);
-    
-}
-
-.stockTableInsider tbody tr{
-    color: white;
-}
-
-.stockTableInsider tbody td{
-    text-align: center;
-    font-size: 1.3rem;
-    margin-right: 1px;
-    padding-right: 10px;
-    color: white;
-}
-
-
-@media (max-width: 425px) {
-
-    main{
-        margin-top: 50px;
-        /* display: flexbox; */
-        /* flex-direction: column-reverse; */
+      @import url('https://fonts.googleapis.com/css2?family=Sanchez&display=swap');
+      *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
         
-    }
-}
-    </style>    
+  }
+  
+  
+  
+  body {
+    
+      /* background-image: url("{% static '/images-2019/bg-13.jpeg' %}");
+      background-attachment: fixed; 
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover; */
+  
+      /* background: #21668d; */
+      /* background: linear-gradient(to top right, #25273a, #262941); */
+      background: #343b4d;
+      /* background: linear-gradient(45deg, #b835c5, #1c9e9e); */
+      /* background: linear-gradient(135deg,  #CC3363, #1f053b); */
+      /* background: linear-gradient(135deg,  #4b5377 20%, #212646 50%); */
+      
+      font: 16px/1.6 Arial, sans-serif; 
+      font-family: 'Sanchez', serif;
+  
+  }
+  footer{
+    margin-top: 40%;
+  }
+  
+  main{
+      margin-top: 10px;
+      display: flex;
+      /* height: 50rem; */
+      /* height: 1000px; */
+
+  }
+  
+  /*   ---------------------------    SIDE BAR   -------------------------------- */
+  .side-bar-wrapper {
+      width: 17%;
+      /* background: #2d99ea; */
+      color: #FCAF58;
+      padding: 0 10px 0 0px;
+      border-top-right-radius: 30px;
+      box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.5);
+      
+  }
+  
+  /*   ------------------ team info  ------------------ */
+  
+  .side-bar-wrapper .team-info{
+      /* background: #212646; */
+      text-align: center;
+      margin: 10px;
+      padding: 5px 10px 20px 10px;
+      border-radius: 30px;
+      /* box-shadow: 3px 3px 15px 0 #212646; */
+      box-shadow: 2px 2px 15px 0 #00000f;
+      
+      
+  }
+  .side-bar-wrapper .team-info .team-name h2{             /*  name size */
+      font-size: 2rem;
+      font-weight: bolder;
+      margin-bottom: 25px;
+      color: #FCAF58;
+      font-family: 'Sanchez', serif;
+      text-transform: uppercase;
+  }
+  .side-bar-wrapper .team-info .team-balance h5 {
+      font-size: 1.1em;
+      color: #FCAF58;
+      line-height: 1.5rem;
+      margin: 0 10%;
+      text-align: center;
+      font-family: 'Sanchez', serif;
+  }
+  
+  
+  
+  /*   ------------------ Buttons  ------------------ */
+  .requestButtons{
+      margin-top: 30px;
+  }
+  .requestButtons .req-btn{
+      margin-bottom: 10px;
+      display: flex;
+      flex-flow: column;
+  }
+  .requestButtons .req-btn  {
+    margin-left: 10px;
+    border-bottom: 1.5px solid #212646;
+    text-align: center;              /* links to center */
+  }
+  .requestButtons .req-btn:hover{
+      cursor: pointer;
+      text-align: center;               
+  }
+  .requestButtons .req-btn a{
+    font-size: 0.9rem;
+      text-transform: uppercase;
+      padding: 15px 10px;
+      color: whitesmoke;
+  
+  }
+  .requestButtons .req-btn a:hover{
+    text-align: center;           /* links to center on hovering */
+  }
+  
+  /*   ---------------------------    table   -------------------------------- */
+  
+  
+  /* overriding  */
+  th, table tr:nth-of-type(2n){
+      border: none;
+      background: transparent;
+  }
+  
+  th, table tr:nth-of-type(2n) td{
+      border: none;
+      background: transparent;
+  }
+  table{
+      background: transparent;
+      height: 1000px;
+      /* background: yellowgreen; */
+      /* background: linear-gradient(310deg, #b835c5 50%, #1c9e9e 50%); */
+      
+      
+  }
+  
+  
+  .stock-table{
+      width: 60%;
+      margin-left: 10%;
+      /* background-image: linear-gradient(135deg, #36096d 0%, #37d5d6 74%); */
+    height: 100vh;
+      margin-bottom: 30px;
+    
+  }
+  
+  
+  .stock-table .table-heading{
+    width: 100%;
+    text-align: center;
+  }
+  .stock-table .table-heading h1{
+    color: #FCAF58;
+    font-weight: 500;
+    font-family: 'Sanchez', serif;
+  }
+  
+  
+  .stock-table .stockTableInsider {
+  }
+  .stock-table .stockTableInsider .talberow{
+      background: none;
+  
+  }
+  .stockTableInsider thead{
+      height: 70px;
+      background: none;
+      border: none;
+      border-bottom: 2px solid #fff;
+      background-image: linear-gradient(to right, #423366d0, #295763d0);
+  }
+  
+  .stockTableInsider thead th{
+      font-size: 2rem;
+      text-align: center;
+      height: 50px;
+      color: white;
+  }
+  
+  .stockTableInsider tbody{
+      background: rgba(128, 128, 128, 0.308);
+      
+  }
+  
+  .stockTableInsider tbody tr{
+      color: white;
+      /* border-bottom: 1px solid #0e1214; */
+  }
+  
+  .stockTableInsider tbody td{
+      text-align: center;
+      font-size: 1.3rem;
+      margin-right: 1px;
+      padding-right: 10px;
+      color: white;
+  }
+  
+  
+  
+  
+  @media (max-width: 425px) {
+  
+      main{
+          margin-top: 50px;
+          /* display: flexbox; */
+          /* flex-direction: column-reverse; */
+          
+      }
+  }
+      </style>    
   </head>
   <body>
 
@@ -188,6 +236,7 @@ table{
             <div class="section text-center background-image-zoom-out">
                 <!-- ZOOMED Carousel Image -->
                 <div class="background-image background-image-object" style="background-image:url({% static 'images-2019/bg-6.png'%})"></div>
+                <div class="background-image background-image-object" ></div>
 
                 <div class="line" style="visibility: hidden;">
                     <hr class="animated-carousel-element break background-primary break-small break-center margin-top-130">
@@ -195,14 +244,14 @@ table{
                         
                     </p>
                     <hr class="animated-carousel-element break background-primary break-small break-center">
-                    <p class="animated-carousel-element slow text-white margin-top-40"></p>
+                    <!-- <p class="animated-carousel-element slow text-white margin-top-40"></p> -->
                 </div>
                 <!-- Pie Charts -->
               
             </div>
         </div>
         <!-- white full width arrow object -->
-        <img class="arrow-object" src="{% static 'img/arrow-object-white.svg'%}" alt="">
+        <!-- <img class="arrow-object" src="{% static 'img/arrow-object-white.svg'%}" alt=""> -->
     </div>
 </div>
 
@@ -243,84 +292,173 @@ table{
       </div>
 
       <!--    ----------------- STOCKS TABLE -------------------     -->
-        <div class="stock-table">
+      <div class="stock-table">
             
-          <div class="table-heading">
-            Stock Holdings
-          </div>
-              <table class="stockTableInsider">
-                
-                <thead >
-                  <th>Stock Name</th>
-                  <th>Number Of Stocks</th>
-                  {% comment %}
-                  <th>Current Price</th>
-                  {% endcomment %}
-                </thead>
-                
-                <tbody>
-
-                  {% comment %} {% for dd in dashdata %}
-                  <tr class="tablerow1">
-                    <td>{{ dd.stock }}</td>
-                    <td>{{ dd.numberofstocks }}</td>
-                    <td>{{ dd.priceperstock }}</td>
-                  </tr>
-                  {% endfor %} {% endcomment %}
-                  {% for dd in dashdata %}
-                  <tr class="tablerow">
-                    <td>Stock1</td>
-                    <td>{{dd.stock1}}</td>
-                  </tr>
-                  <tr class="tablerow">
-                    <td>Stock2</td>
-                    <td>{{dd.stock2}}</td>
-                  </tr>
-                  <tr class="tablerow">
-                    <td>Stock3</td>
-                    <td>{{dd.stock3}}</td>
-                  </tr>
-                  <tr class="tablerow">
-                    <td>Stock4</td>
-                    <td>{{dd.stock4}}</td>
-                  </tr>
-                  <tr class="tablerow">
-                    <td>Stock5</td>
-                    <td>{{dd.stock5}}</td>
-                  </tr>
-                  <tr class="tablerow">
-                    <td>Stock6</td>
-                    <td>{{dd.stock6}}</td>
-                  </tr>
-                  <tr class="tablerow">
-                    <td>Stock7</td>
-                    <td>{{dd.stock7}}</td>
-                  </tr>
-                  <tr class="tablerow">
-                    <td>Stock8</td>
-                    <td>{{dd.stock8}}</td>
-                  </tr>
-                  <tr class="tablerow">
-                    <td>Stock9</td>
-                    <td>{{dd.stock9}}</td>
-                  </tr>
-                  <tr class="lastrow talberow">
-                    <td>Stock10</td>
-                    <td>{{dd.stock10}}</td>
-                  </tr>
-                  {% endfor %}
-
-                  
-                </tbody>
-              </table>
-            
-            
-      </div>
-      
- </main>
+        <div class="table-heading">
+          <h1>Stock Holdings</h1>
+        </div>
+            <table class="stockTableInsider">
+              
+              <thead >
+                <th>Stock Name</th>
+                <th>Number Of Stocks</th>
+                {% comment %}
+                <th>Current Price</th>
+                {% endcomment %}
+              </thead>
+              
+              <tbody>
+                {% comment %} {% for dd in dashdata %}
+                <tr class="tablerow1">
+                  <td>{{ dd.stock }}</td>
+                  <td>{{ dd.numberofstocks }}</td>
+                  <td>{{ dd.priceperstock }}</td>
+                </tr>
+                {% endfor %} {% endcomment %} {% for dd in dashdata %}
+                <tr class="tablerow">
+                  <td>ASHOKLEY</td>
+                  <td>{{dd.ASHOKLEY}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>WIPRO</td>
+                  <td>{{dd.WIPRO}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>RAJESHEXPO</td>
+                  <td>{{dd.RAJESHEXPO}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>AMBUJACEM</td>
+                  <td>{{dd.AMBUJACEM}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>MM</td>
+                  <td>{{dd.MM}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>ONGC</td>
+                  <td>{{dd.ONGC}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>DMART</td>
+                  <td>{{dd.DMART}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>SUNPHARMA</td>
+                  <td>{{dd.SUNPHARMA}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>Stock9</td>
+                  <td>{{dd.stock9}}</td>
+                </tr>
+                <tr class="lastrow talberow">
+                  <td>ADANIPOWER</td>
+                  <td>{{dd.ADANIPOWER}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>Stock11</td>
+                  <td>{{dd.stock11}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>Stock12</td>
+                  <td>{{dd.stock12}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>Stock13</td>
+                  <td>{{dd.stock13}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>Stock14</td>
+                  <td>{{dd.stock14}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>Stock15</td>
+                  <td>{{dd.stock15}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>Stock16</td>
+                  <td>{{dd.stock16}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>Stock17</td>
+                  <td>{{dd.stock17}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>Stock18</td>
+                  <td>{{dd.stock18}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>Stock19</td>
+                  <td>{{dd.stock19}}</td>
+                </tr>
+                <tr class="lastrow talberow">
+                  <td>Stock20</td>
+                  <td>{{dd.stock20}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>Stock21</td>
+                  <td>{{dd.stock21}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>Stock22</td>
+                  <td>{{dd.stock22}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>Stock23</td>
+                  <td>{{dd.stock23}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>Stock24</td>
+                  <td>{{dd.stock24}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>Stock25</td>
+                  <td>{{dd.stock25}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>Stock26</td>
+                  <td>{{dd.stock26}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>Stock27</td>
+                  <td>{{dd.stock27}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>Stock28</td>
+                  <td>{{dd.stock28}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>Stock29</td>
+                  <td>{{dd.stock29}}</td>
+                </tr>
+                <tr class="lastrow talberow">
+                  <td>Stock30</td>
+                  <td>{{dd.stock30}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>Stock31</td>
+                  <td>{{dd.stock31}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>Stock32</td>
+                  <td>{{dd.stock32}}</td>
+                </tr>
+                <tr class="lastrow talberow">
+                  <td>Stock33</td>
+                  <td>{{dd.stock33}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          
+          
+    </div>
     
- {% include "footer.html" %}
-    
-  </body>
+</main>
+  
+
+{% include "footer.html" %}
+
+</body>
 </html>
 {% endblock content %}
