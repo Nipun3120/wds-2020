@@ -3,8 +3,8 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from .views import home, Trade, reqcreate,received_request,sent_request,accept_request,decline_request,cancel_request,report,history
-from core import views
-app_name="core"
+from international import views
+app_name="international"
 
 urlpatterns = [
     

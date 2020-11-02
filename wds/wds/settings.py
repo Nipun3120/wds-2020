@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'core',
+    'international',
     'materializecssform',
 ]
 
@@ -148,4 +149,5 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 LOGIN_REDIRECT_URL = 'home'
-BASE_URL = "http://127.0.0.1:8000"
+#BASE_URL = "http://127.0.0.1:8000"
+LOGIN_URL = ""
