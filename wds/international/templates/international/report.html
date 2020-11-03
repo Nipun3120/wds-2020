@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div>
+    <h1>Report</h1>
+    <h2>If you reported correctly you will be rewarded Rs.5000</h2><br>
+    <h2>But if you reported wrong the same amount will be deducted from you!!</h2>
+    <form method='POST' enctype="\application/x-www-form-urlencoded">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-outline-info">Submit</button>
+    </form>
+</div>
+{% endblock content %}
+
+
