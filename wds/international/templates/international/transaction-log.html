@@ -2,26 +2,223 @@
 {% load static %}
 {% block content %}
 
-
 <html>
+<head>
+    <style>
+            
+        *{
+            margin: 0; padding: 0;
+            box-sizing: border-box;
+        }
 
-<body><h1>Successfull Transaction</h1>
-<table border="1">
-<tr><th>sender</th><th>receiver</th><th>type</th><th>stock</th><th>number of stocks</th><th>priceperstock</th><!--<th>Status</th>--></tr>
-{% for req in requests %}
+        body{
+            background: #00000f;
+            text-transform: capitalize;
+        }
+        .main-page{
+            display: flex;
+            height: 100%;
+        }
 
-<tr><td>{{ req.sender }}</td>
-<td>{{ req.receiver }}</td>
-<td>{{ req.action }} </td>
-<td>{{ req.stock }} </td>
-<td>{{ req.numberofstocks }}</td>
-<td>{{ req.priceperstock }}</td> 
-<!--<td>{{ req.status }}</td>-->
-</tr>
-{% endfor %}
+            
+    /*   ---------------------------    SIDE BAR   -------------------------------- */
+    .side-bar-wrapper {
+        width: 17vw;
+        /* height: 95vh; */
+        margin: 5vh 0;
+        color: #FCAF58;
+        padding: 0 10px 0 0px;
+        border-right: 2px solid white;
+    }
+    
+    /*   -------------- team info  ------------- */
+    
+    .side-bar-wrapper .team-info{
+        /* background: #212646; */
+        text-align: center;
+        margin: 10px;
+        padding: 5px 10px 20px 10px;
+        border-radius: 30px;
+        /* box-shadow: 3px 3px 15px 0 #212646; */
+        box-shadow: 1px 1px 15px 0 #00000f;
+        
+        
+    }
+    .side-bar-wrapper .team-info .team-name h2{             /*  name size */
+        font-size: 2rem;
+        font-weight: bolder;
+        margin-bottom: 25px;
+        color: #FCAF58;
+        font-family: 'Sanchez', serif;
+        text-transform: uppercase;
+    }
 
-</table>
-</body></html>
+    
+    
+    
+    /*   ---------------- Buttons  -------------- */
+    .requestButtons{
+        margin-top: 30px;
+    }
+    .requestButtons .req-btn{
+        margin-bottom: 10px;
+        display: flex;
+        flex-flow: column;
+    }
+    .requestButtons .req-btn  {
+        margin-left: 10px;
+        border-bottom: 1.5px solid #212646;
+        text-align: center;                     /* links to center */
+    }
+    .requestButtons .req-btn:hover{
+        cursor: pointer;
+        text-align: center;               
+    }
+    .requestButtons .req-btn a{
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        padding: 15px 10px;
+        color: whitesmoke;
+    
+    }
+    .requestButtons .req-btn a:hover{
+        text-align: center;               /* links to center on hovering */
+    }
+    
+
+
+        /*  ------------------------ TABLE ------------------------  */
+
+    th, table tr:nth-of-type(2n){
+      border: none;
+      background: transparent;
+  }
+  
+  th, table tr:nth-of-type(2n) td{
+      border: none;
+      background: transparent;
+  }
+
+        /* ---------- table section ---------- */
+    .table-section{
+        width: 70vw;
+        height: 60vmin;
+        display: flex;
+        flex-flow: column;
+        margin: 5vh auto;
+        
+    }
+        /* ---------- table heading ---------- */
+    .table-section h1{
+        text-transform: capitalize;
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 2.2rem;
+        font-weight: 500;
+        color: #FCAF58;
+    }
+
+        /* -------------- table -------------- */
+    .table-section table{
+        border: none;
+        background: #8953b036;
+        width: 100%;
+    }
+
+    .table-section table thead {
+      
+      background: none;
+      border: none;
+      background-image: linear-gradient(to right, #46317796, #29718398);
+      border-bottom: 2px solid #fff;
+    }
+
+    .table-section thead th{
+      font-size: 1.2rem;
+      text-align: center;
+      height: 50px;
+      z-index: 10;
+      color: white;
+  }
+
+  .table-section tbody td{
+      
+      text-align: center;
+      font-size: 1rem;
+      
+      padding-right: 10px;
+      color: white;
+      z-index: 10;
+  }
+        </style>
+</head>
+
+<body>
+
+<section class="main-page">
+    <div class="side-bar-wrapper">
+            
+        <div class="team-info">
+        <div class="team-name"><h2>{{ user.username }}</h2></div>
+        <div class="team-balance">    
+            {% for dd in dashdata %}
+            <h5>Team Balance {{ dd.userbalance }}</h5>
+            {% endfor %}
+        </div>
+        </div>
+
+        <div class="requestButtons">
+       
+        <div class="req-btn"><a class="btn-insider" href="{% url 'international:dashboard' %}">Dashboard</a></div>
+        <div class="req-btn"><a class="btn-insider" href="{% url 'international:createrequest' %}">Create Trade Request</a></div>
+        <div class="req-btn"><a class="btn-insider" href="{% url 'international:sentreq' %}" >Requests Sent</a></div>
+        <div class="req-btn"><a class="btn-insider" href="{% url 'international:receivedreq' %}">Received Requests</a></div>
+        <div class="req-btn"><a class="btn-insider" href="{% url 'international:transaction-history' %}">Sent Requests Status</a></div>
+        <div class="req-btn"><a class="btn-insider" href="{% url 'international:transaction-log' %}" style="color:#f8bd95">Transactions</a></div>
+        <div class="req-btn"><a class="btn-insider" href="{% url 'international:report' %}">Report(Insider Trading)</a></div>
+     
+        
+        <div class="req-btn"><a class="btn-insider" href="#">Insider Training</a></div>
+    </div>
+    
+</div>
+
+<div class="table-section">
+    <h1>Transaction Log</h1>
+    <table>
+
+    <thead>
+        <tr>
+            <th>sender</th>
+            <th>receiver</th>
+            <th>type</th>
+            <th>stock</th>
+            <th>number of stocks</th>
+            <th>priceperstock</th>
+            <!--<th>Status</th>-->
+        </tr>
+    </thead>
+    
+    <tbody>
+    {% for req in requests %}
+
+        <tr>
+            <td>{{ req.sender }}</td>
+            <td>{{ req.receiver }}</td>
+            <td>{{ req.action }} </td>
+            <td>{{ req.stock }} </td>
+            <td>{{ req.numberofstocks }}</td>
+            <td>{{ req.priceperstock }}</td> 
+            <!--<td>{{ req.status }}</td>-->
+        </tr>
+        {% endfor %}
+    </tbody>
+
+    </table>
+  </div>  
+</section>
+</body>
+</html>
 
 
 

@@ -22,45 +22,29 @@
   
   
   body {
-    
-      /* background-image: url("{% static '/images-2019/bg-13.jpeg' %}");
-      background-attachment: fixed; 
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover; */
-  
-      /* background: #21668d; */
-      /* background: linear-gradient(to top right, #25273a, #262941); */
-      background: #343b4d;
-      /* background: linear-gradient(45deg, #b835c5, #1c9e9e); */
-      /* background: linear-gradient(135deg,  #CC3363, #1f053b); */
-      /* background: linear-gradient(135deg,  #4b5377 20%, #212646 50%); */
-      
+      background: #000000;  
       font: 16px/1.6 Arial, sans-serif; 
       font-family: 'Sanchez', serif;
   
   }
   footer{
-    margin-top: 40%;
+    margin-top: 15vh;
   }
   
   main{
-      margin-top: 10px;
+      margin-top: 30px;
       display: flex;
       /* height: 50rem; */
       /* height: 1000px; */
-
+      height: 100%;
   }
   
   /*   ---------------------------    SIDE BAR   -------------------------------- */
   .side-bar-wrapper {
       width: 17%;
-      /* background: #2d99ea; */
       color: #FCAF58;
       padding: 0 10px 0 0px;
-      border-top-right-radius: 30px;
-      box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.5);
-      
+      border-right: 2px solid white;
   }
   
   /*   ------------------ team info  ------------------ */
@@ -72,7 +56,7 @@
       padding: 5px 10px 20px 10px;
       border-radius: 30px;
       /* box-shadow: 3px 3px 15px 0 #212646; */
-      box-shadow: 2px 2px 15px 0 #00000f;
+      box-shadow: 2px 2px 15px 0 #00000f9f;
       
       
   }
@@ -86,7 +70,7 @@
   }
   .side-bar-wrapper .team-info .team-balance h5 {
       font-size: 1.1em;
-      color: #FCAF58;
+      color:  #f5a976;
       line-height: 1.5rem;
       margin: 0 10%;
       text-align: center;
@@ -138,22 +122,22 @@
       background: transparent;
   }
   table{
-      background: transparent;
-      height: 1000px;
-      /* background: yellowgreen; */
+      /* background: transparent; */
       /* background: linear-gradient(310deg, #b835c5 50%, #1c9e9e 50%); */
       
+      background: #8953b036;
+      /* background-image: url('{% static "images-2019/bg-10.png" %}'); */
       
+
   }
   
   
   .stock-table{
       width: 60%;
       margin-left: 10%;
-      /* background-image: linear-gradient(135deg, #36096d 0%, #37d5d6 74%); */
-    height: 100vh;
+      height: 100vh;
       margin-bottom: 30px;
-    
+      
   }
   
   
@@ -162,14 +146,19 @@
     text-align: center;
   }
   .stock-table .table-heading h1{
+    font-size: 2.2rem;
     color: #FCAF58;
+    text-transform: uppercase;
     font-weight: 500;
     font-family: 'Sanchez', serif;
+    
   }
   
   
   .stock-table .stockTableInsider {
+  
   }
+
   .stock-table .stockTableInsider .talberow{
       background: none;
   
@@ -179,24 +168,26 @@
       background: none;
       border: none;
       border-bottom: 2px solid #fff;
-      background-image: linear-gradient(to right, #423366d0, #295763d0);
+      /* background-image: linear-gradient(to right, #423366d0, #295763d0); */
+      background-image: linear-gradient(to right, #42336696, #29576398);
   }
   
   .stockTableInsider thead th{
-      font-size: 2rem;
+      font-size: 1.6rem;
       text-align: center;
       height: 50px;
+      line-height: 10px;
       color: white;
   }
+
   
   .stockTableInsider tbody{
-      background: rgba(128, 128, 128, 0.308);
-      
+
   }
   
   .stockTableInsider tbody tr{
       color: white;
-      /* border-bottom: 1px solid #0e1214; */
+
   }
   
   .stockTableInsider tbody td{
@@ -205,6 +196,7 @@
       margin-right: 1px;
       padding-right: 10px;
       color: white;
+      z-index: 10;
   }
   
   
@@ -217,6 +209,9 @@
           /* display: flexbox; */
           /* flex-direction: column-reverse; */
           
+      }
+      .stock-table table thead{
+        height: 520px;
       }
   }
       </style>    
@@ -235,7 +230,7 @@
             <!-- For ZOOM effect add classes "background-image-zoom-out" or "background-image-zoom-in" -->
             <div class="section text-center background-image-zoom-out">
                 <!-- ZOOMED Carousel Image -->
-                <div class="background-image background-image-object" style="background-image:url({% static 'images-2019/bg-6.png'%})"></div>
+                <div class="background-image background-image-object" style="background-image:url({% static 'images-2019/bg-11.jpg'%})"></div>
                 <div class="background-image background-image-object" ></div>
 
                 <div class="line" style="visibility: hidden;">

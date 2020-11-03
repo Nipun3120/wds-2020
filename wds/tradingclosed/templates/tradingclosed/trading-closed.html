@@ -5,20 +5,20 @@
     <title>
         Trading closed
     </title>
-</head>
+
 <style>
 body {
-    background-image: url("{% static 'images-2019/bg-5.jpg' %}");
+    background-image: url("{% static './images-2019/final_bg.jpg'%}");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    font: 16px/1.6 Arial, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     }
 h1 {
     font-size:4rem;
-    color: white;
-    font-weight: bold;
+    color: red;
+
     margin-top: 15vh;
     margin-bottom: 0;
     z-index: 1 !important;
@@ -26,15 +26,28 @@ h1 {
 
 .container{
     position:absolute;
-    top: 200px;
+    top: 180px;
     left: 600px;
+
+}
+.neon {
+  color: rgb(255, 255, 255);
+  text-shadow:
+    0 0 5px rgb(228, 10, 10),
+    0 0 10px rgb(190, 22, 22),
+    0 0 20px rgb(240, 14, 14),
+    0 0 40px #0ff,
+    0 0 80px rgb(18, 216, 150),
+    0 0 90px rgb(7, 219, 42),
+    0 0 100px rgb(13, 221, 48),
+    0 0 150px rgb(10, 228, 57);
 }
 </style>
     <body>
         <div class="container">
-            <h1>Trading is closed for now!</h1>
+        <h1 class="neon">Trading is closed for now!!</h1>
         </div>
 
-
     </body>
+
 </html>
