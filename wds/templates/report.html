@@ -2,16 +2,207 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div>
-    <h1>Report</h1>
-    <h2>If you reported correctly you will be rewarded Rs.5000</h2><br>
-    <h2>But if you reported wrong the same amount will be deducted from you!!</h2>
-    <form method='POST' enctype="\application/x-www-form-urlencoded">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit" class="btn btn-outline-info">Submit</button>
-    </form>
-</div>
+<head>
+    <style>
+            
+        *{
+            margin: 0; padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background: #00000f;
+        }
+        .main-page{
+            display: flex;
+            height: 100%;
+        }
+
+            
+    /*   ---------------------------    SIDE BAR   -------------------------------- */
+    .side-bar-wrapper {
+        width: 17vw;
+        /* height: 95vh; */
+        margin: 5vh 0;
+        
+        color: #FCAF58;
+        padding: 0 10px 0 0px;
+        border-right: 2px solid white;
+    }
+    
+    /*   -------------- team info  ------------- */
+    
+    .side-bar-wrapper .team-info{
+        /* background: #212646; */
+        text-align: center;
+        margin: 10px;
+        padding: 5px 10px 20px 10px;
+        border-radius: 30px;
+        /* box-shadow: 3px 3px 15px 0 #212646; */
+        box-shadow: 1px 1px 15px 0 #00000f;
+        
+        
+    }
+    .side-bar-wrapper .team-info .team-name h2{             /*  name size */
+        font-size: 2rem;
+        font-weight: bolder;
+        margin-bottom: 25px;
+        color: #FCAF58;
+        font-family: 'Sanchez', serif;
+        text-transform: uppercase;
+    }
+
+    
+    
+    
+    /*   ---------------- Buttons  -------------- */
+    .requestButtons{
+        margin-top: 30px;
+    }
+    .requestButtons .req-btn{
+        margin-bottom: 10px;
+        display: flex;
+        flex-flow: column;
+    }
+    .requestButtons .req-btn  {
+        margin-left: 10px;
+        border-bottom: 1.5px solid #212646;
+        text-align: center;                     /* links to center */
+    }
+    .requestButtons .req-btn:hover{
+        cursor: pointer;
+        text-align: center;               
+    }
+    .requestButtons .req-btn a{
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        padding: 15px 10px;
+        color: whitesmoke;
+    
+    }
+    .requestButtons .req-btn a:hover{
+        text-align: center;               /* links to center on hovering */
+    }
+    
+
+
+        /*  ------------------------ Main ------------------------  */
+
+
+        /* ---------- section ---------- */
+    .table-section{
+        /* padding: 0 5rem; */
+        width: 50vw;
+        height: 60vmin;
+        margin: 5vh auto;
+        text-align: justify;
+    }
+        /* ---------- table heading ---------- */
+    .table-section h1{
+        text-transform: capitalize;
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 500;
+        color: #FCAF58;
+    }
+
+        /* -------------- table -------------- */
+    
+        .table-section h1{
+            font-size: 2.2rem;
+        }
+        .table-section p{
+            color: #fff;
+            font-size: 1.2rem;
+            line-height: 2vh;
+        }
+
+        form{
+            width: 70%;
+            margin-top: 10vh;
+
+            
+        }
+        form label{
+            color: white;
+            font-size: 1rem;
+        }
+        
+        form button{
+            color: black;
+            padding: 10px 25px;
+            text-transform: uppercase;
+            border-radius: 10px;
+            border: none;
+            background: #fcaf58bb;
+        }
+        form button:hover{
+            background: #FCAF58;
+        }
+        form button:active{
+            background: #FCAF58;
+            
+        }
+        </style>
+</head>
+
+
+<body>
+    
+<section class="main-page">
+
+    <div class="side-bar-wrapper">
+                
+        <div class="team-info">
+        <div class="team-name"><h2>{{ user.username }}</h2></div>
+        <div class="team-balance">    
+            {% for dd in dashdata %}
+            <h5>Team Balance {{ dd.userbalance }}</h5>
+            {% endfor %}
+        </div>
+        </div>
+
+        <div class="requestButtons">
+        
+        <div class="req-btn"><a class="btn-insider" href="{% url 'core:dashboard' %}">Dashboard</a></div>
+        <div class="req-btn"><a class="btn-insider" href="{% url 'core:createrequest' %}">Create Trade Request</a></div>
+        <div class="req-btn"><a class="btn-insider" href="{% url 'core:sentreq' %}">Requests Sent</a></div>
+        <div class="req-btn"><a class="btn-insider" href="{% url 'core:receivedreq' %}">Received Requests</a></div>
+        <div class="req-btn"><a class="btn-insider" href="{% url 'core:transaction-history' %}">Sent Requests Status</a></div>
+        <div class="req-btn"><a class="btn-insider" href="{% url 'core:transaction-log' %}">Transactions</a></div>
+        <div class="req-btn"><a class="btn-insider" href="{% url 'core:report' %}" style="color:#f8bd95">Report ( Insider Trading )</a></div>
+        {% comment  %}
+        <div class="req-btn"><a class="btn-insider" href="{% url 'core:dashboard' %}">Dashboard</a></div>
+        <div class="req-btn"><a class="btn-insider" href="{% url 'international:createrequest' %}">Create Trade Request</a></div>
+        <div class="req-btn"><a class="btn-insider" href="{% url 'international:sentreq' %}">Requests Sent</a></div>
+        <div class="req-btn"><a class="btn-insider" href="{% url 'international:receivedreq' %}">Received Requests</a></div>
+        <div class="req-btn"><a class="btn-insider" href="{% url 'international:transaction-history' %}">Sent Requests Status</a></div>
+        <div class="req-btn"><a class="btn-insider" href="{% url 'international:transaction-log' %}">Transactions</a></div>
+        <div class="req-btn"><a class="btn-insider" href="{% url 'international:report' %}" style="color:#f8bd95">Report (Insider Trading)</a></div>
+        {% endcomment %}
+        
+        <div class="req-btn"><a class="btn-insider" href="#">Insider Training</a></div>
+    </div>
+
+    </div>
+
+
+    <div class="table-section">
+        
+            <h1>Report</h1>
+            <p>If you reported correctly you will be rewarded Rs.5000</p>
+            <p>But if you reported wrong the same amount will be deducted from you!!</p>
+            <form method='POST' enctype="\application/x-www-form-urlencoded">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="">Submit</button>
+            </form>
+    
+    </div>
+
+</section>
+</body>
 {% endblock content %}
 
 

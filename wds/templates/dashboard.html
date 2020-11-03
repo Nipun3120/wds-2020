@@ -11,167 +11,210 @@
 
     
     <style>
-
-    *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-      
-}
-
-
-
-body {
-  
-    /* background-image: url("{% static '/images-2019/bg-10.png' %}");
-    background-attachment: fixed; 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;  */
-
-    /* background: linear-gradient(to right, #2A5470, #4C4177); */
-
-    font: 16px/1.6 Arial, sans-serif; 
-    background: linear-gradient(to left, #393f92 25%, #690077 100%);
-}
-
-.nav-carosel-height{
-   height: 250px;
-}
-
-main{
-
-    display: flex;
-    height: 50rem;
-    
-}
-
-/*   ---------------------------    SIDE BAR   -------------------------------- */
-.side-bar-wrapper {
-    width: 20%;
-    /* background: linear-gradient(to right, #2A5470, #4C4177); */
-    background: white;
-    
-    padding: 0 10px 0 35px;
-}
-
-/*   ------------------ team info  ------------------ */
-
-.side-bar-wrapper .team-info{
-    padding-left: 3vw;
-}
-.side-bar-wrapper .team-info .team-name h2{             /*  name size */
-    font-size: 2.3rem;
-    font-weight: bolder;
-    margin-bottom: 25px;
-}
-.side-bar-wrapper .team-info .team-balance h5 {
-    font-size: 1.6em;
-    font-weight: 600;
-    
-}
-
-
-/*   ------------------ Buttons  ------------------ */
-.requestButtons{
-    margin-top: 30px;
-}
-.requestButtons .req-btn{
-    margin-bottom: 10px;
-    /* width: 100%; */
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-.requestButtons .req-btn:hover{
-    cursor: pointer;
-    text-align: center;
-}
-.requestButtons .req-btn a{
-    width: 100%;
-    padding: 15px 10px;
-    background: tomato;
-}
-
-
-/*   ---------------------------    table   -------------------------------- */
-
-
-.stock-table{
-    width: 50%;
-    padding-left: 10vh;
-    margin-left: 10%;
-    padding: 10px;
-    margin-top: -15px;
-    
-}
-/* overriding  */
-th, table tr:nth-of-type(2n){
-    border: none;
-    background: transparent;
-}
-
-th, table tr:nth-of-type(2n) td{
-    border: none;
-    background: transparent;
-}
-table{
-    background: transparent;
-}
-
-
-.stock-table .stockTableInsider table {
-
-}
-.stock-table .stockTableInsider .talberow{
-    background: none;
-
-}
-.stockTableInsider thead{
-    height: 70px;
-    background: none;
-    border: none;
-    border-bottom: 2px solid #fff;
-    background-image: linear-gradient(to right, #423366d0, #295763d0);
-}
-
-.stockTableInsider thead th{
-    font-size: 2rem;
-    text-align: center;
-    height: 50px;
-    color: white;
-}
-
-.stockTableInsider tbody{
-    background: rgba(128, 128, 128, 0.308);
-    
-}
-
-.stockTableInsider tbody tr{
-    color: white;
-}
-
-.stockTableInsider tbody td{
-    text-align: center;
-    font-size: 1.3rem;
-    margin-right: 1px;
-    padding-right: 10px;
-    color: white;
-}
-
-
-@media (max-width: 425px) {
-
-    main{
-        margin-top: 50px;
-        /* display: flexbox; */
-        /* flex-direction: column-reverse; */
+      @import url('https://fonts.googleapis.com/css2?family=Sanchez&display=swap');
+      *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
         
-    }
-}
-    </style>    
+  }
+  
+  
+  
+  body {
+      background: #000000;  
+      font: 16px/1.6 Arial, sans-serif; 
+      font-family: 'Sanchez', serif;
+  
+  }
+  footer{
+    margin-top: 15vh;
+  }
+  
+  main{
+      margin-top: 30px;
+      display: flex;
+      /* height: 50rem; */
+      /* height: 1000px; */
+      height: 100%;
+  }
+  
+  /*   ---------------------------    SIDE BAR   -------------------------------- */
+  .side-bar-wrapper {
+      width: 17%;
+      color: #FCAF58;
+      padding: 0 10px 0 0px;
+      border-right: 2px solid white;
+  }
+  
+  /*   ------------------ team info  ------------------ */
+  
+  .side-bar-wrapper .team-info{
+      /* background: #212646; */
+      text-align: center;
+      margin: 10px;
+      padding: 5px 10px 20px 10px;
+      border-radius: 30px;
+      /* box-shadow: 3px 3px 15px 0 #212646; */
+      box-shadow: 2px 2px 15px 0 #00000f9f;
+      
+      
+  }
+  .side-bar-wrapper .team-info .team-name h2{             /*  name size */
+      font-size: 2rem;
+      font-weight: bolder;
+      margin-bottom: 25px;
+      color: #FCAF58;
+      font-family: 'Sanchez', serif;
+      text-transform: uppercase;
+  }
+  .side-bar-wrapper .team-info .team-balance h5 {
+      font-size: 1.1em;
+      color:  #f5a976;
+      line-height: 1.5rem;
+      margin: 0 10%;
+      text-align: center;
+      font-family: 'Sanchez', serif;
+  }
+  
+  
+  
+  /*   ------------------ Buttons  ------------------ */
+  .requestButtons{
+      margin-top: 30px;
+  }
+  .requestButtons .req-btn{
+      margin-bottom: 10px;
+      display: flex;
+      flex-flow: column;
+  }
+  .requestButtons .req-btn  {
+    margin-left: 10px;
+    border-bottom: 1.5px solid #212646;
+    text-align: center;              /* links to center */
+  }
+  .requestButtons .req-btn:hover{
+      cursor: pointer;
+      text-align: center;               
+  }
+  .requestButtons .req-btn a{
+    font-size: 0.9rem;
+      text-transform: uppercase;
+      padding: 15px 10px;
+      color: whitesmoke;
+  
+  }
+  .requestButtons .req-btn a:hover{
+    text-align: center;           /* links to center on hovering */
+  }
+  
+  /*   ---------------------------    table   -------------------------------- */
+  
+  
+  /* overriding  */
+  th, table tr:nth-of-type(2n){
+      border: none;
+      background: transparent;
+  }
+  
+  th, table tr:nth-of-type(2n) td{
+      border: none;
+      background: transparent;
+  }
+  table{
+      /* background: transparent; */
+      /* background: linear-gradient(310deg, #b835c5 50%, #1c9e9e 50%); */
+      
+      background: #8953b036;
+      /* background-image: url('{% static "images-2019/bg-10.png" %}'); */
+      
+
+  }
+  
+  
+  .stock-table{
+      width: 60%;
+      margin-left: 10%;
+      height: 100vh;
+      margin-bottom: 30px;
+      
+  }
+  
+  
+  .stock-table .table-heading{
+    width: 100%;
+    text-align: center;
+  }
+  .stock-table .table-heading h1{
+    font-size: 2.2rem;
+    color: #FCAF58;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: 'Sanchez', serif;
+    
+  }
+  
+  
+  .stock-table .stockTableInsider {
+  
+  }
+
+  .stock-table .stockTableInsider .talberow{
+      background: none;
+  
+  }
+  .stockTableInsider thead{
+      height: 70px;
+      background: none;
+      border: none;
+      border-bottom: 2px solid #fff;
+      /* background-image: linear-gradient(to right, #423366d0, #295763d0); */
+      background-image: linear-gradient(to right, #42336696, #29576398);
+  }
+  
+  .stockTableInsider thead th{
+      font-size: 1.6rem;
+      text-align: center;
+      height: 50px;
+      line-height: 10px;
+      color: white;
+  }
+
+  
+  .stockTableInsider tbody{
+
+  }
+  
+  .stockTableInsider tbody tr{
+      color: white;
+
+  }
+  
+  .stockTableInsider tbody td{
+      text-align: center;
+      font-size: 1.3rem;
+      margin-right: 1px;
+      padding-right: 10px;
+      color: white;
+      z-index: 10;
+  }
+  
+  
+  
+  
+  @media (max-width: 425px) {
+  
+      main{
+          margin-top: 50px;
+          /* display: flexbox; */
+          /* flex-direction: column-reverse; */
+          
+      }
+      .stock-table table thead{
+        height: 520px;
+      }
+  }
+      </style>    
   </head>
   <body>
 
@@ -187,7 +230,8 @@ table{
             <!-- For ZOOM effect add classes "background-image-zoom-out" or "background-image-zoom-in" -->
             <div class="section text-center background-image-zoom-out">
                 <!-- ZOOMED Carousel Image -->
-                <div class="background-image background-image-object" style="background-image:url({% static 'images-2019/bg-6.png'%})"></div>
+                <div class="background-image background-image-object" style="background-image:url({% static 'images-2019/bg-11.jpg'%})"></div>
+                <div class="background-image background-image-object" ></div>
 
                 <div class="line" style="visibility: hidden;">
                     <hr class="animated-carousel-element break background-primary break-small break-center margin-top-130">
@@ -195,14 +239,14 @@ table{
                         
                     </p>
                     <hr class="animated-carousel-element break background-primary break-small break-center">
-                    <p class="animated-carousel-element slow text-white margin-top-40"></p>
+                    <!-- <p class="animated-carousel-element slow text-white margin-top-40"></p> -->
                 </div>
                 <!-- Pie Charts -->
               
             </div>
         </div>
         <!-- white full width arrow object -->
-        <img class="arrow-object" src="{% static 'img/arrow-object-white.svg'%}" alt="">
+        <!-- <img class="arrow-object" src="{% static 'img/arrow-object-white.svg'%}" alt=""> -->
     </div>
 </div>
 
@@ -219,20 +263,20 @@ table{
                 {% endfor %}
               </div>
             </div>
-            
+
             <div class="requestButtons">
               
               <div class="req-btn"><a class="btn-insider" href="{% url 'core:sentreq' %}">Requests Sent</a></div>
               <div class="req-btn"><a class="btn-insider" href="{% url 'core:receivedreq' %}">Received Requests</a></div>
               <div class="req-btn"><a class="btn-insider" href="{% url 'core:createrequest' %}">Create Trade Request</a></div>
-              <div class="req-btn"><a class="btn-insider" href="{% url 'core:transaction-history' %}">Sent Request Status</a></div>
+              <div class="req-btn"><a class="btn-insider" href="{% url 'core:transaction-history' %}">Sent Requests Status</a></div>
               <div class="req-btn"><a class="btn-insider" href="{% url 'core:transaction-log' %}">Transactions</a></div>
               <div class="req-btn"><a class="btn-insider" href="{% url 'core:report' %}">Report(Insider Trading)</a></div>
               {% comment  %}
+              <div class="req-btn"><a class="btn-insider" href="{% url 'international:createrequest' %}">Create Trade Request</a></div>
               <div class="req-btn"><a class="btn-insider" href="{% url 'international:sentreq' %}">Requests Sent</a></div>
               <div class="req-btn"><a class="btn-insider" href="{% url 'international:receivedreq' %}">Received Requests</a></div>
-              <div class="req-btn"><a class="btn-insider" href="{% url 'international:createrequest' %}">Create Trade Request</a></div>
-              <div class="req-btn"><a class="btn-insider" href="{% url 'international:transaction-history' %}">Sent Request Status</a></div>
+              <div class="req-btn"><a class="btn-insider" href="{% url 'international:transaction-history' %}">Sent Requests Status</a></div>
               <div class="req-btn"><a class="btn-insider" href="{% url 'international:transaction-log' %}">Transactions</a></div>
               <div class="req-btn"><a class="btn-insider" href="{% url 'international:report' %}">Report(Insider Trading)</a></div>
               {% endcomment %}
@@ -246,7 +290,7 @@ table{
         <div class="stock-table">
             
           <div class="table-heading">
-            Stock Holdings
+            <h1>Stock Holdings</h1>
           </div>
               <table class="stockTableInsider">
                 
@@ -259,15 +303,13 @@ table{
                 </thead>
                 
                 <tbody>
-
                   {% comment %} {% for dd in dashdata %}
                   <tr class="tablerow1">
                     <td>{{ dd.stock }}</td>
                     <td>{{ dd.numberofstocks }}</td>
                     <td>{{ dd.priceperstock }}</td>
                   </tr>
-                  {% endfor %} {% endcomment %}
-                  {% for dd in dashdata %}
+                  {% endfor %} {% endcomment %} {% for dd in dashdata %}
                   <tr class="tablerow">
                     <td>Stock1</td>
                     <td>{{dd.stock1}}</td>
@@ -308,9 +350,28 @@ table{
                     <td>Stock10</td>
                     <td>{{dd.stock10}}</td>
                   </tr>
-                  {% endfor %}
-
+                  <tr class="tablerow">
+                    <td>Stock1</td>
+                    <td>{{dd.stock1}}</td>
+                  </tr>
+                  <tr class="tablerow">
+                    <td>Stock2</td>
+                    <td>{{dd.stock2}}</td>
+                  </tr>
+                  <tr class="tablerow">
+                    <td>Stock3</td>
+                    <td>{{dd.stock3}}</td>
+                  </tr>
+                  <tr class="tablerow">
+                    <td>Stock4</td>
+                    <td>{{dd.stock4}}</td>
+                  </tr>
+                  <tr class="tablerow">
+                    <td>Stock5</td>
+                    <td>{{dd.stock5}}</td>
+                  </tr>
                   
+                  {% endfor %}
                 </tbody>
               </table>
             
@@ -319,8 +380,9 @@ table{
       
  </main>
     
+
  {% include "footer.html" %}
-    
+
   </body>
 </html>
 {% endblock content %}
