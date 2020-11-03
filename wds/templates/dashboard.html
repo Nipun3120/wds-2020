@@ -281,108 +281,190 @@
               <div class="req-btn"><a class="btn-insider" href="{% url 'international:report' %}">Report(Insider Trading)</a></div>
               {% endcomment %}
               
-              <div class="req-btn"><a class="btn-insider" href="#">Insider Training</a></div>
+              <div class="req-btn"><a class="btn-insider" href="#">Insider Trading</a></div>
           </div>
           
       </div>
 
       <!--    ----------------- STOCKS TABLE -------------------     -->
-        <div class="stock-table">
+      <div class="stock-table">
             
-          <div class="table-heading">
-            <h1>Stock Holdings</h1>
-          </div>
-              <table class="stockTableInsider">
+        <div class="table-heading">
+          <h1>Stock Holdings</h1>
+        </div>
+            <table class="stockTableInsider">
+              
+              <thead >
+                <th>Stock Name</th>
+                <th>Number Of Stocks</th>
+              
+              </thead>
+              
+              <tbody>
                 
-                <thead >
-                  <th>Stock Name</th>
-                  <th>Number Of Stocks</th>
-                  {% comment %}
-                  <th>Current Price</th>
-                  {% endcomment %}
-                </thead>
-                
-                <tbody>
-                  {% comment %} {% for dd in dashdata %}
-                  <tr class="tablerow1">
-                    <td>{{ dd.stock }}</td>
-                    <td>{{ dd.numberofstocks }}</td>
-                    <td>{{ dd.priceperstock }}</td>
-                  </tr>
-                  {% endfor %} {% endcomment %} {% for dd in dashdata %}
-                  <tr class="tablerow">
-                    <td>Stock1</td>
-                    <td>{{dd.stock1}}</td>
-                  </tr>
-                  <tr class="tablerow">
-                    <td>Stock2</td>
-                    <td>{{dd.stock2}}</td>
-                  </tr>
-                  <tr class="tablerow">
-                    <td>Stock3</td>
-                    <td>{{dd.stock3}}</td>
-                  </tr>
-                  <tr class="tablerow">
-                    <td>Stock4</td>
-                    <td>{{dd.stock4}}</td>
-                  </tr>
-                  <tr class="tablerow">
-                    <td>Stock5</td>
-                    <td>{{dd.stock5}}</td>
-                  </tr>
-                  <tr class="tablerow">
-                    <td>Stock6</td>
-                    <td>{{dd.stock6}}</td>
-                  </tr>
-                  <tr class="tablerow">
-                    <td>Stock7</td>
-                    <td>{{dd.stock7}}</td>
-                  </tr>
-                  <tr class="tablerow">
-                    <td>Stock8</td>
-                    <td>{{dd.stock8}}</td>
-                  </tr>
-                  <tr class="tablerow">
-                    <td>Stock9</td>
-                    <td>{{dd.stock9}}</td>
-                  </tr>
-                  <tr class="lastrow talberow">
-                    <td>Stock10</td>
-                    <td>{{dd.stock10}}</td>
-                  </tr>
-                  <tr class="tablerow">
-                    <td>Stock1</td>
-                    <td>{{dd.stock1}}</td>
-                  </tr>
-                  <tr class="tablerow">
-                    <td>Stock2</td>
-                    <td>{{dd.stock2}}</td>
-                  </tr>
-                  <tr class="tablerow">
-                    <td>Stock3</td>
-                    <td>{{dd.stock3}}</td>
-                  </tr>
-                  <tr class="tablerow">
-                    <td>Stock4</td>
-                    <td>{{dd.stock4}}</td>
-                  </tr>
-                  <tr class="tablerow">
-                    <td>Stock5</td>
-                    <td>{{dd.stock5}}</td>
-                  </tr>
-                  
-                  {% endfor %}
-                </tbody>
-              </table>
-            
-            
-      </div>
-      
- </main>
+                 
+                 <!--DOMESTIC-->
+                 
+                 {% for dd in dashdata %}
+                <tr class="tablerow">
+                  <td>MM</td>
+                  <td>{{dd.MM}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>SUNPHARMA</td>
+                  <td>{{dd.SUNPHARMA}}</td>
+                </tr>
+                <tr class="lastrow talberow">
+                  <td>ADANIPOWER</td>
+                  <td>{{dd.ADANIPOWER}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>TATASTEEL</td>
+                  <td>{{dd.TATASTEEL}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>INDIAMART</td>
+                  <td>{{dd.INDIAMART}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>RELIANCE</td>
+                  <td>{{dd.RELIANCE}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>INFOSYS</td>
+                  <td>{{dd.INFOSYS}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>BHARTIARTL</td>
+                  <td>{{dd.BHARTIARTL}}</td>
+                </tr>
+                <tr class="lastrow talberow">
+                  <td>ITC</td>
+                  <td>{{dd.ITC}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>HDFCBANK</td>
+                  <td>{{dd.HDFCBANK}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>CIPLA</td>
+                  <td>{{dd.CIPLA}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>TCS</td>
+                  <td>{{dd.TCS}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>LT</td>
+                  <td>{{dd.LT}}</td>
+                </tr>
+                <tr class="tablerow">
+                  <td>ASIANPAINT</td>
+                  <td>{{dd.ASIANPAINT}}</td>
+                </tr>
+                <tr class="lastrow talberow">
+                  <td>ICICIPRULI</td>
+                  <td>{{dd.ICICIPRULI}}</td>
+                </tr>
+                {% endfor %}
+              
+                <!-- INTERNATIONAL-->
+              
+                {% comment %}
+              {% for dd in dashdata %}
+              <tr class="tablerow">
+                <td>JPM</td>
+                <td>{{dd.JPM}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>ATT</td>
+                <td>{{dd.ATT}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>CCA</td>
+                <td>{{dd.CCA}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>WMT</td>
+                <td>{{dd.WMT}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>AER</td>
+                <td>{{dd.AER}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>BOE</td>
+                <td>{{dd.BOE}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>PFZ</td>
+                <td>{{dd.PFZ}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>FBI</td>
+                <td>{{dd.FBI}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>ZVC</td>
+                <td>{{dd.ZVC}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>PAP</td>
+                <td>{{dd.PAP}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>TXT</td>
+                <td>{{dd.TXT}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>GMS</td>
+                <td>{{dd.GMS}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>APL</td>
+                <td>{{dd.APL}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>TES</td>
+                <td>{{dd.TES}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>INT</td>
+                <td>{{dd.INT}}</td>
+              </tr>
+              
+              
+              {% endfor %}
+
+
+
+
+
+
+
+
+
+              {% endcomment %}
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </tbody>
+            </table>
+          
+          
+    </div>
     
+</main>
+  
 
- {% include "footer.html" %}
+{% include "footer.html" %}
 
-  </body>
+</body>
 </html>
 {% endblock content %}

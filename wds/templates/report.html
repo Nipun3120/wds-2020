@@ -173,7 +173,7 @@
         <div class="req-btn"><a class="btn-insider" href="{% url 'core:transaction-log' %}">Transactions</a></div>
         <div class="req-btn"><a class="btn-insider" href="{% url 'core:report' %}" style="color:#f8bd95">Report ( Insider Trading )</a></div>
         {% comment  %}
-        <div class="req-btn"><a class="btn-insider" href="{% url 'core:dashboard' %}">Dashboard</a></div>
+        <div class="req-btn"><a class="btn-insider" href="{% url 'international:dashboard' %}">Dashboard</a></div>
         <div class="req-btn"><a class="btn-insider" href="{% url 'international:createrequest' %}">Create Trade Request</a></div>
         <div class="req-btn"><a class="btn-insider" href="{% url 'international:sentreq' %}">Requests Sent</a></div>
         <div class="req-btn"><a class="btn-insider" href="{% url 'international:receivedreq' %}">Received Requests</a></div>
@@ -204,5 +204,3 @@
 </section>
 </body>
 {% endblock content %}
-
-

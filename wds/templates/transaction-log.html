@@ -168,23 +168,14 @@
         </div>
 
         <div class="requestButtons">
-        
-        <div class="req-btn"><a class="btn-insider" href="{% url 'core:dashboard' %}">Dashboard</a></div>
-        <div class="req-btn"><a class="btn-insider" href="{% url 'core:createrequest' %}">Create Trade Request</a></div>
-        <div class="req-btn"><a class="btn-insider" href="{% url 'core:sentreq' %}"≈>Requests Sent</a></div>
-        <div class="req-btn"><a class="btn-insider" href="{% url 'core:receivedreq' %}">Received Requests</a></div>
-        <div class="req-btn"><a class="btn-insider" href="{% url 'core:transaction-history' %}">Sent Requests Status</a></div>
-        <div class="req-btn"><a class="btn-insider" href="{% url 'core:transaction-log' %}" style="color:#f8bd95">Transactions</a></div>
-        <div class="req-btn"><a class="btn-insider" href="{% url 'core:report' %}">Report(Insider Trading)</a></div>
-        {% comment  %}
-        <div class="req-btn"><a class="btn-insider" href="{% url 'core:dashboard' %}">Dashboard</a></div>
-        <div class="req-btn"><a class="btn-insider" href="{% url 'international:createrequest' %}">Create Trade Request</a></div>
-        <div class="req-btn"><a class="btn-insider" href="{% url 'international:sentreq' %}" >Requests Sent</a></div>
-        <div class="req-btn"><a class="btn-insider" href="{% url 'international:receivedreq' %}">Received Requests</a></div>
-        <div class="req-btn"><a class="btn-insider" href="{% url 'international:transaction-history' %}">Sent Requests Status</a></div>
-        <div class="req-btn"><a class="btn-insider" href="{% url 'international:transaction-log' %}" style="color:#f8bd95">Transactions</a></div>
-        <div class="req-btn"><a class="btn-insider" href="{% url 'international:report' %}">Report(Insider Trading)</a></div>
-        {% endcomment %}
+       
+            <div class="req-btn"><a class="btn-insider" href="{% url 'core:dashboard' %}">Dashboard</a></div>
+            <div class="req-btn"><a class="btn-insider" href="{% url 'core:createrequest' %}">Create Trade Request</a></div>
+            <div class="req-btn"><a class="btn-insider" href="{% url 'core:sentreq' %}"≈>Requests Sent</a></div>
+            <div class="req-btn"><a class="btn-insider" href="{% url 'core:receivedreq' %}">Received Requests</a></div>
+            <div class="req-btn"><a class="btn-insider" href="{% url 'core:transaction-history' %}">Sent Requests Status</a></div>
+            <div class="req-btn"><a class="btn-insider" href="{% url 'core:transaction-log' %}" style="color:#f8bd95">Transactions</a></div>
+            <div class="req-btn"><a class="btn-insider" href="{% url 'core:report' %}">Report(Insider Trading)</a></div>
         
         <div class="req-btn"><a class="btn-insider" href="#">Insider Training</a></div>
     </div>
@@ -203,7 +194,7 @@
             <th>stock</th>
             <th>number of stocks</th>
             <th>priceperstock</th>
-            <th>Status</th>
+            <!--<th>Status</th>-->
         </tr>
     </thead>
     
@@ -217,7 +208,7 @@
             <td>{{ req.stock }} </td>
             <td>{{ req.numberofstocks }}</td>
             <td>{{ req.priceperstock }}</td> 
-            <td>{{ req.status }}</td>
+            <!--<td>{{ req.status }}</td>-->
         </tr>
         {% endfor %}
     </tbody>

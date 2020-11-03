@@ -31,12 +31,14 @@ font:16px/1.6 Arial,  sans-serif;
         
       <table class="table table-primary table-bordered table-hover">
         <thead>
+          <th>Stock Initials</th>
           <th>Stock Name</th>
           <th>Current Price</th>
         </thead>
 
               {% for post in posts %}
               <tr>
+                <td>{{ post.stockattribute }}</td>
                 <td>{{ post.stockname }}</td>
                 <td>{{ post.stockprice }}</td>
               </tr>

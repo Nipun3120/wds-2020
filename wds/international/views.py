@@ -15,10 +15,10 @@ from .models import Stock,trade,stock_list,tradereq,Report,StockList
 import json
 from django.db.models import Q
 def home(request):
-    return render(request,"home.html", {'messages': messages.get_messages(request)})
+    return render(request,"international/home.html", {'messages': messages.get_messages(request)})
 
 def news(request):
-    return render(request,"news.html")
+    return render(request,"international/news.html")
 
 
 def register(request):
@@ -36,7 +36,7 @@ def register(request):
     else:
         form=RegisterForm()
         
-    return render(request, 'register.html', {'form': form})
+    return render(request, 'international/register.html', {'form': form})
 
 
 
@@ -61,7 +61,7 @@ def user_login(request):
         return redirect('/')
     else:
         print("render part ran successfully")
-        return render(request,'userlogin.html')
+        return render(request,'international/userlogin.html')
 
 @login_required
 def userlogout(request):
@@ -73,57 +73,13 @@ def userlogout(request):
 def dashboard(request):
     user_dashdata = Stock.objects.filter(user=request.user)
     dash_dic = {'dashdata':user_dashdata}
-    return render(request,'dashboard.html', {'dashdata':user_dashdata})
-'''
-posts = [
-    {
-        'stockname': stock_list[0][0],
-        'price': '50000',
-    },
-    {
-        'stockname': stock_list[1][0],
-        'price': '30000',
-    },
-    {
-        'stockname': stock_list[2][0],
-        'price': '25000',
-    },
-    {
-        'stockname': stock_list[3][0],
-        'price': '37000',
-    },
-    {
-        'stockname': stock_list[4][0],
-        'price': '30000',
-    },
-    {
-        'stockname': stock_list[5][0],
-        'price': '10000',
-    },
-    {
-        'stockname': stock_list[6][0],
-        'price': '15000',
-    },
-    {
-        'stockname': stock_list[7][0],
-        'price': '60000',
-    },
-    {
-        'stockname': stock_list[8][0],
-        'price': '20000',
-    },
-    {
-        'stockname': stock_list[9][0],
-        'price': '35000',
-    },
+    return render(request,'international/dashboard.html', {'dashdata':user_dashdata})
 
-]
-'''
 def stock_display(request):
     context = {
       'posts': StockList.objects.all()
     }
-    return render(request,'stocks.html', context)
+    return render(request,'international/stocks.html', context)
 
 
 class Trade(ListView):
@@ -132,7 +88,7 @@ class Trade(ListView):
         context = {
             'form':form,
         }
-        return render(self.request, 'buy-sell-form.html', context)
+        return render(self.request, 'international/buy-sell-form.html', context)
 
     def post(self, *args, **kwargs):
         form = tradeform(self.request.POST or None)
@@ -168,74 +124,74 @@ class Trade(ListView):
                         stock_seller.save()
                         stock_buyer.save()'''
 
-                if stock=="stock1":
-                    stock_seller.stock1-=numberofstocks
+                if stock=="JPM":
+                    stock_seller.JPM-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.stock1+=numberofstocks
+                    stock_buyer.JPM+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()                 
                     stock_buyer.save()
-                elif stock=="stock2":
-                    stock_seller.stock2-=numberofstocks
+                elif stock=="ATT":
+                    stock_seller.ATT-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.stock2+=numberofstocks
+                    stock_buyer.ATT+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()         
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="stock3":
-                    stock_seller.stock3-=numberofstocks
+                elif stock=="CCA":
+                    stock_seller.CCA-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.stock3+=numberofstocks
+                    stock_buyer.CCA+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="stock4":
-                    stock_seller.stock4-=numberofstocks
+                elif stock=="WMT":
+                    stock_seller.WMT-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.stock4+=numberofstocks
+                    stock_buyer.WMT+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="stock5":
-                    stock_seller.stock5-=numberofstocks
+                elif stock=="JPM":
+                    stock_seller.JPM-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.stock5+=numberofstocks
+                    stock_buyer.JPM+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="stock6":
-                    stock_seller.stock6-=numberofstocks
+                elif stock=="T":
+                    stock_seller.T-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.stock6+=numberofstocks
+                    stock_buyer.T+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="stock7":
-                    stock_seller.stock7-=numberofstocks
+                elif stock=="AER":
+                    stock_seller.AER-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.stock7+=numberofstocks
+                    stock_buyer.AER+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="stock8":
-                    stock_seller.stock8-=numberofstocks
+                elif stock=="BOE":
+                    stock_seller.BOE-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.stock8+=numberofstocks
+                    stock_buyer.BOE+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="stock9":
-                    stock_seller.stock9-=numberofstocks
+                elif stock=="PFZ":
+                    stock_seller.PFZ-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.stock9+=numberofstocks
+                    stock_buyer.PFZ+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="stock10":
-                    stock_seller.stock10-=numberofstocks
+                elif stock=="FBI":
+                    stock_seller.FBI-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.stock10+=numberofstocks
+                    stock_buyer.FBI+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
@@ -272,8 +228,8 @@ def reqcreate(request):
                     else:
                         messages.error(request, f'Insufficient Balance for transaction!!')
                 elif action=='sell':
-                    if stock=='stock1':
-                        if (numberofstock<=stock_request_sender.stock1):
+                    if stock=='JPM':
+                        if (numberofstock<=stock_request_sender.JPM):
                             request_trade=tradereq.objects.create(
                                 sender=sender,
                                 receiver=receiver,action=action,
@@ -285,8 +241,8 @@ def reqcreate(request):
                             return redirect('international:sentreq')
                         else:
                              messages.error(request, f'Insufficient Stock holdings!!')
-                    elif stock=='stock2':
-                        if (numberofstock<=stock_request_sender.stock2):
+                    elif stock=='ATT':
+                        if (numberofstock<=stock_request_sender.ATT):
                             request_trade=tradereq.objects.create(
                                 sender=sender,
                                 receiver=receiver,action=action,
@@ -298,8 +254,8 @@ def reqcreate(request):
                             return redirect('international:sentreq')
                         else:
                              messages.warning(request, f'Insufficient Stock holdings!!')
-                    elif stock=='stock3':
-                        if (numberofstock<=stock_request_sender.stock3):
+                    elif stock=='CCA':
+                        if (numberofstock<=stock_request_sender.CCA):
                             request_trade=tradereq.objects.create(
                                 sender=sender,
                                 receiver=receiver,action=action,
@@ -311,8 +267,8 @@ def reqcreate(request):
                             return redirect('international:sentreq')
                         else:
                              messages.error(request, f'Insufficient Stock holdings!!')
-                    elif stock=='stock4':
-                        if (numberofstock<=stock_request_sender.stock4):
+                    elif stock=='WMT':
+                        if (numberofstock<=stock_request_sender.WMT):
                             request_trade=tradereq.objects.create(
                                 sender=sender,
                                 receiver=receiver,action=action,
@@ -324,8 +280,8 @@ def reqcreate(request):
                             return redirect('international:sentreq')
                         else:
                              messages.error(request, f'Insufficient Stock holdings!!')
-                    elif stock=='stock5':
-                        if (numberofstock<=stock_request_sender.stock5):
+                    elif stock=='AER':
+                        if (numberofstock<=stock_request_sender.AER):
                             request_trade=tradereq.objects.create(
                                 sender=sender,
                                 receiver=receiver,action=action,
@@ -337,8 +293,8 @@ def reqcreate(request):
                             return redirect('international:sentreq')
                         else:
                              messages.error(request, f'Insufficient Stock holdings!!')
-                    elif stock=='stock6':
-                        if (numberofstock<=stock_request_sender.stock6):
+                    elif stock=='BOE':
+                        if (numberofstock<=stock_request_sender.BOE):
                             request_trade=tradereq.objects.create(
                                 sender=sender,
                                 receiver=receiver,action=action,
@@ -350,8 +306,8 @@ def reqcreate(request):
                             return redirect('international:sentreq')
                         else:
                              messages.error(request, f'Insufficient Stock holdings!!')
-                    elif stock=='stock7':
-                        if (numberofstock<=stock_request_sender.stock7):
+                    elif stock=='PFZ':
+                        if (numberofstock<=stock_request_sender.PFZ):
                             request_trade=tradereq.objects.create(
                                 sender=sender,
                                 receiver=receiver,action=action,
@@ -363,34 +319,8 @@ def reqcreate(request):
                             return redirect('international:sentreq')
                         else:
                              messages.error(request, f'Insufficient Stock holdings!!')
-                    elif stock=='stock8':
-                        if (numberofstock<=stock_request_sender.stock8):
-                            request_trade=tradereq.objects.create(
-                                sender=sender,
-                                receiver=receiver,action=action,
-                                stock=stock,
-                                numberofstocks=numberofstock,
-                                priceperstock=priceperstock,
-                                is_active=True,
-                            )
-                            return redirect('international:sentreq')
-                        else:
-                             messages.error(request, f'Insufficient Stock holdings!!')
-                    elif stock=='stock9':
-                        if (numberofstock<=stock_request_sender.stock9):
-                            request_trade=tradereq.objects.create(
-                                sender=sender,
-                                receiver=receiver,action=action,
-                                stock=stock,
-                                numberofstocks=numberofstock,
-                                priceperstock=priceperstock,
-                                is_active=True,
-                            )
-                            return redirect('international:sentreq')
-                        else:
-                             messages.error(request, f'Insufficient Stock holdings!!')
-                    elif stock=='stock10':
-                        if (numberofstock<=stock_request_sender.stock10):
+                    elif stock=='FBI':
+                        if (numberofstock<=stock_request_sender.FBI):
                             request_trade=tradereq.objects.create(
                                 sender=sender,
                                 receiver=receiver,action=action,
@@ -402,8 +332,99 @@ def reqcreate(request):
                             return redirect('international:sentreq')
                         else:
                              messages.error(request, f'Insufficient Stock holdings!!')              
- 
-    return render(request,'create_request.html',{'form':tradereqform})
+                    elif stock=='ZVC':
+                        if (numberofstock<=stock_request_sender.ZVC):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('international:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='PAP':
+                        if (numberofstock<=stock_request_sender.PAP):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('international:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='TXT':
+                        if (numberofstock<=stock_request_sender.TXT):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('international:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='GMS':
+                        if (numberofstock<=stock_request_sender.GMS):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('international:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='APL':
+                        if (numberofstock<=stock_request_sender.APL):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('international:sentreq')
+                        else:
+                            messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='TES':
+                        if (numberofstock<=stock_request_sender.TES):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('international:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    elif stock=='INT':
+                        if (numberofstock<=stock_request_sender.INT):
+                            request_trade=tradereq.objects.create(
+                                sender=sender,
+                                receiver=receiver,action=action,
+                                stock=stock,
+                                numberofstocks=numberofstock,
+                                priceperstock=priceperstock,
+                                is_active=True,
+                            )
+                            return redirect('international:sentreq')
+                        else:
+                             messages.error(request, f'Insufficient Stock holdings!!')
+                    
+    return render(request,'international/create_request.html',{'form':tradereqform})
 @login_required
 def report(request):
     form = reportform()
@@ -419,24 +440,24 @@ def report(request):
         else:
             form=reportform()
         return redirect('international:dashboard')
-    return render(request, 'report.html', {'form':form})
+    return render(request, 'international/report.html', {'form':form})
 @login_required
 def received_request(request):
     user=request.user
     requests_pending=tradereq.objects.order_by('-id').filter(receiver=user,is_active=True)
-    return render(request,'received_request.html',{'requests':requests_pending})
+    return render(request,'international/received_request.html',{'requests':requests_pending})
 
 @login_required
 def sent_request(request):
     user=request.user
     sent_pending=tradereq.objects.order_by('-id').filter(sender=user,is_active=True)
-    return render(request,'sent_requests.html',{'requests':sent_pending})
+    return render(request,'international/sent_requests.html',{'requests':sent_pending})
 
 @login_required
 def history(request):
     user=request.user
     transactions=tradereq.objects.order_by('-id').filter(sender=user)
-    return render(request,'transaction-history.html',{'requests':transactions})
+    return render(request,'international/transaction-history.html',{'requests':transactions})
 
 
 @login_required
@@ -446,7 +467,7 @@ def all_history(request):
     comb_query = tradereq.objects.filter(sender=user) | tradereq.objects.filter(receiver=user)
     final_query = comb_query.filter(status='accepted')
     transactions=final_query.order_by('-id')
-    return render(request,'transaction-log.html',{'requests':transactions})
+    return render(request,'international/transaction-log.html',{'requests':transactions})
 
 
 """
@@ -481,9 +502,9 @@ def accept_request(request,*args, **kwargs):
         if tradereq_id:
             trade_request=tradereq.objects.filter(pk=tradereq_id)[0]
             if trade_request:
-                msg = trade_request.accept()
-                print(msg)
-                messages.error(request, msg)
+                mess = trade_request.accept()
+                print(mess)
+                messages.error(request, mess)
                 return redirect("international:receivedreq")
 
 @login_required
