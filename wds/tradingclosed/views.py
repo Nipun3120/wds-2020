@@ -12,10 +12,7 @@ from  django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
 def home(request):
-    return render(request,"home.html", {'messages': messages.get_messages(request)})
-
-def trading(request):
-    return render(request,"trading-closed.html")
+    return render(request,"tradingclosed/home.html", {'messages': messages.get_messages(request)})
 
     
 def user_login(request):
@@ -34,7 +31,14 @@ def user_login(request):
             print("false login")
             messages.error(request, f'Invalid Teamname or Password')
             return redirect('tradingclosed:userlogin')
-        return redirect('tradingclosed:trading-closed')
+        return render(request,'tradingclosed/trading-closed.html')
     else:
         print("render part ran successfully")
-        return render(request,'userlogin.html')
+        return render(request,'tradingclosed/userlogin.html')
+
+
+@login_required
+def userlogout(request):
+    print("logout")
+    logout(request)
+    return redirect('/')
