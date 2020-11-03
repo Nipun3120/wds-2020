@@ -13,7 +13,6 @@ from .forms import RegisterForm,tradeform,requestsellform,tradereqform,reportfor
 from django.urls import reverse
 from .models import Stock,trade,stock_list,tradereq,Report,StockList
 import json
-from django.db.models import Q
 def home(request):
     return render(request,"home.html", {'messages': messages.get_messages(request)})
 
@@ -124,74 +123,74 @@ class Trade(ListView):
                         stock_seller.save()
                         stock_buyer.save()'''
 
-                if stock=="ASHOKLEY":
-                    stock_seller.ASHOKLEY-=numberofstocks
+                if stock=="stock1":
+                    stock_seller.stock1-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.ASHOKLEY+=numberofstocks
+                    stock_buyer.stock1+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()                 
                     stock_buyer.save()
-                elif stock=="WIPRO":
-                    stock_seller.WIPRO-=numberofstocks
+                elif stock=="stock2":
+                    stock_seller.stock2-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.WIPRO+=numberofstocks
+                    stock_buyer.stock2+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()         
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="RAJESHEXPO":
-                    stock_seller.RAJESHEXPO-=numberofstocks
+                elif stock=="stock3":
+                    stock_seller.stock3-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.RAJESHEXPO+=numberofstocks
+                    stock_buyer.stock3+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="AMBUJACEM":
-                    stock_seller.AMBUJACEM-=numberofstocks
+                elif stock=="stock4":
+                    stock_seller.stock4-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.AMBUJACEM+=numberofstocks
+                    stock_buyer.stock4+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="MM":
-                    stock_seller.MM-=numberofstocks
+                elif stock=="stock5":
+                    stock_seller.stock5-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.MM+=numberofstocks
+                    stock_buyer.stock5+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="ONGC":
-                    stock_seller.ONGC-=numberofstocks
+                elif stock=="stock6":
+                    stock_seller.stock6-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.ONGC+=numberofstocks
+                    stock_buyer.stock6+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="DMART":
-                    stock_seller.DMART-=numberofstocks
+                elif stock=="stock7":
+                    stock_seller.stock7-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.DMART+=numberofstocks
+                    stock_buyer.stock7+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="SUNPHARMA":
-                    stock_seller.SUNPHARMA-=numberofstocks
+                elif stock=="stock8":
+                    stock_seller.stock8-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.SUNPHARMA+=numberofstocks
+                    stock_buyer.stock8+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="HINDUUNILVR":
-                    stock_seller.HINDUUNILVR-=numberofstocks
+                elif stock=="stock9":
+                    stock_seller.stock9-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.HINDUUNILVR+=numberofstocks
+                    stock_buyer.stock9+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
-                elif stock=="ADANIPOWER":
-                    stock_seller.ADANIPOWER-=numberofstocks
+                elif stock=="stock10":
+                    stock_seller.stock10-=numberofstocks
                     stock_seller.userbalance+=priceperstock*numberofstocks
-                    stock_buyer.ADANIPOWER+=numberofstocks
+                    stock_buyer.stock10+=numberofstocks
                     stock_buyer.userbalance-=priceperstock*numberofstocks
                     stock_seller.save()
                     stock_buyer.save()
@@ -468,8 +467,6 @@ def all_history(request):
     final_query = comb_query.filter(status='accepted')
     transactions=final_query.order_by('-id')
     return render(request,'transaction-log.html',{'requests':transactions})
-
-
 """
 @login_required
 def accept_request(request,*args, **kwargs):
@@ -502,9 +499,7 @@ def accept_request(request,*args, **kwargs):
         if tradereq_id:
             trade_request=tradereq.objects.filter(pk=tradereq_id)[0]
             if trade_request:
-                msg = trade_request.accept()
-                print(msg)
-                messages.error(request, msg)
+                trade_request.accept()
                 return redirect("core:receivedreq")
 
 @login_required

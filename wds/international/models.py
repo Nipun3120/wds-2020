@@ -277,7 +277,7 @@ class tradereq(models.Model):
             sender_stock.save()
         elif self.action=='sell':
             sender_stock,receiver_stock=receiver_stock,sender_stock
-            if (amount<=receiver_stock.userbalance):
+            if (amount<=sender_stock.userbalance):
                 
                 sender_stock.userbalance=sender_stock.userbalance-amount
                 receiver_stock.userbalance=receiver_stock.userbalance+amount
