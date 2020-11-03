@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import trade,Stock,tradereq,Report,StockList
 # Register your models here.
 class stockadmin(admin.ModelAdmin):
-    list_display=('user','userbalance','TM','UL','CVX','BRK','JPM','T','WFC','HD','KO','VISA','WMT','AXP','BA','PFE','VZ','HMC','QCOM','NFLX','FB','ADBE','VWS','GAZP','GS','MCD','ZM','PYPL','TCEHY','BABA','AAPL','MSFT','TSLA','TXN','INTC')
+    list_display=('user','userbalance','JPM','ATT','CCA','WMT','AER','BOE','PFZ','FBI','ZVC','PAP','TXT','GMS','APL','TES','INT')
 
 class tradeadmin(admin.ModelAdmin):
     list_display=('seller','stock','numberofstocks','priceperstock','buyer')
