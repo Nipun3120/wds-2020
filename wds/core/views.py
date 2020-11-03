@@ -499,7 +499,9 @@ def accept_request(request,*args, **kwargs):
         if tradereq_id:
             trade_request=tradereq.objects.filter(pk=tradereq_id)[0]
             if trade_request:
-                trade_request.accept()
+                mess = trade_request.accept()
+                print(mess)
+                messages.error(request, mess)
                 return redirect("core:receivedreq")
 
 @login_required

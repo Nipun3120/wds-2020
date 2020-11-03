@@ -371,6 +371,12 @@ class tradereq(models.Model):
                         receiver_stock.INT=receiver_stock.INT-self.numberofstocks
                     else:
                         return ('Currently Sender do not have sufficient stocks to sell!')
+                self.is_active=False
+                self.status='accepted'
+            else:
+                return ('Insufficient Balance')
+
+
                 
             receiver_stock.save()
             sender_stock.save()

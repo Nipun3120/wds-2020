@@ -15,10 +15,10 @@ from .models import Stock,trade,stock_list,tradereq,Report,StockList
 import json
 from django.db.models import Q
 def home(request):
-    return render(request,"home.html", {'messages': messages.get_messages(request)})
+    return render(request,"international/home.html", {'messages': messages.get_messages(request)})
 
 def news(request):
-    return render(request,"news.html")
+    return render(request,"international/news.html")
 
 
 def register(request):
@@ -36,7 +36,7 @@ def register(request):
     else:
         form=RegisterForm()
         
-    return render(request, 'register.html', {'form': form})
+    return render(request, 'international/register.html', {'form': form})
 
 
 
@@ -61,7 +61,7 @@ def user_login(request):
         return redirect('/')
     else:
         print("render part ran successfully")
-        return render(request,'userlogin.html')
+        return render(request,'international/userlogin.html')
 
 @login_required
 def userlogout(request):
@@ -73,13 +73,13 @@ def userlogout(request):
 def dashboard(request):
     user_dashdata = Stock.objects.filter(user=request.user)
     dash_dic = {'dashdata':user_dashdata}
-    return render(request,'dashboard.html', {'dashdata':user_dashdata})
+    return render(request,'international/dashboard.html', {'dashdata':user_dashdata})
 
 def stock_display(request):
     context = {
       'posts': StockList.objects.all()
     }
-    return render(request,'stocks.html', context)
+    return render(request,'international/stocks.html', context)
 
 
 class Trade(ListView):
@@ -88,7 +88,7 @@ class Trade(ListView):
         context = {
             'form':form,
         }
-        return render(self.request, 'buy-sell-form.html', context)
+        return render(self.request, 'international/buy-sell-form.html', context)
 
     def post(self, *args, **kwargs):
         form = tradeform(self.request.POST or None)
@@ -424,7 +424,7 @@ def reqcreate(request):
                         else:
                              messages.error(request, f'Insufficient Stock holdings!!')
                     
-    return render(request,'create_request.html',{'form':tradereqform})
+    return render(request,'international/create_request.html',{'form':tradereqform})
 @login_required
 def report(request):
     form = reportform()
@@ -440,24 +440,24 @@ def report(request):
         else:
             form=reportform()
         return redirect('international:dashboard')
-    return render(request, 'report.html', {'form':form})
+    return render(request, 'international/report.html', {'form':form})
 @login_required
 def received_request(request):
     user=request.user
     requests_pending=tradereq.objects.order_by('-id').filter(receiver=user,is_active=True)
-    return render(request,'received_request.html',{'requests':requests_pending})
+    return render(request,'international/received_request.html',{'requests':requests_pending})
 
 @login_required
 def sent_request(request):
     user=request.user
     sent_pending=tradereq.objects.order_by('-id').filter(sender=user,is_active=True)
-    return render(request,'sent_requests.html',{'requests':sent_pending})
+    return render(request,'international/sent_requests.html',{'requests':sent_pending})
 
 @login_required
 def history(request):
     user=request.user
     transactions=tradereq.objects.order_by('-id').filter(sender=user)
-    return render(request,'transaction-history.html',{'requests':transactions})
+    return render(request,'international/transaction-history.html',{'requests':transactions})
 
 
 @login_required
@@ -467,7 +467,7 @@ def all_history(request):
     comb_query = tradereq.objects.filter(sender=user) | tradereq.objects.filter(receiver=user)
     final_query = comb_query.filter(status='accepted')
     transactions=final_query.order_by('-id')
-    return render(request,'transaction-log.html',{'requests':transactions})
+    return render(request,'international/transaction-log.html',{'requests':transactions})
 
 
 """

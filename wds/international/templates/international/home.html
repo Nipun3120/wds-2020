@@ -1,0 +1,171 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<body>
+<header role="banner" class="position-absolute">
+    <!-- Top Navigation -->
+    {% include "international/navbar.html" %}
+</header>
+{% include "nav-carousel.html" %}
+
+<!-- Section 1 -->
+<section class="portion section background-black text-center">
+    <div class="line">
+        <h1 class="head text text-size-50 text-m-size-40">
+        Welcome to <b>WDS</b></h1>
+        <p class="para text-size-20">Humans have come very far in their knowledge of money. From the barter system to the stock market, from copper tokens to printed notes, we have covered quite a journey. 
+            For all the zealous participants out there, The Econ Club releases the teaser for their annual flagship event "Wolf of Dalal Street". Brush up your knowledge about domestic and international markets, and get ready to tackle the bull and the bear. Turn your losses into profits with your prudence and prove to the world that money indeed grows on trees!</p>
+            
+        
+        {% if user.is_authenticated %}
+        <a href="{% url 'international:dashboard' %}" class="s-12 m-6 l-3 center button border-radius background-purple text-size-20 margin-top-60 text-white">Enter WDS</a>
+        {% else %}
+        <a href="{% url 'international:userlogin' %}" class="s-12 m-6 l-3 center button border-radius background-purple text-size-20 margin-top-60 text-white">Enter WDS</a>
+        {% endif %}
+        
+        
+        
+    </div>
+</section>
+
+<!-- Section 2 -->
+<section class="section" data-image-src="{% static 'images-2019/bg-5.jpg'%}">
+    <div class="line">
+        <div class="s-12 m-12 l-6">
+            <h2 class="text-size-50 text-white">
+            Stock Market</h2>
+            <h2 class="text-size-30 text-white">
+                What you will Gain from this event??</h2>
+            <p class="margin-bottom">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+                nisl ut aliquip ex ea commodo consequat.</p>
+            
+            <!-- white Start your Business object -->
+            <!--<img class="margin-left-20 margin-top-30 margin-bottom-60" src="img/start-your-business.svg" alt="">-->
+        </div>
+    </div>
+    <!-- white full width arrow object -->
+    <img class="arrow-object" src="img/arrow-object-white.svg" alt="">
+</section>
+
+
+<section class="portion section-top-padding background-dark-hightlight">
+    <div class="line text-center">
+        <i class="icon-sli-people text-white text-size-40"></i>
+        <h2 class="text-white text-size-50 text-m-size-40">Our <b>Sponsors</b></h2>
+        </br>       
+    </div>
+    <div class="line">
+        <div class="carousel-blocks owl-carousel">
+            <div class="item">
+                <div class="image-border-radius image-with-hover-overlay">
+                    <div class="image-hover-overlay background-purple">
+                        <div class="image-hover-overlay-content padding">
+                            <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+                        </div>
+                    </div>
+                    <img src="{% static 'images-2019/index.png'%}" />
+                </div>
+                <div class="margin-top">
+                    <h4 class="text-strong margin-bottom-10">Frank Star</h4>
+                    <p class="margin-bottom-10 text-purple text-uppercase">Web Designer</p>
+                    <div class="line">
+                        <a href="/"><i class="icon-linked_in_circle text-primary-hover text-size-25"></i></a> <a href="/"><i class="icon-google_plus_circle text-primary-hover text-size-25"></i></a> <a href="/"><i class="icon-twitter_circle text-primary-hover text-size-25"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="image-border-radius image-with-hover-overlay">
+                    <div class="image-hover-overlay background-purple">
+                        <div class="image-hover-overlay-content padding">
+                            <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+                        </div>
+                    </div>
+                    <img src="{% static 'images-2019/sp2.jpg'%}" />
+                </div>
+                <div class="margin-top">
+                    <h4 class="text-strong margin-bottom-10">Jane Naismith</h4>
+                    <p class="margin-bottom-10 text-purple text-uppercase">Graphic Designer</p>
+                    <div class="line">
+                        <a href="/"><i class="icon-facebook_circle text-primary-hover text-size-25"></i></a> <a href="/"><i class="icon-instagram_circle text-primary-hover text-size-25"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="image-border-radius image-with-hover-overlay">
+                    <div class="image-hover-overlay background-purple">
+                        <div class="image-hover-overlay-content padding">
+                            <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+                        </div>
+                    </div>
+                    <img src="{% static 'images-2019/sp2.jpg'%}" />
+                </div>
+                <div class="margin-top">
+                    <h4 class="text-strong margin-bottom-10">Mark Stoner</h4>
+                    <p class="margin-bottom-10 text-purple text-uppercase">Boss</p>
+                    <div class="line">
+                        <a href="/"><i class="icon-linked_in_circle text-primary-hover text-size-25"></i></a> <a href="/"><i class="icon-instagram_circle text-primary-hover text-size-25"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="image-border-radius image-with-hover-overlay">
+                    <div class="image-hover-overlay background-purple">
+                        <div class="image-hover-overlay-content padding">
+                            <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+                        </div>
+                    </div>
+                    <img src="{% static 'images-2019/index.png'%}" />
+                </div>
+                <div class="margin-top">
+                    <h4 class="text-strong margin-bottom-10">Steve Carpenter</h4>
+                    <p class="margin-bottom-10 text-purple text-uppercase">Web Developer</p>
+                    <div class="line">
+                        <a href="/"><a href="/"><i class="icon-google_plus_circle text-primary-hover text-size-25"></i></a> <a href="/"><i class="icon-instagram_circle text-primary-hover text-size-25"></i></a> <a href="/"><i class="icon-twitter_circle text-primary-hover text-size-25"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="image-border-radius image-with-hover-overlay">
+                    <div class="image-hover-overlay background-purple">
+                        <div class="image-hover-overlay-content padding">
+                            <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+                        </div>
+                    </div>
+                    <img src="{% static 'images-2019/sp2.jpg'%}" />
+                </div>
+                <div class="margin-top">
+                    <h4 class="text-strong margin-bottom-10">Steff Kingston</h4>
+                    <p class="margin-bottom-10 text-purple text-uppercase">Account Manager</p>
+                    <div class="line">
+                        <a href="/"><i class="icon-linked_in_circle text-primary-hover text-size-25"></i></a> <a href="/"><i class="icon-google_plus_circle text-primary-hover text-size-25"></i></a> <a href="/"><i class="icon-instagram_circle text-primary-hover text-size-25"></i></a>                                <a href="/"><i class="icon-twitter_circle text-primary-hover text-size-25"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="image-border-radius image-with-hover-overlay">
+                    <div class="image-hover-overlay background-purple">
+                        <div class="image-hover-overlay-content padding">
+                            <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+                        </div>
+                    </div>
+                    <img src="{% static 'images-2019/sp2.jpg'%}" />
+                </div>
+
+                <div class="margin-top">
+                    <h4 class="text-strong margin-bottom-10">Melissa Style</h4>
+                    <p class="margin-bottom-10 text-purple text-uppercase">Programmer</p>
+                    <div class="line">
+                        <a href="/"><i class="icon-linked_in_circle text-primary-hover text-size-25"></i></a> <a href="/"><i class="icon-google_plus_circle text-primary-hover text-size-25"></i></a> <a href="/"><i class="icon-instagram_circle text-primary-hover text-size-25"></i></a>                                <a href="/"><i class="icon-twitter_circle text-primary-hover text-size-25"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://sites.google.com/view/econclub/about?authuser=0" class="s-12 m-6 l-3 center button border-radius background-purple text-size-20 margin-top-60 text-white">About Us</a>
+        </br>
+    </div>
+</section>
+</body>
+
+{% include "footer.html" %}
+{% endblock content %}

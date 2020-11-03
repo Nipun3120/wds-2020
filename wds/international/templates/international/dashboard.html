@@ -1,0 +1,385 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block content %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- <link href="{% static '/css/css/bootstrap.min.css' %}" rel="stylesheet"> 
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">-->
+
+    
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Sanchez&display=swap');
+      *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+        
+  }
+  
+  
+  
+  body {
+    
+      /* background-image: url("{% static '/images-2019/bg-13.jpeg' %}");
+      background-attachment: fixed; 
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover; */
+  
+      /* background: #21668d; */
+      /* background: linear-gradient(to top right, #25273a, #262941); */
+      background: #343b4d;
+      /* background: linear-gradient(45deg, #b835c5, #1c9e9e); */
+      /* background: linear-gradient(135deg,  #CC3363, #1f053b); */
+      /* background: linear-gradient(135deg,  #4b5377 20%, #212646 50%); */
+      
+      font: 16px/1.6 Arial, sans-serif; 
+      font-family: 'Sanchez', serif;
+  
+  }
+  footer{
+    margin-top: 40%;
+  }
+  
+  main{
+      margin-top: 10px;
+      display: flex;
+      /* height: 50rem; */
+      /* height: 1000px; */
+
+  }
+  
+  /*   ---------------------------    SIDE BAR   -------------------------------- */
+  .side-bar-wrapper {
+      width: 17%;
+      /* background: #2d99ea; */
+      color: #FCAF58;
+      padding: 0 10px 0 0px;
+      border-top-right-radius: 30px;
+      box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.5);
+      
+  }
+  
+  /*   ------------------ team info  ------------------ */
+  
+  .side-bar-wrapper .team-info{
+      /* background: #212646; */
+      text-align: center;
+      margin: 10px;
+      padding: 5px 10px 20px 10px;
+      border-radius: 30px;
+      /* box-shadow: 3px 3px 15px 0 #212646; */
+      box-shadow: 2px 2px 15px 0 #00000f;
+      
+      
+  }
+  .side-bar-wrapper .team-info .team-name h2{             /*  name size */
+      font-size: 2rem;
+      font-weight: bolder;
+      margin-bottom: 25px;
+      color: #FCAF58;
+      font-family: 'Sanchez', serif;
+      text-transform: uppercase;
+  }
+  .side-bar-wrapper .team-info .team-balance h5 {
+      font-size: 1.1em;
+      color: #FCAF58;
+      line-height: 1.5rem;
+      margin: 0 10%;
+      text-align: center;
+      font-family: 'Sanchez', serif;
+  }
+  
+  
+  
+  /*   ------------------ Buttons  ------------------ */
+  .requestButtons{
+      margin-top: 30px;
+  }
+  .requestButtons .req-btn{
+      margin-bottom: 10px;
+      display: flex;
+      flex-flow: column;
+  }
+  .requestButtons .req-btn  {
+    margin-left: 10px;
+    border-bottom: 1.5px solid #212646;
+    text-align: center;              /* links to center */
+  }
+  .requestButtons .req-btn:hover{
+      cursor: pointer;
+      text-align: center;               
+  }
+  .requestButtons .req-btn a{
+    font-size: 0.9rem;
+      text-transform: uppercase;
+      padding: 15px 10px;
+      color: whitesmoke;
+  
+  }
+  .requestButtons .req-btn a:hover{
+    text-align: center;           /* links to center on hovering */
+  }
+  
+  /*   ---------------------------    table   -------------------------------- */
+  
+  
+  /* overriding  */
+  th, table tr:nth-of-type(2n){
+      border: none;
+      background: transparent;
+  }
+  
+  th, table tr:nth-of-type(2n) td{
+      border: none;
+      background: transparent;
+  }
+  table{
+      background: transparent;
+      height: 1000px;
+      /* background: yellowgreen; */
+      /* background: linear-gradient(310deg, #b835c5 50%, #1c9e9e 50%); */
+      
+      
+  }
+  
+  
+  .stock-table{
+      width: 60%;
+      margin-left: 10%;
+      /* background-image: linear-gradient(135deg, #36096d 0%, #37d5d6 74%); */
+    height: 100vh;
+      margin-bottom: 30px;
+    
+  }
+  
+  
+  .stock-table .table-heading{
+    width: 100%;
+    text-align: center;
+  }
+  .stock-table .table-heading h1{
+    color: #FCAF58;
+    font-weight: 500;
+    font-family: 'Sanchez', serif;
+  }
+  
+  
+  .stock-table .stockTableInsider {
+  }
+  .stock-table .stockTableInsider .talberow{
+      background: none;
+  
+  }
+  .stockTableInsider thead{
+      height: 70px;
+      background: none;
+      border: none;
+      border-bottom: 2px solid #fff;
+      background-image: linear-gradient(to right, #423366d0, #295763d0);
+  }
+  
+  .stockTableInsider thead th{
+      font-size: 2rem;
+      text-align: center;
+      height: 50px;
+      color: white;
+  }
+  
+  .stockTableInsider tbody{
+      background: rgba(128, 128, 128, 0.308);
+      
+  }
+  
+  .stockTableInsider tbody tr{
+      color: white;
+      /* border-bottom: 1px solid #0e1214; */
+  }
+  
+  .stockTableInsider tbody td{
+      text-align: center;
+      font-size: 1.3rem;
+      margin-right: 1px;
+      padding-right: 10px;
+      color: white;
+  }
+  
+  
+  
+  
+  @media (max-width: 425px) {
+  
+      main{
+          margin-top: 50px;
+          /* display: flexbox; */
+          /* flex-direction: column-reverse; */
+          
+      }
+  }
+      </style>    
+  </head>
+  <body>
+
+    <header role="banner" class="position-absolute">
+      <!-- Top Navigation -->
+  {% include "international/navbar.html" %}
+  </header>
+
+  <!-- ---------  nav-carousel -------- -->
+  <div class="carousel-default owl-carousel carousel-main carousel-nav-white nav-carosel-height">
+    <div class="item">
+        <div class="s-12 center">
+            <!-- For ZOOM effect add classes "background-image-zoom-out" or "background-image-zoom-in" -->
+            <div class="section text-center background-image-zoom-out">
+                <!-- ZOOMED Carousel Image -->
+                <div class="background-image background-image-object" style="background-image:url({% static 'images-2019/bg-6.png'%})"></div>
+                <div class="background-image background-image-object" ></div>
+
+                <div class="line" style="visibility: hidden;">
+                    <hr class="animated-carousel-element break background-primary break-small break-center margin-top-130">
+                    <p class="text-extra-thin animated-carousel-element text-white text-s-size-30 text-m-size-40 text-size-50 text-line-height-1 margin-bottom-0">
+                        
+                    </p>
+                    <hr class="animated-carousel-element break background-primary break-small break-center">
+                    <!-- <p class="animated-carousel-element slow text-white margin-top-40"></p> -->
+                </div>
+                <!-- Pie Charts -->
+              
+            </div>
+        </div>
+        <!-- white full width arrow object -->
+        <!-- <img class="arrow-object" src="{% static 'img/arrow-object-white.svg'%}" alt=""> -->
+    </div>
+</div>
+
+
+    <main class="mainpage">
+
+      <div class="side-bar-wrapper">
+          
+            <div class="team-info">
+              <div class="team-name"><h2>{{ user.username }}</h2></div>
+              <div class="team-balance">    
+                {% for dd in dashdata %}
+                <h5>Team Balance {{ dd.userbalance }}</h5>
+                {% endfor %}
+              </div>
+            </div>
+            
+            <div class="requestButtons">
+              
+             
+              <div class="req-btn"><a class="btn-insider" href="{% url 'international:sentreq' %}">Requests Sent</a></div>
+              <div class="req-btn"><a class="btn-insider" href="{% url 'international:receivedreq' %}">Received Requests</a></div>
+              <div class="req-btn"><a class="btn-insider" href="{% url 'international:createrequest' %}">Create Trade Request</a></div>
+              <div class="req-btn"><a class="btn-insider" href="{% url 'international:transaction-history' %}">Sent Request Status</a></div>
+              <div class="req-btn"><a class="btn-insider" href="{% url 'international:transaction-log' %}">Transactions</a></div>
+              <div class="req-btn"><a class="btn-insider" href="{% url 'international:report' %}">Report(Insider Trading)</a></div>
+              
+              
+              <div class="req-btn"><a class="btn-insider" href="#">Insider Trading</a></div>
+          </div>
+          
+      </div>
+
+      <!--    ----------------- STOCKS TABLE -------------------     -->
+      <div class="stock-table">
+            
+        <div class="table-heading">
+          <h1>Stock Holdings</h1>
+        </div>
+            <table class="stockTableInsider">
+              
+              <thead >
+                <th>Stock Name</th>
+                <th>Number Of Stocks</th>
+              
+              </thead>
+              
+              <tbody>
+                
+                 
+                 <!--DOMESTIC-->
+                 
+              {% for dd in dashdata %}
+              <tr class="tablerow">
+                <td>JPM</td>
+                <td>{{dd.JPM}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>ATT</td>
+                <td>{{dd.ATT}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>CCA</td>
+                <td>{{dd.CCA}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>WMT</td>
+                <td>{{dd.WMT}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>AER</td>
+                <td>{{dd.AER}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>BOE</td>
+                <td>{{dd.BOE}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>PFZ</td>
+                <td>{{dd.PFZ}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>FBI</td>
+                <td>{{dd.FBI}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>ZVC</td>
+                <td>{{dd.ZVC}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>PAP</td>
+                <td>{{dd.PAP}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>TXT</td>
+                <td>{{dd.TXT}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>GMS</td>
+                <td>{{dd.GMS}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>APL</td>
+                <td>{{dd.APL}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>TES</td>
+                <td>{{dd.TES}}</td>
+              </tr>
+              <tr class="tablerow">
+                <td>INT</td>
+                <td>{{dd.INT}}</td>
+              </tr>
+              
+              
+              {% endfor %}
+
+              </tbody>
+            </table>
+          
+          
+    </div>
+    
+</main>
+  
+
+{% include "footer.html" %}
+
+</body>
+</html>
+{% endblock content %}

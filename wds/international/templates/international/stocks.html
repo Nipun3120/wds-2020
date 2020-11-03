@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<head>
+<style>
+  body{
+background-image: url("{% static 'images-2019/bg-9.jpg' %}");
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+font:16px/1.6 Arial,  sans-serif;
+}
+.cs{
+  color: white;
+  font-size: 40px;
+}
+</style>
+</head>
+<body>
+    <header role="banner" class="position-absolute">
+      <!-- Top Navigation -->
+    {% include "international/navbar.html" %}
+  </header>
+
+    
+      &nbsp;
+      <h1 class="cs"><b>All Available Stocks</b></h1>
+      <div class="container">
+        
+      <table class="table table-primary table-bordered table-hover">
+        <thead>
+          <th>Stock Initials</th>
+          <th>Stock Name</th>
+          <th>Current Price</th>
+        </thead>
+
+              {% for post in posts %}
+              <tr>
+                <td>{{ post.stockattribute }}</td>
+                <td>{{ post.stockname }}</td>
+                <td>{{ post.stockprice }}</td>
+              </tr>
+              {% endfor %}
+
+      </table>
+
+    </div>
+  
+{% include "footer.html" %}
+</body>
+
+{% endblock %}
