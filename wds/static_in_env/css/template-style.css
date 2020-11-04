@@ -709,7 +709,7 @@ video {
 .background-white .top-nav li a {
     color: #002633;
     font-size: 0.85rem;
-    padding: 0.7em 1.25em;
+    padding: 0.7em 1.0em;
 }
 
 nav {
@@ -4997,20 +4997,20 @@ a.background-dark:link,
 }
 
 .logo-menu {
-    width: 100px;
+    width: 200px;
 }
 
 .left-menu,
 .right-menu {
     padding-top: 20px;
-    width: calc(50% - 50px);
+    width: calc(50% - 100px);
 }
 
 .logo img {
     margin: 0 auto;
-    width: 88px;
+    width: 180px;
     position: relative;
-    top: 12px;
+    top: 20px;
 }
 
 .top-nav li a {

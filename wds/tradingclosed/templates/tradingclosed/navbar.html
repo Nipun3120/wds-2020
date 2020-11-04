@@ -13,17 +13,13 @@
                 <div class="top-nav left-menu">
                     <ul class="right top-ul chevron">
                         <li class="active-item">
-                            
-                            {% csrf_token %}
-                            {% if user.is_staff %}
-                            <a href="{% url 'admin:index' %}">&nbsp Admin </a>
-                            {% endif %}
+                        {% csrf_token %}
+                        {% if user.is_staff %}
+                        <a href="{% url 'admin:index' %}">&nbsp Admin </a>
+                        {% endif %}
                         </li>
-
-                            <li>
-
+                        <li>
                             <a href="{% url 'tradingclosed:home' %}">Home</a>
-                            
                         </li>
                         <li>
                         
