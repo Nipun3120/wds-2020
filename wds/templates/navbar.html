@@ -12,7 +12,13 @@
                 <!-- left menu items -->
                 <div class="top-nav left-menu">
                     <ul class="right top-ul chevron">
-                        
+                        <li class="active-item">
+                            
+                            {% csrf_token %}
+                            {% if user.is_staff %}
+                            <a href="{% url 'admin:index' %}">&nbsp Admin </a>
+                            {% endif %}
+                        </li>
 
                             <li>
 
@@ -26,9 +32,7 @@
                         <a href="{% url 'core:stocks' %}">&nbsp Stocks</a>
                         
                         </li>
-                        {% if user.is_authenticated %}
-                        <li><a href="{% url 'core:news' %}">&nbsp News</a></li>
-                        {% endif %}
+                        
                         
                         
                        
@@ -55,13 +59,7 @@
                     <ul class="top-ul chevron">
                         
                         {% if user.is_authenticated %}
-                        <li class="active-item">
-                            
-                            {% csrf_token %}
-                            {% if user.is_staff %}
-                            <a href="{% url 'admin:index' %}">&nbsp Admin </a>
-                            {% endif %}
-                        </li>
+                        <li><a href="{% url 'core:news' %}">&nbsp News</a></li>
                         <li><a href="{% url 'core:dashboard' %}">&nbsp Dashboard</a></li>
                         <li><a href="{% url 'core:userlogout' %}">&nbsp Logout</a></li>
                         {% else %}
