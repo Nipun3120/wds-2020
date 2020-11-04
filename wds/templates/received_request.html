@@ -14,6 +14,7 @@
 	
 			body{
 				background: #00000f;
+				text-transform: capitalize;
 			}
 			.main-page{
 				display: flex;
@@ -209,61 +210,68 @@
             
         </div>
 
+		<div class="table-section">
+			<h1>received requests </h1>
 
+			<div class="table-message">
+				<p>*If type is sell that means you are the buyer and if the type is buy then you are the seller.</p>
+			</div>
+			<table>
+				<thead>
+				<tr>
+					<th>sender</th>
+					<th>type</th>
+					<th>stock</th>
+					<th>number of stocks</th>
+					<th>priceperstock</th>
+					<th>accept</th>
+					<th>delete</th>
+				</tr>
+				</thead>
 
+			{% for req in requests %}
+			<tbody>
+				<tr>
+					<td>{{ req.sender }}</td>
+					<td>{{ req.action }} </td>
+					<td>{{ req.stock }} </td>
+					<td>{{ req.numberofstocks }}</td>
+					<td>{{ req.priceperstock }}</td>
 
+					<td class="accept-request"><a href="{% url 'core:accept-request' req.id %}">accept</a></td>
+					<td class="decline-request"><a href="{% url 'core:decline-request' req.id %}">decline</a></td>
+					{% comment  %}
+					<td class="accept-request"><a href="{% url 'international:accept-request' req.id %}">accept</a></td>
+					<td class="decline-request"><a href="{% url 'international:decline-request' req.id %}">decline</a></td>
+					{% endcomment %}
+				</tr>
+				{% endfor %}
+			</tbody>
 
-
-
-
-
-	<div class="table-section">
-		
-		<h1>recieved requests</h1>
-		<table>
-		
-		<tr><th>sender</th><th>type</th><th>stock</th><th>number of stocks</th><th>priceperstock</th><th>accept</th><th>delete</th></tr>
-		{% for req in requests %}
-		<tr><td>{{ req.sender }}</td>
-		<td>{{ req.action }} </td>
-		<td>{{ req.stock }} </td>
-		<td>{{ req.numberofstocks }}</td>
-		<td>{{ req.priceperstock }}</td>
-
-		<td><a href="{% url 'core:accept-request' req.id %}">accept</a></td>
-		<td><a href="{% url 'core:decline-request' req.id %}">decline</a></td>
-		{% comment  %}
-		<td><a href="{% url 'international:accept-request' req.id %}">accept</a></td>
-		<td><a href="{% url 'international:decline-request' req.id %}">decline</a></td>
-		{% endcomment %}
-		</tr>
-		{% endfor %}
-
-		</table>
-		<div class="table-message">
-			<p>*If type is sell that means you are the buyer and if the type is buy then you are the seller.</p>
+			</table>
 		</div>
-	</div>
 
-<script type="text/javascript">
-    function onFriendRequestAccepted(){
-		location.reload();
-	}
+	</section>
 
-	function onFriendRequestDeclined(){
-		location.reload();
-	}
+	<script type="text/javascript">
+		function onFriendRequestAccepted(){
+			location.reload();
+		}
 
-	function triggerAcceptFriendRequest(friend_request_id){
-		acceptFriendRequest(friend_request_id, onFriendRequestAccepted)
-	}
+		function onFriendRequestDeclined(){
+			location.reload();
+		}
 
-	function triggerDeclineFriendRequest(friend_request_id){
-		declineFriendRequest(friend_request_id, onFriendRequestDeclined)
-	}
-    
-	
-</script>
-</body>
+		function triggerAcceptFriendRequest(friend_request_id){
+			acceptFriendRequest(friend_request_id, onFriendRequestAccepted)
+		}
+
+		function triggerDeclineFriendRequest(friend_request_id){
+			declineFriendRequest(friend_request_id, onFriendRequestDeclined)
+		}
+		
+		
+	</script>
+	</body>
 </html>
 {% endblock %}

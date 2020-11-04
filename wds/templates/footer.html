@@ -28,7 +28,7 @@
     .tech-support h5{
       color: #FCAF58;
     }
-
+    
     /* ----------------------- Links ----------------------- */
     .facebook{
       background: #3b5998; 
@@ -62,7 +62,12 @@
       background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
       
     }
-    
+    @media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+    }
     
 
   </style>
@@ -124,24 +129,24 @@
   <!-- Social buttons -->
   <ul class="list-unstyled list-inline text-center">
     <li class="list-inline-item">
-      <a class="btn-floating mx-1 facebook">
+      <a class="btn-floating mx-1 facebook" href="https://www.facebook.com/econthapar">
         <i class="fa fa-facebook-f"> </i>
       </a>
     </li>
 
-    <li class="list-inline-item">
-      <a class="btn-floating btn-youtube mx-1 youtube">
+    <li class="list-inline-item" >
+      <a class="btn-floating btn-youtube mx-1 youtube" href="https://www.youtube.com/channel/UCnyVX3sGVJEno_WwLouHXtA">
         <i class="fa fa-youtube-play" aria-hidden="true"></i>
       </a>
     </li>
 
     <li class="list-inline-item">
-      <a class="btn-floating btn-li mx-1 linkedin">
+      <a class="btn-floating btn-li mx-1 linkedin" href="https://www.linkedin.com/company/econclub/">
         <i class="fab fa-linkedin-in"> </i>
       </a>
     </li>
 
-    <li class="list-inline-item">
+    <li class="list-inline-item" href="https://www.instagram.com/econ_tiet/">
       <a class="btn-floating btn-instagram mx-1 instagram">
         <i class="fab fa-instagram"> </i>
       </a>

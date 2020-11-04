@@ -14,6 +14,7 @@
 	
 			body{
 				background: #00000f;
+				text-transform: capitalize;
 			}
 			.main-page{
 				display: flex;
@@ -167,7 +168,7 @@
 			margin-top: 20px;
 			margin-left: 10px;
 		}
-			</style>
+	</style>
 	</head>
 
 	<body>
@@ -187,7 +188,7 @@
 
                 <div class="requestButtons">
                 
-            
+          
                 <div class="req-btn"><a class="btn-insider" href="{% url 'international:dashboard' %}">Dashboard</a></div>
                 <div class="req-btn"><a class="btn-insider" href="{% url 'international:sentreq' %}">Requests Sent</a></div>
                 <div class="req-btn"><a class="btn-insider" href="{% url 'international:receivedreq' %}">Received Requests</a></div>
@@ -195,6 +196,7 @@
                 <div class="req-btn"><a class="btn-insider" href="{% url 'international:transaction-history' %}">Sent Requests Status</a></div>
                 <div class="req-btn"><a class="btn-insider" href="{% url 'international:transaction-log' %}">Transactions</a></div>
                 <div class="req-btn"><a class="btn-insider" href="{% url 'international:report' %}">Report(Insider Trading)</a></div>
+          
                 
                 <div class="req-btn"><a class="btn-insider" href="#">Insider Training</a></div>
             </div>
@@ -204,6 +206,9 @@
 		<div class="table-section">
 			<h1>received requests </h1>
 
+			<div class="table-message">
+				<p>*If type is sell that means you are the buyer and if the type is buy then you are the seller.</p>
+			</div>
 			<table>
 				<thead>
 				<tr>
@@ -229,15 +234,12 @@
 					
 					<td class="accept-request"><a href="{% url 'international:accept-request' req.id %}">accept</a></td>
 					<td class="decline-request"><a href="{% url 'international:decline-request' req.id %}">decline</a></td>
-				
+					
 				</tr>
 				{% endfor %}
 			</tbody>
 
 			</table>
-			<div class="table-message">
-				<p>*If type is sell that means you are the buyer and if the type is buy then you are the seller.</p>
-			</div>
 		</div>
 
 	</section>

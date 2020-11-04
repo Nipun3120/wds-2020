@@ -111,7 +111,7 @@ class tradereq(models.Model):
             if self.stock=='MM':
                 if (receiver_stock.MM>=self.numberofstocks):
                     if(sender_stock.userbalance>=amount):
-                        sender_stock.ASHOKLEY=sender_stock.MM+self.numberofstocks
+                        sender_stock.MM=sender_stock.MM+self.numberofstocks
                         receiver_stock.MM=receiver_stock.MM-self.numberofstocks
                         self.is_active=False
                         self.status='accepted'
