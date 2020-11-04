@@ -3,18 +3,19 @@
 {% load static %}
 <style>
   body {
-        background-image: url("{% static 'images-2019/2.jpg' %}");
+        background-image: url("{% static 'images-2019/bg-11.jpg' %}");
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         font: 16px/1.6 Arial, sans-serif;
       }
-  .iframe-container{
+.iframe-container{
   position: relative;
   width: 100%;
   padding-bottom: 56.25%; 
   height: 0;
+  margin-bottom: 50px;
 }
 .iframe-container iframe{
   position: absolute;
@@ -23,29 +24,44 @@
   width: 100%;
   height: 100%;
 }
-.cont{
+.cont1{
     width: 70%;
     height: 60%;
     
     margin: auto;
-    background-color: azure;
+    background-color: #FCAF58 !important;
 }
 h1 {
     font-size:4rem;
-    color: white;
+    color: #FF8C42;
     font-weight: bold;
     margin-top: 15vh;
-    margin-bottom: 0;
+    margin-bottom: 10px;
+    padding:10px;
     z-index: 1 !important;
 }
 p{
     font-size:2.5rem;
-    color: black;
+    color: #292D47 !important;
     font-weight: bold;
     line-height: 1;
 }
-.container{
+.bg{
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    height:90vh;
+   
+    margin-bottom: 100px;
+}
+.bg h5{
+    color: white !important;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 20px !important;
+    width:60%;
+    margin:auto;
+}
+.card{
+    background-color: #FCAF58 !important;
 }
 </style>
 
@@ -56,21 +72,20 @@ p{
         <!-- Top Navigation -->
     {% include "navbar.html" %}
     </header>
-    <div class="container">
-    <h1>NEWS</h1>
-    <div class="card">  
-        <div class="card-body">
-            <h4 class="card-text">Stock Market is not all about trading.How well you understand your surroundings will decide whether you gain or lose.So watch the NEWS carefully!</h4>
+    <div class="container bg">
+        <h1>NEWS</h1>
+       
+                <h5 class="card-text">Stock Market is not all about trading.How well you understand your surroundings will decide whether you gain or lose.So watch the NEWS carefully!</h5>
+
+    
+        <div class="cont1">
+            
+            <div class="iframe-container">
+                <iframe width="1200" height="700" src="https://www.youtube-nocookie.com/embed/57MhCvW9caw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                
+            </div>
         </div>
     </div>
- 
-    <div class="cont">
-        
-        <div class="iframe-container">
-            <iframe width="1000" height="500" src="https://www.youtube-nocookie.com/embed/57MhCvW9caw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </div>
-</div>
 {% include "footer.html" %}
 </body>
 

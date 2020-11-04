@@ -12,8 +12,12 @@ from  django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
 def home(request):
-    return render(request,"tradingclosed/home.html", {'messages': messages.get_messages(request)})
+    return render(request,"tradingclosed/home.html")
 
+def closetemplate(request):
+    return render(request,"tradingclosed/trading-closed.html")
+
+    
     
 def user_login(request):
     if request.method=='POST':
