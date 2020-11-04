@@ -29,7 +29,7 @@
     height: 60%;
     
     margin: auto;
-    background-color: #FCAF58 !important;
+    
 }
 h1 {
     font-size:4rem;
@@ -40,12 +40,7 @@ h1 {
     padding:10px;
     z-index: 1 !important;
 }
-p{
-    font-size:2.5rem;
-    color: #292D47 !important;
-    font-weight: bold;
-    line-height: 1;
-}
+
 .bg{
     text-align: center;
     background-color: rgba(0, 0, 0, 0.7);
@@ -53,15 +48,84 @@ p{
    
     margin-bottom: 100px;
 }
-.bg h5{
+.bg p{
     color: white !important;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     margin-bottom: 20px !important;
     width:60%;
     margin:auto;
+    font-size: 1.5rem;
+    line-height: 1.1;
 }
 .card{
     background-color: #FCAF58 !important;
+}
+
+@media screen and (max-width:1120px) {
+    h1{
+    margin-top: 9vh;
+}
+.bg{
+    height:75vh;
+    margin-bottom: 80px;
+}
+.bg p{
+    font-size: 1.5rem;
+    width:80%;
+}
+.iframe-container{
+    margin-bottom: 5px;
+    height:60%;
+    width:95%;
+    
+}
+.cont{
+    width:85%;
+}
+}
+@media screen and (max-width:768px) {
+    h1{
+    margin-top: 4vh;
+}
+.bg{
+    height:55vh;
+    margin-bottom: 80px;
+}
+.bg p{
+    font-size: 1.5rem;
+    width:80%;
+}
+.iframe-container{
+    margin-bottom: 5px;
+    height:90%;
+    width:100%;
+    
+}
+.cont{
+    width:90%;
+}
+}
+@media screen and (max-width:480px) {
+h1{
+    margin-top: 8vh;
+}
+.bg{
+    height:60vh;
+    margin-bottom: 80px;
+}
+.bg p{
+    font-size: 1rem;
+    width:80%;
+}
+.iframe-container{
+    margin-bottom: 5px;
+    height:90%;
+    width:100%;
+    
+}
+.cont{
+    width:90%;
+}
 }
 </style>
 
@@ -75,7 +139,7 @@ p{
     <div class="container bg">
         <h1>NEWS</h1>
        
-                <h5 class="card-text">Stock Market is not all about trading.How well you understand your surroundings will decide whether you gain or lose.So watch the NEWS carefully!</h5>
+                <p class="card-text">Stock Market is not all about trading.How well you understand your surroundings will decide whether you gain or lose.So watch the NEWS carefully!</p>
 
     
         <div class="cont1">

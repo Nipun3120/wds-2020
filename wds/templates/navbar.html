@@ -12,13 +12,7 @@
                 <!-- left menu items -->
                 <div class="top-nav left-menu">
                     <ul class="right top-ul chevron">
-                        <li class="active-item">
-                            
-                            {% csrf_token %}
-                            {% if user.is_staff %}
-                            <a href="{% url 'admin:index' %}">&nbsp Admin </a>
-                            {% endif %}
-                        </li>
+                        
 
                             <li>
 
@@ -30,10 +24,13 @@
                         <li>
                         
                         <a href="{% url 'core:stocks' %}">&nbsp Stocks</a>
-                        {% comment  %}
-                        <a href="{% url 'international:stocks' %}">&nbsp Stocks</a>
-                        {% endcomment %}
+                        
                         </li>
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'core:news' %}">&nbsp News</a></li>
+                        {% endif %}
+                        
+                        
                        
                     </ul>
                 </div>
@@ -58,23 +55,20 @@
                     <ul class="top-ul chevron">
                         
                         {% if user.is_authenticated %}
-                        <li><a href="{% url 'core:news' %}">&nbsp News</a></li>
+                        <li class="active-item">
+                            
+                            {% csrf_token %}
+                            {% if user.is_staff %}
+                            <a href="{% url 'admin:index' %}">&nbsp Admin </a>
+                            {% endif %}
+                        </li>
                         <li><a href="{% url 'core:dashboard' %}">&nbsp Dashboard</a></li>
                         <li><a href="{% url 'core:userlogout' %}">&nbsp Logout</a></li>
                         {% else %}
                         <li><a href="{% url 'core:news' %}">&nbsp News</a></li>
                         <li><a href="{% url 'core:userlogin' %}">&nbsp Login</a></li>
                         {% endif %}
-                        {% comment  %}
-                        {% if user.is_authenticated %}
-                        <li><a href="{% url 'international:news' %}">&nbsp News</a></li>
-                        <li><a href="{% url 'international:dashboard' %}">&nbsp Dashboard</a></li>
-                        <li><a href="{% url 'international:userlogout' %}">&nbsp Logout</a></li>
-                        {% else %}
-                        <li><a href="{% url 'international:news' %}">&nbsp News</a></li>
-                        <li><a href="{% url 'international:userlogin' %}">&nbsp Login</a></li>
-                        {% endif %}
-                        {% endcomment %}
+                        
                         
                                         
                     </ul>
