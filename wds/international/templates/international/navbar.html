@@ -12,14 +12,7 @@
                 <!-- left menu items -->
                 <div class="top-nav left-menu">
                     <ul class="right top-ul chevron">
-                        <li class="active-item">
-                            
-                            {% csrf_token %}
-                            {% if user.is_staff %}
-                            <a href="{% url 'admin:index' %}">&nbsp Admin </a>
-                            {% endif %}
-                        </li>
-
+                        
                             <li>
                            
                             <a href="{% url 'international:home' %}">Home</a>
