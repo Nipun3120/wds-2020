@@ -29,7 +29,9 @@
                       
                         <a href="{% url 'international:stocks' %}">&nbsp Stocks</a>
                         </li>
-                       
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'international:news' %}">&nbsp News</a></li>
+                        {% endif %}
                     </ul>
                 </div>
 
@@ -53,7 +55,13 @@
                         
                    
                         {% if user.is_authenticated %}
-                        <li><a href="{% url 'international:news' %}">&nbsp News</a></li>
+                        <li class="active-item">
+                            
+                            {% csrf_token %}
+                            {% if user.is_staff %}
+                            <a href="{% url 'admin:index' %}">&nbsp Admin </a>
+                            {% endif %}
+                        </li>
                         <li><a href="{% url 'international:dashboard' %}">&nbsp Dashboard</a></li>
                         <li><a href="{% url 'international:userlogout' %}">&nbsp Logout</a></li>
                         {% else %}
