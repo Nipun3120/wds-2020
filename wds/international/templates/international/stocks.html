@@ -3,20 +3,99 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <head>
-<style>
-  body{
-background-image: url("{% static 'images-2019/bg-9.jpg' %}");
-background-attachment: fixed;
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-font:16px/1.6 Arial,  sans-serif;
-}
-.cs{
-  color: white;
-  font-size: 40px;
-}
-</style>
+    <style>
+      body{
+    /* background-image: url("{% static 'images-2019/bg-9.jpg' %}");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    background: #00000f;
+    font:16px/1.6 Arial,  sans-serif;
+    }
+    .main-page{
+            display: flex;
+            /* height: 100%; */
+            margin-bottom: 100px;
+            padding-bottom: 100px;
+        }
+
+    
+    .cs{
+      color: #FCAF58;
+      font-size: 40px;
+      text-align: center;
+    }
+
+        /*  ------------------------ TABLE ------------------------  */
+
+        th, table tr:nth-of-type(2n){
+      border: none;
+      background: transparent;
+  }
+  
+  th, table tr:nth-of-type(2n) td{
+      border: none;
+      background: transparent;
+  }
+
+        /* ---------- table section ---------- */
+    .table-section{
+        width: 70vw;
+        height: 100vh;
+        display: flex;
+        flex-flow: column;
+        margin: 5vh auto;
+        
+    }
+        /* ---------- table heading ---------- */
+    .table-section h1{
+        text-transform: capitalize;
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 500;
+        color: #FCAF58;
+    }
+
+        /* -------------- table -------------- */
+    .table-section table{
+        border: none;
+        background: #8953b036;
+        width: 100%;
+    }
+
+    .table-section table thead {
+      height: 70px;
+      background: none;
+      border: none;
+      background-image: linear-gradient(to right, #46317796, #29718398);
+      border-bottom: 2px solid #fff;
+    }
+
+    .table-section thead th{
+      font-size: 1.2rem;
+      text-align: center;
+      height: 50px;
+      z-index: 10;
+      color: white;
+  }
+
+  .table-section tbody td{
+      text-align: center;
+      font-size: 1.3rem;
+      margin-right: 1px;
+      padding-right: 10px;
+      color: white;
+      z-index: 10;
+      text-transform: capitalize;
+  }
+
+
+
+
+    
+    </style>
 </head>
 <body>
     <header role="banner" class="position-absolute">
@@ -24,31 +103,66 @@ font:16px/1.6 Arial,  sans-serif;
     {% include "international/navbar.html" %}
   </header>
 
+  <!-- ---------  nav-carousel -------- -->
+  <div class="carousel-default owl-carousel carousel-main carousel-nav-white nav-carosel-height">
+    <div class="item">
+        <div class="s-12 center">
+            <!-- For ZOOM effect add classes "background-image-zoom-out" or "background-image-zoom-in" -->
+            <div class="section text-center background-image-zoom-out">
+                <!-- ZOOMED Carousel Image -->
+                <div class="background-image background-image-object" style="background-image:url({% static 'images-2019/bg-11.jpg'%})"></div>
+                <div class="background-image background-image-object" ></div>
+
+                <div class="line" style="visibility: hidden;">
+                    <hr class="animated-carousel-element break background-primary break-small break-center margin-top-130">
+                    <p class="text-extra-thin animated-carousel-element text-white text-s-size-30 text-m-size-40 text-size-50 text-line-height-1 margin-bottom-0">
+                        
+                    </p>
+                    <hr class="animated-carousel-element break background-primary break-small break-center">
+                    <!-- <p class="animated-carousel-element slow text-white margin-top-40"></p> -->
+                </div>
+                <!-- Pie Charts -->
+              
+            </div>
+        </div>
+        <!-- white full width arrow object -->
+        <!-- <img class="arrow-object" src="{% static 'img/arrow-object-white.svg'%}" alt=""> -->
+    </div>
+</div>
+
+
+
+
     
       &nbsp;
-      <h1 class="cs"><b>All Available Stocks</b></h1>
-      <div class="container">
-        
-      <table class="table table-primary table-bordered table-hover">
-        <thead>
-          <th>Stock Initials</th>
-          <th>Stock Name</th>
-          <th>Current Price</th>
-        </thead>
 
-              {% for post in posts %}
-              <tr>
-                <td>{{ post.stockattribute }}</td>
-                <td>{{ post.stockname }}</td>
-                <td>{{ post.stockprice }}</td>
-              </tr>
-              {% endfor %}
+    <section class="main-page">
 
-      </table>
+      <div class="table-section">
 
-    </div>
+        <h1>Stock Market</h1>
+            <table>
+                  <thead>
+                  <tr>
+                      <th>Stock Initials</th>
+                      <th>Stock Name</th>
+                      <th>Current Price</th>
+                  </tr>
+                </thead>
+                
+                <tbody>
+                    {% for post in posts %}
+                <tr>            
+                    <td>{{ post.stockattribute }}</td>
+                    <td>{{ post.stockname }}</td>
+                    <td>{{ post.stockprice }}</td>                  
+                </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+      </div>
   
-{% include "footer.html" %}
+  </section>
+  {% include "footer.html" %}
 </body>
-
 {% endblock %}
