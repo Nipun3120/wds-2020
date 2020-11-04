@@ -22,12 +22,12 @@
 
                             <li>
 
-                            <a href="#">Home</a>
+                            <a href="{% url 'tradingclosed:home' %}">Home</a>
                             
                         </li>
                         <li>
                         
-                        <a href="#">&nbsp Stocks</a>
+                        <a href="{% url 'tradingclosed:trading-closed' %}">&nbsp Stocks</a>
                         
                         </li>
                        
@@ -52,11 +52,11 @@
                     <ul class="top-ul chevron">
                         
                         {% if user.is_authenticated %}
-                        <li><a href="{% url 'tradingclosed:home' %}">&nbsp News</a></li>
-                        <li><a href="#">&nbsp Dashboard</a></li>
+                        <li><a href="{% url 'tradingclosed:trading-closed' %}">&nbsp News</a></li>
+                        <li><a href="{% url 'tradingclosed:trading-closed' %}">&nbsp Dashboard</a></li>
                         <li><a href="{% url 'tradingclosed:userlogout' %}">&nbsp Logout</a></li>
                         {% else %}
-                        <li><a href="#">&nbsp News</a></li>
+                        <li><a href="{% url 'tradingclosed:trading-closed' %}">&nbsp News</a></li>
                         <li><a href="{% url 'tradingclosed:userlogin' %}">&nbsp Login</a></li>
                         {% endif %}
                         
