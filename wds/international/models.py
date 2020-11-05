@@ -47,7 +47,7 @@ class StockList(models.Model):
 
 class Stock(models.Model):
     user=models.OneToOneField(settings.AUTH_USER_MODEL,related_name='inter' ,on_delete=models.CASCADE, default=1)
-    userbalance=models.FloatField(default=1000000.0)
+    userbalance=models.FloatField(default=100000.0)
     JPM=models.IntegerField(default=0)
     ATT=models.IntegerField(default=0)
     CCA=models.IntegerField(default=0)

@@ -17,7 +17,8 @@ def home(request):
 def closetemplate(request):
     return render(request,"tradingclosed/trading-closed.html")
 
-    
+def news(request):
+    return render(request,"tradingclosed/news.html")
     
 def user_login(request):
     if request.method=='POST':
@@ -35,7 +36,7 @@ def user_login(request):
             print("false login")
             messages.error(request, f'Invalid Teamname or Password')
             return redirect('tradingclosed:userlogin')
-        return render(request,'tradingclosed/trading-closed.html')
+        return render(request,'tradingclosed:home')
     else:
         print("render part ran successfully")
         return render(request,'tradingclosed/userlogin.html')

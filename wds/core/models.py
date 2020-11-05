@@ -67,7 +67,7 @@ class Stock(models.Model):
     
     
     
-    userbalance=models.FloatField(default=1000000.0)
+    userbalance=models.FloatField(default=100000.0)
     def __str__(self):
         return f"{self.user}"
         
@@ -106,7 +106,7 @@ class tradereq(models.Model):
         amount=self.numberofstocks*self.priceperstock
         if self.action=='buy':
             sender_stock.userbalance=sender_stock.userbalance-amount
-            receiver_stock.userbalance=receiver_stock.userbalance+amount
+            receiver_stock.userbalance=receiver_stock.userbalance+(amount*0.97)
             
             if self.stock=='MM':
                 if (receiver_stock.MM>=self.numberofstocks):
@@ -287,7 +287,7 @@ class tradereq(models.Model):
             sender_stock,receiver_stock=receiver_stock,sender_stock
             if (amount<=sender_stock.userbalance):
                 sender_stock.userbalance=sender_stock.userbalance-amount
-                receiver_stock.userbalance=receiver_stock.userbalance+amount
+                receiver_stock.userbalance=receiver_stock.userbalance+(amount*0.97)
                 if self.stock=='MM':
                     if(receiver_stock.MM>=self.numberofstocks):
                         sender_stock.MM=sender_stock.MM+self.numberofstocks
