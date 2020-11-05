@@ -21,14 +21,18 @@
                         </li>
 
                             <li>
-                           
+
                             <a href="{% url 'international:home' %}">Home</a>
                             
                         </li>
                         <li>
-                      
+                        
                         <a href="{% url 'international:stocks' %}">&nbsp Stocks</a>
+                        
                         </li>
+                        
+                        
+                        
                        
                     </ul>
                 </div>
@@ -36,9 +40,9 @@
                 <!-- logo -->
                 <ul class="logo-menu">
                     
-                
+               
                 <a href="{% url 'international:home' %}" class="logo"></a>
-              
+             
                         <!-- Logo White Version -->
                         <img class="logo-white" src="{% static 'images-2019/WDS_Logo_Black.png'%}" alt="">
                         <!-- Logo Dark Version -->
@@ -51,7 +55,6 @@
                 <div class="top-nav right-menu">
                     <ul class="top-ul chevron">
                         
-                   
                         {% if user.is_authenticated %}
                         <li><a href="{% url 'international:news' %}">&nbsp News</a></li>
                         <li><a href="{% url 'international:dashboard' %}">&nbsp Dashboard</a></li>
@@ -60,7 +63,7 @@
                         <li><a href="{% url 'international:news' %}">&nbsp News</a></li>
                         <li><a href="{% url 'international:userlogin' %}">&nbsp Login</a></li>
                         {% endif %}
-                       
+                        
                         
                                         
                     </ul>
