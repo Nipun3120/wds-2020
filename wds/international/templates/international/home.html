@@ -2,28 +2,139 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Spectral+SC:ital,wght@0,700;1,500&display=swap');
+        .para{
+            font-family: 'Cardo', serif;
+        
+    
+    color:white;
+}
+.head{
+
+    font-family: 'Spectral SC', serif;
+    color: white;
+}
+.portion{
+    background-color: black;
+}
+.h2{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+       
+       
+.btn-enter-wds{
+    color: black;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    border: none;
+    background: #fcaf58d7;
+    margin-bottom: 20px;
+}
+.btn-enter-wds:hover{
+    background: #FCAF58;
+}
+        
+.aboutUsBtn a{
+    display: flex;
+
+}
+
+.btn-enter-wds-first{
+    margin-top: 40px;
+    
+}
+
+
+
+.rules-btn{
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row;
+    margin-top: 5rem;
+    width: 100%;
+    position: relative;
+}
+.btn-rules-wds{
+    color: black;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    border: none;
+    background: #fcaf58d7;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.rules-1{
+    margin-right: -50px;
+}
+.rules-2{
+    margin-left: 90px;
+}
+.btn-rules-wds:hover{
+    background: #FCAF58;
+}
+
+
+
+
+    </style>
+</head>
 <body>
 <header role="banner" class="position-absolute">
     <!-- Top Navigation -->
     {% include "international/navbar.html" %}
 </header>
-{% include "nav-carousel.html" %}
+
+<div class="carousel-default owl-carousel carousel-main carousel-nav-white nav-carosel-height">
+    <div class="item">
+        <div class="s-12 center">
+            <!-- For ZOOM effect add classes "background-image-zoom-out" or "background-image-zoom-in" -->
+            <div class="section text-center background-image-zoom-out">
+                <!-- ZOOMED Carousel Image -->
+                <div class="background-image background-image-object" style="background-image:url({% static 'images-2019/bg-11.jpg'%})"></div>
+                <div class="background-image background-image-object" ></div>
+
+                <div class="line" style="visibility: hidden;">
+                    <hr class="animated-carousel-element break background-primary break-small break-center margin-top-130">
+                    <p class="text-extra-thin animated-carousel-element text-white text-s-size-30 text-m-size-40 text-size-50 text-line-height-1 margin-bottom-0">
+                        
+                    </p>
+                    <hr class="animated-carousel-element break background-primary break-small break-center">
+                    <!-- <p class="animated-carousel-element slow text-white margin-top-40"></p> -->
+                </div>
+                <!-- Pie Charts -->
+              
+            </div>
+        </div>
+        <!-- white full width arrow object -->
+        <img class="arrow-object" src="{% static 'img/arrow-object-white.svg'%}" alt="">
+    </div>
+</div>
 
 <!-- Section 1 -->
 <section class="portion section background-black text-center">
     <div class="line">
-        <h1 class="head text text-size-50 text-m-size-40">
-        Welcome to <b>WDS</b></h1>
-        <p class="para text-size-20">Humans have come very far in their knowledge of money. From the barter system to the stock market, from copper tokens to printed notes, we have covered quite a journey. 
-            For all the zealous participants out there, The Econ Club releases the teaser for their annual flagship event "Wolf of Dalal Street". Brush up your knowledge about domestic and international markets, and get ready to tackle the bull and the bear. Turn your losses into profits with your prudence and prove to the world that money indeed grows on trees!</p>
-            
+        <h1 class="head text text-size-50 text-m-size-40" style="color: #FCAF58;">
+            Welcome to <b>WDS</b></h1>
+            <p class="para text-size-20">Professional stock investing, with its sharp ups and downs, can teach us a lot about life.<br><br>
+                Money brings out the insecurity, fear and irrationality that we might otherwise keep hidden in polite society. Investing isn’t just a test of strategy– it’s a test of character, and what we do when investing is very often what we believe about ourselves.<br><br>
+                Through this simulation of the stock market, you will learn how to analyze stocks, look for patterns that are in everyone's sight but observed by a few and then exploit it to optimise your profit and loss. <br>
+                </p>      
         
         {% if user.is_authenticated %}
-        <a href="{% url 'international:dashboard' %}" class="s-12 m-6 l-3 center button border-radius background-purple text-size-20 margin-top-60 text-white">Enter WDS</a>
+        <a href="{% url 'international:dashboard' %}" class="s-12 m-6 l-3 center text-size-20 margin-top-60 text-white btn-enter-wds">Enter WDS</a>
         {% else %}
-        <a href="{% url 'international:userlogin' %}" class="s-12 m-6 l-3 center button border-radius background-purple text-size-20 margin-top-60 text-white">Enter WDS</a>
+        <a href="{% url 'international:userlogin' %}" class="s-12 m-6 l-3 center text-size-20 margin-top-60 text-white btn-enter-wds">Enter WDS</a>
         {% endif %}
         
+
+        <div class="rules-btn">
+            <a href="https://drive.google.com/file/d/1WMV43UXDU0OWsohG4kEaNy4RJs2YKi1o/view?usp=sharing" class="s-12 m-6 l-3 center text-size-20 text-white btn-rules-wds rules-1">Rules</a>
+            <a href="https://drive.google.com/file/d/1Z1EcVPF6WvO-4BBe2uBpcvI1mSUTHm5Y/view?usp=sharing" class="s-12 m-6 l-3 center text-size-20 text-white btn-rules-wds rules-2">Schedule</a>
+        </div>
         
         
     </div>
@@ -33,15 +144,14 @@
 <section class="section" data-image-src="{% static 'images-2019/bg-5.jpg'%}">
     <div class="line">
         <div class="s-12 m-12 l-6">
-            <h2 class="text-size-50 text-white">
+            <h2 class="text-size-50" style="font-family: 'Spectral SC', serif; font-weight:600; color: #FCAF58;">
             Stock Market</h2>
-            <h2 class="text-size-30 text-white">
+            <h2 class="text-white" style="font-family: 'Spectral SC', serif; font-size: 1.5rem;
+            ">
                 What you will Gain from this event??</h2>
-            <p class="margin-bottom">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
-                nisl ut aliquip ex ea commodo consequat.</p>
+            <p class="margin-bottom" style="color:rgb(175, 175, 175)">You will learn how to convince others of why they should give what they have to you and take what you have for them, in simple words trade. But to change ones perspective on what you have to offer and mould it as per your opinions is like having an impact so huge and influencing power so strong that you really get to the other person. <br><br>
+                Remember before selling or buying you have to sell your idea and vision to people around to really get around things the way you believe to be ideal.</p>
             
-            <!-- white Start your Business object -->
-            <!--<img class="margin-left-20 margin-top-30 margin-bottom-60" src="img/start-your-business.svg" alt="">-->
         </div>
     </div>
     <!-- white full width arrow object -->
@@ -49,120 +159,10 @@
 </section>
 
 
-<section class="portion section-top-padding background-dark-hightlight">
-    <div class="line text-center">
-        <i class="icon-sli-people text-white text-size-40"></i>
-        <h2 class="text-white text-size-50 text-m-size-40">Our <b>Sponsors</b></h2>
-        </br>       
-    </div>
+<section class="portion section-top-padding background-dark-hightlight aboutUsBtn" style="padding:50px">
     <div class="line">
-        <div class="carousel-blocks owl-carousel">
-            <div class="item">
-                <div class="image-border-radius image-with-hover-overlay">
-                    <div class="image-hover-overlay background-purple">
-                        <div class="image-hover-overlay-content padding">
-                            <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
-                        </div>
-                    </div>
-                    <img src="{% static 'images-2019/index.png'%}" />
-                </div>
-                <div class="margin-top">
-                    <h4 class="text-strong margin-bottom-10">Frank Star</h4>
-                    <p class="margin-bottom-10 text-purple text-uppercase">Web Designer</p>
-                    <div class="line">
-                        <a href="/"><i class="icon-linked_in_circle text-primary-hover text-size-25"></i></a> <a href="/"><i class="icon-google_plus_circle text-primary-hover text-size-25"></i></a> <a href="/"><i class="icon-twitter_circle text-primary-hover text-size-25"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-border-radius image-with-hover-overlay">
-                    <div class="image-hover-overlay background-purple">
-                        <div class="image-hover-overlay-content padding">
-                            <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
-                        </div>
-                    </div>
-                    <img src="{% static 'images-2019/sp2.jpg'%}" />
-                </div>
-                <div class="margin-top">
-                    <h4 class="text-strong margin-bottom-10">Jane Naismith</h4>
-                    <p class="margin-bottom-10 text-purple text-uppercase">Graphic Designer</p>
-                    <div class="line">
-                        <a href="/"><i class="icon-facebook_circle text-primary-hover text-size-25"></i></a> <a href="/"><i class="icon-instagram_circle text-primary-hover text-size-25"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-border-radius image-with-hover-overlay">
-                    <div class="image-hover-overlay background-purple">
-                        <div class="image-hover-overlay-content padding">
-                            <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
-                        </div>
-                    </div>
-                    <img src="{% static 'images-2019/sp2.jpg'%}" />
-                </div>
-                <div class="margin-top">
-                    <h4 class="text-strong margin-bottom-10">Mark Stoner</h4>
-                    <p class="margin-bottom-10 text-purple text-uppercase">Boss</p>
-                    <div class="line">
-                        <a href="/"><i class="icon-linked_in_circle text-primary-hover text-size-25"></i></a> <a href="/"><i class="icon-instagram_circle text-primary-hover text-size-25"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-border-radius image-with-hover-overlay">
-                    <div class="image-hover-overlay background-purple">
-                        <div class="image-hover-overlay-content padding">
-                            <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
-                        </div>
-                    </div>
-                    <img src="{% static 'images-2019/index.png'%}" />
-                </div>
-                <div class="margin-top">
-                    <h4 class="text-strong margin-bottom-10">Steve Carpenter</h4>
-                    <p class="margin-bottom-10 text-purple text-uppercase">Web Developer</p>
-                    <div class="line">
-                        <a href="/"><a href="/"><i class="icon-google_plus_circle text-primary-hover text-size-25"></i></a> <a href="/"><i class="icon-instagram_circle text-primary-hover text-size-25"></i></a> <a href="/"><i class="icon-twitter_circle text-primary-hover text-size-25"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-border-radius image-with-hover-overlay">
-                    <div class="image-hover-overlay background-purple">
-                        <div class="image-hover-overlay-content padding">
-                            <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
-                        </div>
-                    </div>
-                    <img src="{% static 'images-2019/sp2.jpg'%}" />
-                </div>
-                <div class="margin-top">
-                    <h4 class="text-strong margin-bottom-10">Steff Kingston</h4>
-                    <p class="margin-bottom-10 text-purple text-uppercase">Account Manager</p>
-                    <div class="line">
-                        <a href="/"><i class="icon-linked_in_circle text-primary-hover text-size-25"></i></a> <a href="/"><i class="icon-google_plus_circle text-primary-hover text-size-25"></i></a> <a href="/"><i class="icon-instagram_circle text-primary-hover text-size-25"></i></a>                                <a href="/"><i class="icon-twitter_circle text-primary-hover text-size-25"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-border-radius image-with-hover-overlay">
-                    <div class="image-hover-overlay background-purple">
-                        <div class="image-hover-overlay-content padding">
-                            <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
-                        </div>
-                    </div>
-                    <img src="{% static 'images-2019/sp2.jpg'%}" />
-                </div>
 
-                <div class="margin-top">
-                    <h4 class="text-strong margin-bottom-10">Melissa Style</h4>
-                    <p class="margin-bottom-10 text-purple text-uppercase">Programmer</p>
-                    <div class="line">
-                        <a href="/"><i class="icon-linked_in_circle text-primary-hover text-size-25"></i></a> <a href="/"><i class="icon-google_plus_circle text-primary-hover text-size-25"></i></a> <a href="/"><i class="icon-instagram_circle text-primary-hover text-size-25"></i></a>                                <a href="/"><i class="icon-twitter_circle text-primary-hover text-size-25"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a href="https://sites.google.com/view/econclub/about?authuser=0" class="s-12 m-6 l-3 center button border-radius background-purple text-size-20 margin-top-60 text-white">About Us</a>
-        </br>
+        <!-- <a href="https://sites.google.com/view/econclub/about?authuser=0" class="s-12 m-6 l-3 center btn-enter-wds text-size-20 margin-bottom-90 text-white">About Us</a> -->
     </div>
 </section>
 </body>
