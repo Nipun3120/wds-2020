@@ -183,8 +183,8 @@
     <div class="table-section">
         
             <h1>Report</h1>
-            <p>If you reported correctly you will be rewarded Rs.5000</p>
-            <p>But if you reported wrong the same amount will be deducted from you!!</p>
+            <p>In case a team has been correctly reported for insider trading they will incur a fine of 10% of their current holdings.</p>
+            <p>But if the report turns out to be unsuccessful the reporting team will incur a fine of 3% of current holdings.</p>
             <form method='POST' enctype="\application/x-www-form-urlencoded">
                 {% csrf_token %}
                 {{ form|crispy }}
