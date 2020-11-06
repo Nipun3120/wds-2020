@@ -10,6 +10,7 @@ urlpatterns = [
     path('trading-closed/',views.closetemplate,name='trading-closed'),
     path('userlogin/',views.user_login,name='userlogin'),
     path('userlogout/',views.userlogout,name='userlogout'),
+    path('news/',views.news,name='news'),
     path('',home,name="home"),
 
 ]

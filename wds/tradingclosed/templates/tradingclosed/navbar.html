@@ -48,7 +48,7 @@
                     <ul class="top-ul chevron">
                         
                         {% if user.is_authenticated %}
-                        <li><a href="{% url 'tradingclosed:trading-closed' %}">&nbsp News</a></li>
+                        <li><a href="{% url 'tradingclosed:news' %}">&nbsp News</a></li>
                         <li><a href="{% url 'tradingclosed:trading-closed' %}">&nbsp Dashboard</a></li>
                         <li><a href="{% url 'tradingclosed:userlogout' %}">&nbsp Logout</a></li>
                         {% else %}
