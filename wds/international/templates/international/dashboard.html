@@ -199,21 +199,119 @@
       z-index: 10;
   }
   
+
+
+
+
+
+/* ----------------- side bar accordian ----------------- */
+.side-bar-caret{
+  display: none;
+  font-size: 30px;
+  color: #FCAF58;
+  font-weight: 600;
+}
+
+
+.card, .card-body{
+  padding: 0;
+}
+.side-bar-wrapper-acc {
+      width: 100%;
+      color: #FCAF58;
+      background: #000;
+  }
+  .team-info-acc{
+    display: none;
+  }
+
+.side-bar-wrapper-acc{
+      background: #000000;
+      text-align: center;
+      /* margin: 10px; */
+      padding: 5px 10px 20px 0px;
+}
+
+  .team-info-acc .team-name h2{             /*  name size */
+      font-size: 2.3rem;
+      font-weight: bolder;
+      margin-bottom: 25px;
+      color: #FCAF58;
+      font-family: 'Sanchez', serif;
+      text-transform: uppercase;
+      text-align: center;
+  }
+  .team-info-acc .team-balance h5 {
+      font-size: 1.4em;
+      color:  #f5a976;
+      line-height: 1.5rem;
+      margin: 0 10%;
+      text-align: center;
+      font-family: 'Sanchez', serif;
+  }
+  .req-btn a{
+    color: #fff;
+  }
   
+
+
   
+  @media (max-width: 720px) {
+
+    .mainpage{
+      display: block;
+    }
+    .side-bar-wrapper{
+      display: none;
+    }
+    .team-info-acc{
+      display: block;
+    }
+    .side-bar-caret{
+      display: flex;
+      width: 20%;
+      justify-content: center;
+      align-items: center;
+    }
+    .stock-table{
+      margin: 0 auto;
+    }
+    .stockTableInsider thead th{
+      font-size: 0.9rem;
+    }
+    .stockTableInsider tbody td{
+      font-size: 0.9rem;
+    }
+  }
+  
+
+
+
   
   @media (max-width: 425px) {
   
       main{
           margin-top: 50px;
-          /* display: flexbox; */
-          /* flex-direction: column-reverse; */
+
           
       }
       .stock-table table thead{
         height: 520px;
       }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
       </style>    
   </head>
   <body>
@@ -252,6 +350,63 @@
 
 
     <main class="mainpage">
+
+
+
+      <div class="team-info-acc">
+        <div class="team-name"><h2>{{ user.username }}</h2></div>
+        <div class="team-balance">    
+          {% for dd in dashdata %}
+          <h5>Team Balance {{ dd.userbalance }}</h5>
+          {% endfor %}
+        </div>
+      </div>
+
+
+        <a class="side-bar-caret" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          <i class="fa fa-angle-down" style="color: #FCAF58;"></i>
+        </a>
+      <div class="collapse" id="collapseExample">
+        <div class="">
+          <div class="side-bar-wrapper-acc">
+
+            <div class="requestButtons">
+              
+              <div class="req-btn"><a class="btn-insider" href="{% url 'international:createrequest' %}">Create Trade Request</a></div>
+              <div class="req-btn"><a class="btn-insider" href="{% url 'international:sentreq' %}">Requests Sent</a></div>
+              <div class="req-btn"><a class="btn-insider" href="{% url 'international:receivedreq' %}">Received Requests</a></div>
+              
+              <div class="req-btn"><a class="btn-insider" href="{% url 'international:transaction-history' %}">Sent Request Status</a></div>
+              <div class="req-btn"><a class="btn-insider" href="{% url 'international:transaction-log' %}">Transactions</a></div>
+              <div class="req-btn"><a class="btn-insider" href="{% url 'international:report' %}">Report(Insider Trading)</a></div>
+              
+              
+              <div class="req-btn"><a class="btn-insider" href="#">Insider Trading</a></div>
+          </div>
+          
+      </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       <div class="side-bar-wrapper">
           

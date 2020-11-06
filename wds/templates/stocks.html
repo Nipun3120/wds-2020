@@ -4,15 +4,16 @@
 {% block content %}
 <head>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sanchez&display=swap');
       body{
     background: #00000f;
     font:16px/1.6 Arial,  sans-serif;
     }
     .main-page{
             display: flex;
-            /* height: 100%; */
             margin-bottom: 100px;
             padding-bottom: 100px;
+            
         }
 
     
@@ -36,12 +37,9 @@
 
         /* ---------- table section ---------- */
     .table-section{
-        width: 70vw;
-        height: 100vh;
-        display: flex;
-        flex-flow: column;
-        margin: 5vh auto;
-        
+        width: 100%;
+        height: 120vh;
+    
     }
         /* ---------- table heading ---------- */
     .table-section h1{
@@ -51,16 +49,17 @@
         font-size: 2rem;
         font-weight: 500;
         color: #FCAF58;
+        font-family: 'Sanchez', serif;
     }
 
         /* -------------- table -------------- */
     .table-section table{
         border: none;
         background: #8953b036;
-        width: 100%;
     }
 
     .table-section table thead {
+    font-family: 'Sanchez', serif;
       height: 70px;
       background: none;
       border: none;
@@ -77,6 +76,7 @@
   }
 
   .table-section tbody td{
+    font-family: 'Sanchez', serif;
       text-align: center;
       font-size: 1.3rem;
       margin-right: 1px;
@@ -86,6 +86,32 @@
       text-transform: capitalize;
   }
 
+
+@media (max-width: 720px ) {
+
+    .table-section {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .table-section table thead{
+        height: 30px;
+        font-size: 1rem;
+    }
+    .table-section tbody td {
+    text-align: center;
+    font-size: 12px;
+    margin-right: 1px;
+    padding-right: 7px;
+    color: white;
+    text-transform: capitalize;
+}
+    
+    footer{
+        margin-top: 50px;
+    }
+    
+}
 
 
 

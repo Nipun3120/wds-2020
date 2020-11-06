@@ -236,6 +236,42 @@ body, html{
   font-size: 2em;
 }
 
+
+input:not([type]).validate + label, input[type=text]:not(.browser-default).validate + label, input[type=password]:not(.browser-default).validate + label, input[type=email]:not(.browser-default).validate + label, input[type=url]:not(.browser-default).validate + label, input[type=time]:not(.browser-default).validate + label, input[type=date]:not(.browser-default).validate + label, input[type=datetime]:not(.browser-default).validate + label, input[type=datetime-local]:not(.browser-default).validate + label, input[type=tel]:not(.browser-default).validate + label, input[type=number]:not(.browser-default).validate + label, input[type=search]:not(.browser-default).validate + label, textarea.materialize-textarea.validate + label {
+    width: 100%;
+    color: #f5a062;
+}
+
+  @media (max-width: 999px ){
+    .overlay{
+      display: none;
+    }
+    
+    .container{
+      width: 90%;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+    }
+    form{
+      position: relative;
+
+    }
+
+    .form .sign-up{
+      margin: 0 auto;
+      position: absolute;
+      top: 0%;
+      left: 50%;
+      transform: translate(-50%);
+      
+    }
+  }
+
+
+
 </style>
 
 
