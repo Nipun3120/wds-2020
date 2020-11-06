@@ -1,12 +1,19 @@
 {% load static %}
 <head>
     <style>
-        nav.fixed .logo-dark, .fixed nav .logo-dark {
+        @import url('https://fonts.googleapis.com/css2?family=Spectral+SC:ital,wght@0,700;1,500&display=swap');
+
+
+    nav.fixed .logo-dark, .fixed nav .logo-dark {
     display: block;
     width: 100px;
     top: 10px;
 }
-    </style>
+    .top-nav a {
+        font-family: 'Spectral SC', serif;
+    }
+
+</style>
 </head>
         <nav class="background-transparent background-dark-dott full-width sticky">
             <!-- mobile version logo -->
@@ -32,7 +39,7 @@
                         </li>
                         <li>
                         
-                        <a href="{% url 'tradingclosed:trading-closed' %}">&nbsp Stocks</a>
+                        <a href="{% url 'tradingclosed:trading-closed' %}" style="font-family: 'Spectral SC', serif;">&nbsp Stocks</a>
                         
                         </li>
                        

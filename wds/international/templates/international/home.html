@@ -7,7 +7,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Spectral+SC:ital,wght@0,700;1,500&display=swap');
         .para{
             font-family: 'Cardo', serif;
-        
+            font-size: 20px;
     
     color:white;
 }
@@ -77,7 +77,12 @@
     background: #FCAF58;
 }
 
-
+@media(max-width: 720px ) {
+        .para{
+            font-size: 12px;
+        }
+        
+    }
 
 
     </style>
@@ -119,10 +124,10 @@
     <div class="line">
         <h1 class="head text text-size-50 text-m-size-40" style="color: #FCAF58;">
             Welcome to <b>WDS</b></h1>
-            <p class="para text-size-20">
+            <p class="para">
                 Money brings out the insecurity, fear and irrationality that we might otherwise keep hidden in polite society. Investing isn’t just a test of strategy– it’s a test of character, and what we do when investing is very often what we believe about ourselves. The Econ Club releases the teaser for their annual flagship event "Wolf of Dalal Street". Brush up your knowledge about domestic and international markets, and get ready to tackle the bull and the bear<br><br>
                 Through this simulation of the stock market, you will learn how to analyze stocks, look for patterns that are in everyone's sight but observed by a few and then exploit it to optimise your profit and loss. <br>
-                </p>   
+                </p>
         
         {% if user.is_authenticated %}
         <a href="{% url 'international:dashboard' %}" class="s-12 m-6 l-3 center text-size-20 margin-top-60 text-white btn-enter-wds">Enter WDS</a>
